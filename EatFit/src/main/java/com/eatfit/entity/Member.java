@@ -4,19 +4,19 @@ import lombok.Data;
 
 @Data
 public class Member {
-	private String mem_Id;
-	private String mem_Pw;
-	private String mem_Nick;
-	private int mem_Age;
-	private String mem_Gender;
-	private int mem_Height;
-	private int mem_Weight;
-	private String mem_Goal;
-	private String mem_Activity;
-	private int mem_Calorie;
-	private int mem_CRB;
-	private int mem_Protein;
-	private int mem_Fat;
+	private String MEM_ID;
+	private String MEM_PW;
+	private String MEM_NICK;
+	private int MEM_AGE;
+	private String MEM_GENDER;
+	private int MEM_HEIGHT;
+	private int MEM_WEIGHT;
+	private String MEM_GOAL;
+	private String MEM_ACTIVITY;
+	private int MEM_CALORIE;
+	private int MEM_CRB;
+	private int MEM_PROTEIN;
+	private int MEM_FAT;
 
 
 

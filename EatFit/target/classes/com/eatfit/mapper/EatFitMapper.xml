@@ -3,7 +3,7 @@
 <mapper namespace="com.eatfit.mapper.EatFitMapper">
 
 	<insert id="join" parameterType="com.eatfit.entity.Member">
-		insert into member_info(mem_Id, mem_Pw, mem_Nick, mem_Age, mem_Gender, mem_Height, mem_Weight, mem_Goal, mem_Activity) 
-		values (#{mem_Id}, #{mem_Pw}, #{mem_Nick}, #{mem_Age}, #{mem_Gender}, #{mem_Height}, #{mem_Weight}, #{mem_Goal}, #{mem_Activity})
-	</insert>
+      insert into member_info(MEM_ID, MEM_PW, MEM_NICK, MEM_AGE, MEM_GENDER, MEM_HEIGHT, MEM_WEIGTH, MEM_GOAL, MEM_ACTIVITY, MEM_CALORIE, MEM_CRB, MEM_PROTEIN, MEM_FAT) 
+      values (#{MEM_ID}, #{MEM_PW}, #{MEM_NICK}, #{MEM_AGE}, #{MEM_GENDER}, #{MEM_HEIGHT}, #{MEM_WEIGTH}, #{MEM_GOAL}, #{MEM_ACTIVITY}, #{MEM_CALORIE}, #{MEM_CRB}, #{MEM_PROTEIN}, #{MEM_FAT})
+    </insert>
 </mapper>

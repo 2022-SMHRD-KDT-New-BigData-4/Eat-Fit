@@ -15,7 +15,7 @@
   <!-- 부트스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="resources/css/style.css" rel="stylesheet">
+  <link href="resources/css/reset.css" rel="stylesheet">
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -31,7 +31,7 @@
     <div class="container mt-2 mb-2">
       <div class="row">
         <div class="col-3 ">
-          <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="/image/back.png" alt=""></a></div>
+          <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back.png" alt=""></a></div>
         </div>
         <div class="col-6 only-center">
           <span class="login-text">로그인</span>
@@ -68,13 +68,13 @@
       </form>
       <div>
         <button type="submit" class="btn p-0 kakao-btn"><span
-            class="only-center"><img src="/image/kakao.png">카카오계정으로
+            class="only-center"><img src="resources/images/kakao.png">카카오계정으로
             로그인</span></button>
       </div>
     </div>
     <div class="row mt-4">
       <span class="col-8 text-center text-muted mt-1">아직 잇-핏 회원이 아니신가요?</span>
-      <a href="join.html" class="col-4 text-center join-text">회원가입</a>
+      <a href="join.do" class="col-4 text-center join-text">회원가입</a>
     </div>
   </section>
 

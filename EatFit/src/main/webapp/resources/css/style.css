@@ -406,12 +406,12 @@ font-weight: 600;
     top: 17%;
   }
 
-  .roBack{
-      height: 200px;
-      background-image: url("/image/back2.png");
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+.roBack{
+    height: 200px;
+    background-image: url("resources/images/back2.png"); 
+    background-repeat: no-repeat;
+    background-position: center;
+}
     .content-size{
         width: 24rem;
         border-radius: 30px;

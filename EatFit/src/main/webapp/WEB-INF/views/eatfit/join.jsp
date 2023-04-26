@@ -54,7 +54,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
 
   <!-- post로변경 -->
-  <form action="loginMain.do" method="get" class="row m-0 p-0" onsubmit="handleSubmit(event)">
+  <form action="joinSuccess.do" method="post" class="row m-0 p-0" onsubmit="handleSubmit(event)">
     <section class="container row p-0 m-0" id="form1">
     <div class="col-1"></div>
   <div class="mb-3 col-10 mb-3">
@@ -242,14 +242,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/pro.js"></script>  
-  <script>
-	function handleSubmit(event) {
-		event.preventDefault(); // 폼 제출 방지
-		  
-		const formData = new FormData(event.target); // 폼 데이터 가져오기
-		console.log(Object.fromEntries(formData)); // 객체로 변환하여 콘솔에 출력
-	}
-  </script>
+
 </body>
 
 </html>

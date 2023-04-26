@@ -15,7 +15,7 @@
   <!-- 부트스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="resources/css/style.css" rel="stylesheet">
+  <link href="resources/css/reset.css" rel="stylesheet">
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -25,9 +25,9 @@
   <!--header-->
   <nav class="navbar navbar-expand-lg navbar-dark menu shadow fixed-top bg-white p-0">
     <div class="container pe-0">
-      <div class="navbar-brand back"><a href="#"><img src="/image/back.png" alt=""></a></div>
+      <div class="navbar-brand back"><a href="#"><img src="resources/images/back.png" alt=""></a></div>
       <h1 class="m-0"><a class="logo m-0" href="#">Eat-Fit</a></h1>
-      <div class="navbar-brand profile"><a href="#"><img src="/image/profile.png" alt=""></a></div>
+      <div class="navbar-brand profile"><a href="#"><img src="resources/images/profile.png" alt=""></a></div>
     </div>
   </nav>
   
@@ -64,7 +64,7 @@
   <div class="col-4 mb-1"> <span id="b3" style="font-size:22px; font-weight:600">70g</span></div>
 <div class="col-2"></div>
 <div class="col-10 p-0 text-end mb-1 mt-3">
-  <span class="kcal-text pe-4"><span id="b4" style="font-size:25px">1500 Kcal</span></span>
+  <span class="kcal-text pe-4"><span id="b4" style="font-size:25px">= 1500 Kcal</span></span>
 </div>
 <div class="container">
 <div class="col-12 grayline mb-3"></div>
@@ -89,9 +89,9 @@
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center b-nav-1" href="/html/Food.html">식자재 보관함</a>
+    <a class="col-4 m-0 only-center b-nav-1" href="food.do">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center b-nav-2" href="/html/LoginMain.html">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center b-nav-2" href="loginMain.do">오늘의 잇-핏</a>
   
     <a class="col-4 m-0 only-center b-nav-3" href="#">식단 기록일지</a>
   
