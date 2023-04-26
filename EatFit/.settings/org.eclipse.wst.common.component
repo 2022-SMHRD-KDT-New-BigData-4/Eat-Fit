@@ -6,7 +6,6 @@
     
     
     <wb-module deploy-name="SpringMVC01-1.0.0">
-        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
                                                         
         
         
