@@ -80,7 +80,7 @@ public class JoinController {
 	
 	@GetMapping("/login.do")
 	public String login() {
-		return "Login";
+		return "login";
 	}
 	
 	@PostMapping("login.do")
@@ -88,7 +88,7 @@ public class JoinController {
 		Member mvo = mapper.login(vo);
 		if(mvo != null) { // 로그인 성공 체크
 			session.setAttribute("mvo", mvo);
-			return "LoginMain"; // 메인화면
+			return "loginMain"; // 메인화면
 		}else {
 			return "login";
 		}
