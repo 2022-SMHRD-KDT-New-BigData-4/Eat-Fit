@@ -3,23 +3,22 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Eat-Fit</title>
   <!-- 부트스트랩 연결 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="/css/reset.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+  <link href="resources/css/style.css" rel="stylesheet">
+  <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
 
 <body>
@@ -55,7 +54,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
 
   <!-- post로변경 -->
-  <form action="test.do" method="post" class="row m-0 p-0" onsubmit="handleSubmit(event)">
+  <form action="/html/joinsuccess.html" method="get" class="row m-0 p-0" onsubmit="handleSubmit(event)">
     <section class="container row p-0 m-0" id="form1">
     <div class="col-1"></div>
   <div class="mb-3 col-10 mb-3">
@@ -241,11 +240,8 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
-  <script src="/js/pro.js"></script>
-  <script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/pro.js"></script>  <script>
     function handleSubmit(event) {
   event.preventDefault(); // 폼 제출 방지
   
@@ -256,32 +252,3 @@
 </body>
 
 </html>
-
-<!-- <!doctype html>
-<html>
-<head>
-<meta name="viewport" content="width=320; user-scalable=no" />
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<title>Camera</title>
-<script src="/jquery/jquery.js"></script>
-
-<script>
-$(document).ready(function(){
-    if (!('url' in window) && ('webkitURL' in window)) {
-        window.URL = window.webkitURL;
-    }
-
-    $('#camera').change(function(e){
-        $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
-    });
-});
-</script>
-</head>
-
-<body>
-    <input type="file" id="camera" name="camera" capture="camera" accept="image/*" />
-    <br />
-
-    <img id="pic" style="width:100%;" />
-</body>
-</html> -->
