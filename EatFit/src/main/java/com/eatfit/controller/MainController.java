@@ -4,22 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.eatfit.mapper.BoardMapper;
+import com.eatfit.mapper.EatFitMapper;
 
 @Controller
 public class MainController {
 
 	@Autowired
-	private BoardMapper mapper;
+	private EatFitMapper mapper;
 	
-	
-	@GetMapping("/test1.do")
-	public String test() {
-		return "test1";
+	@GetMapping("/loginMain.do")
+	public String loginMain() {
+		return "loginMain";
 	}
 	
-	@GetMapping("/test2.do")
-	public String test2() {
-		return "test2";
+	@GetMapping("/joinSeccess.do")
+	public String joinSeccess() {
+		return "joinSeccess";
 	}
+	
 }

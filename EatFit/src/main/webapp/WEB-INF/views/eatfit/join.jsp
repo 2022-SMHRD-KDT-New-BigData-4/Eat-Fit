@@ -15,7 +15,7 @@
   <!-- 부트스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="resources/css/style.css" rel="stylesheet">
+  <link href="resources/css/reset.css" rel="stylesheet">
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -30,7 +30,7 @@
   <div class="container mt-2 mb-2">
     <div class="row">
       <div class="col-3 ">
-    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="/image/back.png" alt=""></a></div>
+    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back.png" alt=""></a></div>
   </div>
   <div class="col-6 only-center">
     <span class="login-text">회원가입</span>
@@ -54,7 +54,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
 
   <!-- post로변경 -->
-  <form action="/html/joinsuccess.html" method="get" class="row m-0 p-0" onsubmit="handleSubmit(event)">
+  <form action="loginMain.do" method="get" class="row m-0 p-0" onsubmit="handleSubmit(event)">
     <section class="container row p-0 m-0" id="form1">
     <div class="col-1"></div>
   <div class="mb-3 col-10 mb-3">
@@ -240,14 +240,15 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/pro.js"></script>  <script>
-    function handleSubmit(event) {
-  event.preventDefault(); // 폼 제출 방지
-  
-  const formData = new FormData(event.target); // 폼 데이터 가져오기
-  console.log(Object.fromEntries(formData)); // 객체로 변환하여 콘솔에 출력
-}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/pro.js"></script>  
+  <script>
+	function handleSubmit(event) {
+		event.preventDefault(); // 폼 제출 방지
+		  
+		const formData = new FormData(event.target); // 폼 데이터 가져오기
+		console.log(Object.fromEntries(formData)); // 객체로 변환하여 콘솔에 출력
+	}
   </script>
 </body>
 
