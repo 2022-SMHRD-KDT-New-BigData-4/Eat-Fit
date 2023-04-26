@@ -21,13 +21,13 @@ public class JoinController {
 		return "join";
 	}
 	
+	int cnt = 0;
 	@RequestMapping("/join.do")
 	public String join(Member vo) {
 
-		int cnt = 0;
 		cnt = mapper.join(vo);
 		if (cnt > 1) {
-			return "redirect:/test.do";
+			return "test2";
 			
 		}
 		return "join";

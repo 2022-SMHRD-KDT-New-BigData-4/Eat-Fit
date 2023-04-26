@@ -13,8 +13,13 @@ public class MainController {
 	private BoardMapper mapper;
 	
 	
-	@GetMapping("/test.do")
+	@GetMapping("/test1.do")
 	public String test() {
-		return "test";
+		return "test1";
+	}
+	
+	@GetMapping("/test2.do")
+	public String test2() {
+		return "test2";
 	}
 }
