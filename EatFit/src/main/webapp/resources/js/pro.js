@@ -242,3 +242,14 @@ $(document).ready(function() {
   });
 });
 
+// 로그인메인화면 스크롤시 식단추천 버튼 숨기는 함수 0426
+var scrollTimeout;
+$(window).scroll(function() {
+  clearTimeout(scrollTimeout);
+  // $('#scroll-hidden').fadeOut();
+  $("#scroll-hidden").css("display", "none");
+  scrollTimeout = setTimeout(function() {
+    // $('#scroll-hidden').fadeIn();
+    $("#scroll-hidden").css("display", "block")
+  }, 300);
+});
