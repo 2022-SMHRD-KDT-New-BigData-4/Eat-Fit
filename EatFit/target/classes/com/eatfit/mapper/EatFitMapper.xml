@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eatfit.mapper.EatFitMapper">
+
+	<insert id="join" parameterType="com.eatfit.entity.Member">
+		insert into member_info(mem_Id, mem_Pw, mem_Nick, mem_Age, mem_Gender, mem_Height, mem_Weight, mem_Goal, mem_Activity) 
+		values (#{mem_Id}, #{mem_Pw}, #{mem_Nick}, #{mem_Age}, #{mem_Gender}, #{mem_Height}, #{mem_Weight}, #{mem_Goal}, #{mem_Activity})
+	</insert>
+</mapper>
