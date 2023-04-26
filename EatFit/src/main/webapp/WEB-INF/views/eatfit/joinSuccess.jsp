@@ -15,7 +15,7 @@
   <!-- 부트스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="resources/css/style.css" rel="stylesheet">
+  <link href="resources/css/reset.css" rel="stylesheet">
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -56,7 +56,7 @@
   <a href="#" class="btn btn-secondary fw-bold only-center" style="height:60px; width:100%"><span>처음으로</span></a>
 </div>
 <div class="col-6">
-  <a href="/html/logincopy.html" class="btn btn-warning fw-bold only-center" style="height:60px; width:100%"><span>로그인</span></a>
+  <a href="login.do" class="btn btn-warning fw-bold only-center" style="height:60px; width:100%"><span>로그인</span></a>
 </div>
 </section>
 
