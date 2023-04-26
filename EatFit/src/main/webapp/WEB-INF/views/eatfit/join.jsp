@@ -15,7 +15,7 @@
   <!-- 부트스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="resources/css/reset.css" rel="stylesheet">
+  <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -54,19 +54,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
 
   <!-- post로변경 -->
-  <form action="joinSuccess.do" method="post" class="row m-0 p-0" onsubmit="handleSubmit(event)">
+  <form action="join.do" method="post" class="row m-0 p-0" onsubmit="handleSubmit(event)">
     <section class="container row p-0 m-0" id="form1">
     <div class="col-1"></div>
   <div class="mb-3 col-10 mb-3">
     <label for="pw" class="form-label mb-3">아이디</label>
-    <input type="text" class="form-control" id="id" name="id" placeholder="example" required autocomplete="off">
+    <input type="text" class="form-control" id="id" name="MEM_ID" placeholder="example" required autocomplete="off">
   </div>
   <div class="col-1"></div>
  
   <div class="col-1"></div>
   <div class="mb-3 col-10 mt-4">
     <label for="pw" class="form-label mb-3">비밀번호</label>
-    <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호(8~20자 영문,숫자 특수문자 조합)" required autocomplete="off">
+    <input type="password" class="form-control" id="pw" name="MEM_PW" placeholder="비밀번호(8~20자 영문,숫자 특수문자 조합)" required autocomplete="off">
   </div>
   <div class="col-1"></div>
   
@@ -80,7 +80,7 @@
   <div class="col-1"></div>
   <div class="mb-3 col-10 mt-4">
     <label for="nickname" class="form-label mb-3">닉네임</label>
-    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임 입력" required autocomplete="off">
+    <input type="text" class="form-control" id="nickname" name="MEM_NICK" placeholder="닉네임 입력" required autocomplete="off">
   </div>
   <div class="col-1"></div>
   
@@ -97,15 +97,15 @@
 <div class="mb-3 col-10 mt-4">
   <label class="form-label mb-4">성별</label>
   <div class="row">
-  <div class="col-6 purpose-text">
-  <input type="checkbox" class="btn-check gender-check" id="male" name="gender" value="male" autocomplete="off">
-<label class="btn my-btn only-center male-bc male-female" for="male"><span class="activity-title">남</span></label>
-</div>
-<div class="col-6 purpose-text">
-<input type="checkbox" class="btn-check gender-check" id="female" name="gender" value="female" autocomplete="off">
-<label class="btn my-btn only-center female-bc male-female" for="female"><span class="activity-title">여</span></label>
-</div>
-</div>
+  	<div class="col-6 purpose-text">
+  		<input type="checkbox" class="btn-check gender-check" id="male" name="MEM_GENDER" value="남" autocomplete="off">
+		<label class="btn my-btn only-center male-bc male-female" for="male"><span class="activity-title">남</span></label>
+	</div>
+ 	<div class="col-6 purpose-text">
+		<input type="checkbox" class="btn-check gender-check" id="female" name="MEM_GENDER" value="여" autocomplete="off">
+		<label class="btn my-btn only-center female-bc male-female" for="female"><span class="activity-title">여</span></label>
+	</div>
+  </div>
 </div>
 <div class="col-1"></div>
 
@@ -113,7 +113,7 @@
 <div class="mb-3 col-10 mt-5">
 <label for="age" class="form-label mb-4">나이</label>
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="ex)20" name="age" id="age" autocomplete="off">
+  <input type="text" class="form-control" placeholder="ex)20" name="MEM_AGE" id="age" autocomplete="off">
   <div>
     <span class="input-group-text bg-white border-0 pe-1"><span class="cm-kg">Age</span>
   </div>
@@ -126,7 +126,7 @@
 <div class="mb-3 col-10 mt-5">
 <label for="height" class="form-label mb-4">키</label>
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="ex)160" name="height" id="height" autocomplete="off">
+  <input type="text" class="form-control" placeholder="ex)160" name="MEM_HEIGHT" id="height" autocomplete="off">
   <div>
     <span class="input-group-text bg-white border-0"><span class="cm-kg">Cm</span>
   </div>
@@ -140,7 +140,7 @@
 <div class="mb-3 col-10 mt-5">
 <label for="weight" class="form-label mb-4">몸무게</label>
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="ex)50" name="weight" id="weight" autocomplete="off">
+  <input type="text" class="form-control" placeholder="ex)50" name="MEM_WEIGTH" id="weight" autocomplete="off">
   <div>
     <span class="input-group-text bg-white border-0"><span class="cm-kg">Kg</span>
   </div>
@@ -167,17 +167,17 @@
 
 
 <div class="col-4 purpose-text">
-  <input type="checkbox" class="btn-check bmd-check" id="bulk-up" autocomplete="off" name="purpose" value="bulkup">
+  <input type="checkbox" class="btn-check bmd-check" id="bulk-up" autocomplete="off" name="MEM_GOAL" value="B">
   <label class="btn my-btn only-center purpose bulk-bc" for="bulk-up"><span class="activity-title">벌크업</span></label>
 </div>
 
 <div class="col-4 purpose-text">
-  <input type="checkbox" class="btn-check bmd-check" id="maintain" autocomplete="off" name="purpose" value="maintain">
+  <input type="checkbox" class="btn-check bmd-check" id="maintain" autocomplete="off" name="MEM_GOAL" value="M">
   <label class="btn my-btn only-center purpose maintain-bc" for="maintain"><span class="activity-title">유지어터</span></label>
 </div>
 
 <div class="col-4 purpose-text">
-  <input type="checkbox" class="btn-check bmd-check" id="diet" autocomplete="off" name="purpose" value="diet">
+  <input type="checkbox" class="btn-check bmd-check" id="diet" autocomplete="off" name="MEM_GOAL" value="D">
   <label class="btn my-btn only-center purpose diet-bc" for="diet"><span class="activity-title">다이어트</span></label>
 </div>
   <div class="col-12 mt-4"></div>
@@ -194,27 +194,27 @@
 </div>
 
 <div class="col-12 mt-2 mb-3 mymy">
-  <input type="checkbox" class="btn-check activity-level" id="activity-level-1" autocomplete="off" name="activity" value="1">
+  <input type="checkbox" class="btn-check activity-level" id="activity-level-1" autocomplete="off" name="MEM_ACTIVITY" value="SED">
   <label class="btn pt-2 pb-2 my-btn w-100" for="activity-level-1"><span class="activity-title">아주 가벼운 활동</span><br><span class="activity-sub">ex) 대부분의 시간을 앉아서 보내는 활동수준</span></label>
 </div>
 
 <div class="col-12 mb-3 mymy">
-  <input type="checkbox" class="btn-check activity-level" id="activity-level-2" autocomplete="off" name="activity" value="2">
+  <input type="checkbox" class="btn-check activity-level" id="activity-level-2" autocomplete="off" name="MEM_ACTIVITY" value="LPA">
   <label class="btn my-btn w-100" for="activity-level-2"><span class="activity-title">가벼운 활동</span><br><span class="activity-sub">ex) 걷거나 가벼운 운동을 하는 활동수준</span></label>
 </div>
 
 <div class="col-12 mb-3 mymy">
-  <input type="checkbox" class="btn-check activity-level" id="activity-level-3" autocomplete="off" name="activity" value="3">
+  <input type="checkbox" class="btn-check activity-level" id="activity-level-3" autocomplete="off" name="MEM_ACTIVITY" value="MPA">
   <label class="btn my-btn w-100" for="activity-level-3"><span class="activity-title">중간 정도의 활동</span><br><span class="activity-sub">ex) 운동을 하지않거나 가벼운 유산소 운동을 하는 활동수준</span></label>
 </div>
 
 <div class="col-12 mb-3 mymy">
-  <input type="checkbox" class="btn-check activity-level" id="activity-level-4" autocomplete="off" name="activity" value="4">
+  <input type="checkbox" class="btn-check activity-level" id="activity-level-4" autocomplete="off" name="MEM_ACTIVITY" value="HPA">
   <label class="btn my-btn w-100" for="activity-level-4"><span class="activity-title">높은 수준의 활동</span><br><span class="activity-sub"> ex) 중간 강도의 유산소 운동이나 근력운동을 하는 활동수준</span></label>
 </div>
 
 <div class="col-12 mb-3 mymy">
-  <input type="checkbox" class="btn-check activity-level" id="activity-level-5" autocomplete="off" name="activity" value="5">
+  <input type="checkbox" class="btn-check activity-level" id="activity-level-5" autocomplete="off" name="MEM_ACTIVITY" value="VHPA">
   <label class="btn my-btn w-100" for="activity-level-5"><span class="activity-title">아주 높은 수준의 활동</span><br><span class="activity-sub"> ex) 높은 강도의 유산소 운동이나 근력운동을 하는 활동수준</span></label>
 </div>
 
@@ -240,9 +240,9 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/pro.js"></script>  
-
+  
 </body>
 
 </html>

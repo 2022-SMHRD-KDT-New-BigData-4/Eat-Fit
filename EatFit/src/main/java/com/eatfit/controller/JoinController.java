@@ -16,8 +16,7 @@ public class JoinController {
 
 	@Autowired
 	private EatFitMapper mapper;
-
-	// 회원가입
+	
 	@GetMapping("/join.do")
 	public String join() {
 		return "join";
@@ -25,32 +24,78 @@ public class JoinController {
 	
 	@PostMapping("/join.do")
 	public String join(Member vo) {
-		return "join";
+		
+		// 회원가입 정보중 회원의 대사량 파악에 필요한 정보 불러오기
+		double age = vo.getMEM_AGE();
+		double height = vo.getMEM_HEIGHT();
+		double weigth = vo.getMEM_WEIGTH();
+		String goal = vo.getMEM_GOAL();
+		String activity = vo.getMEM_ACTIVITY();
+		String gender = vo.getMEM_GENDER();
+		
+		// 성별, 키, 몸무게, 나이에 따른 기초대사량
+		double cal = 0;
+		if(gender.equals("남")) {
+			cal = (10*weigth)+(6.25*height)-(5*age)+5;
+		}else if(gender.equals("여")) {
+			cal = (10*weigth)+(6.25*height)-(5*age)-161;
+		}
+		
+		// 활동량에 따른 에너지 대사량
+		if(goal.equals("SED")) {
+			cal = cal*1.2;
+		}else if(goal.equals("LPA")) {
+			cal = cal*1.375;
+		}else if(goal.equals("MPA")) {
+			cal = cal*1.55;
+		}else if(goal.equals("HPA")) {
+			cal = cal*1.725;
+		}else if(goal.equals("VHPA")) {
+			cal = cal*1.9;
+		}
+		
+		// 식단목적에 따른 에너지 대사량
+		if(activity.equals("D")) {
+			cal = cal*0.8;
+		}else if(activity.equals("B")) {
+			cal = cal*1.2;
+		}else {
+			cal = cal;
+		}
+		
+		// 구해진 에너지 대사량 회원정보 저장
+		vo.setMEM_CALORIE(cal);
+		vo.setMEM_CRB(cal*11/20/4);
+		vo.setMEM_PROTEIN(cal/5/4);
+		vo.setMEM_FAT(cal/4/9);
+		
+		int cnt = 0;
+		cnt = mapper.join(vo);
+		if (cnt >= 1) {
+			return "joinSuccess";
+		}else {
+			return "join";
+		}
 	}
 	
+	@GetMapping("/login.do")
+	public String login() {
+		return "Login";
+	}
+	
+	@PostMapping("login.do")
+	public String login(Member vo, HttpSession session) {
+		Member mvo = mapper.login(vo);
+		if(mvo != null) { // 로그인 성공 체크
+			session.setAttribute("mvo", mvo);
+			return "LoginMain"; // 메인화면
+		}else {
+			return "login";
+		}
+		
+	}
 
 	
-	// 회원가입 성공
-	@GetMapping("/joinSuccess.do")
-	public String joinSuccess() {
-		return "joinSuccess";
-	}
-	@PostMapping("/joinSuccess.do")
-	public String joinSuccess(Member vo) {
-		return "joinSuccess";
-	}
-	
-	// 로그인
-	@RequestMapping("/login.do")
-	public String login() {
-		return "login";
-	}
-	
-	// 로그인 후 메인
-	@GetMapping("/loginMain.do")
-	public String loginMain() {
-		return "loginMain";
-	}
 	
 	// 식자재 보관함
 	@GetMapping("/food.do")
