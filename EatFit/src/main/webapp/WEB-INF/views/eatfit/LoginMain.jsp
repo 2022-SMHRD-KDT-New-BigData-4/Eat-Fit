@@ -23,7 +23,7 @@
 
 <body>
 
- <!--header-->
+  <!--header-->
   <nav class="navbar shadow fixed-top bg-white p-0">
     <div class="container pe-0">
       <h1 class="m-0"><a class="navbar-bran logo m-0" href="#">Eat-Fit</a></h1>
@@ -79,7 +79,7 @@
           </div>
           <div class="col-9 p-0">
             <div class="row">
-              <div class="col-3 p-0 d-flex justify-content-center align-items-center nutrient">
+              <div class="col-3 p-0 only-center nutrient">
                 <span class="p-0 m-0">탄수화물</span>
               </div>
               <div class="col-8 p-0">
@@ -93,7 +93,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-3 p-0 d-flex justify-content-center align-items-center nutrient">
+              <div class="col-3 p-0 only-center nutrient">
                 <span class="p-0 m-0">단백질</span>
               </div>
               <div class="col-8 p-0">
@@ -108,7 +108,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-3 p-0 d-flex justify-content-center align-items-center nutrient">
+              <div class="col-3 p-0 only-center nutrient">
                 <span class="p-0 m-0">지방</span>
               </div>
               <div class="col-8 p-0">
@@ -121,10 +121,10 @@
               </div>
             </div>
           </div>
-          <div class="col-3 px-0 d-flex justify-content-center">
+          <div class="col-3 px-0 d item-center">
             <div class="row">
             <img class="col-12 pe-3 img-fluid" src="/image/lemon.png" alt="">
-            <div class="fw-bold d-flex justify-content-center align-items-end">1500kcal</div>
+            <div class="fw-bold only-center">1500kcal</div>
           </div>
           </div>
         </div>
@@ -137,10 +137,10 @@
 
 <!-- 사용자 오늘 먹은 식단 -->
   <div class="contarier text-center main-meal">
-    <h2>유열공주님의 오늘드신 식단은?</h2>
+    <h2>유열님의 오늘드신 식단은?</h2>
     <h5>오늘 식단의 영양성분을 알려드릴게요!</h5>
   </div>
-  <section class="container d-flex justify-content-center">
+  <section class="container item-center">
     <div class="card mt-3">
       <div class="row p-2 meal-card">
         <div class="col-6 text-start">
@@ -154,7 +154,7 @@
         </div>
       </div>
 
-      <div class="row nutrient-info d-flex align-items-center mt-0 mb-2">
+      <div class="row nutrient-info item-center mt-0 mb-2">
         <div class="col-6">
         <p class="text-center">탄 50g 단 20g 지 10g</p>
       </div>
@@ -162,7 +162,7 @@
         <span class="text-center">1500kcal</span>
       </div>
         <div class="col-3">
-        <button class="btn btn-success ms-3" style="height:35px;">수정</button>
+        <button class="btn btn-success ms-3 main-modify-btn">수정</button>
       </div>
       </div>
     </div>
@@ -180,7 +180,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="only-center" style="border-radius: 20px; border: 4px solid green; height:200px;overflow: hidden;">
+        <div class="only-center modal-body-style">
         <img class="img-fluid w-100" src="/image/Eat-fit_default.png" alt="" >
         </div>
       </div>
@@ -200,7 +200,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="only-center" style="border-radius: 20px; border: 4px solid green; height:200px;overflow: hidden;">
+        <div class="only-center modal-body-style">
         <img class="img-fluid w-100" src="/image/Eat-fit_default.png" alt="" >
         </div>
       </div>
@@ -211,7 +211,7 @@
     </div>
   </div>
 </div>
-  <div style="height:70px;"></div>
+  <div style="height:140px;"></div>
 
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
@@ -224,6 +224,14 @@
   
   </div>
   </footer>
+
+
+  <div class="container rec-btn" id="scroll-hidden">
+    <a href="/html/recommand.html" class="btn btn-warning px-3 rec-btn-shadow" id="scroll-hidden">
+     <div class="rec-text me-1">식단</div>
+     <div class="rec-text me-1">추천</div>
+    </button>
+    </div> 
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/pro.js"></script>
