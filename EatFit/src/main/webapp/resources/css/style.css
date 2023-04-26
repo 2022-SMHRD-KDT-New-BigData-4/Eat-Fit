@@ -1,3 +1,910 @@
-.logo{
-	color: red;
+
+/* 글꼴 */
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 100;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Thin.ttf') format("truetype");
+    font-display: swap;
 }
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Light.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Regular.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Medium.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-Bold.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TheJamsil';
+    font-weight: 800;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/TheJamsil/TheJamsil-ExtraBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 300; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare_acL.woff2) format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 400; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare_acR.woff2) format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 500; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare_acB.woff2) format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 700; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare_acEB.woff2) format('woff2');
+    font-display: swap;
+}
+  
+
+/* 공통 폰트 */
+body {
+    font-family: 'NanumSquare';
+}
+
+
+/* 로그인 후 메인페이지 */
+/* header */
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.main-footer-a a{
+    height:50px;
+    background-color:#fff;
+    color: #1f8648;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size:20px;
+    font-weight:600
+}
+
+#nav-this{
+  height:50px;
+  background-color:#1f8648;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size:20px;
+  font-weight:600
+}
+.logo{
+    color: #1f8648;
+    font-family:"TheJamsil";
+    font-style: italic;
+    font-size:30px;
+    box-sizing:inherit;
+    margin-left: 10px;
+    text-decoration: none;
+    margin-top: 100px;
+    font-weight: 600;
+}
+.joinsc-logo{
+    color: #1f8648;
+    font-family:"TheJamsil";
+    font-style: italic;
+    font-size:30px;
+    box-sizing:inherit;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.profile img{
+    height: 45px;
+    width: 45px;
+}
+.profile-drop{
+  left: -105px!important;
+  border:2px solid #1f8648;
+}
+#mv{
+    margin-top: 35px;
+}
+#mv img{
+    width: 108%;
+    height: 100%;
+    margin-left: -13px;
+}
+
+.main-text{
+    font-family: 'NanumSquare';
+    margin-top: 40px;
+    margin-bottom: -3px;
+    font-size: 20px;
+    font-weight: 900; 
+    height:50px;
+    letter-spacing: -0.1ex;
+}
+
+.main-camera{ 
+    height: 150px;
+    width: 43%;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+}
+.main-camera h6{
+    font-family: "NanumSquare";
+    font-weight: 500;
+    font-size: 17px;
+}
+.main-camera2>img{
+    width: 70%;
+    margin-top: -15px;
+}
+.main-pen>img{
+    width: 70%;
+    margin-top: -15px;
+}
+.main-camera2{
+    margin-right: 3%;
+}
+.main-pen{
+    margin-left: 3%;
+}
+
+.nutrient-bar-box{
+    border: 1px solid #DDDDDD;
+    border-radius: 20px;
+}
+.nutrient-bar-title>h1{
+    font-family: "NanumSquare";
+    font-weight: 900;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.nutrient{
+    margin-bottom: 20px;
+}
+.nutrient span{
+    font-family: "NanumSquare";
+    font-weight: 400;
+    font-size: 17px;
+}
+.nutrient-bar{
+    opacity : 0.5;
+}
+.nutrient-bar-text{
+    font-family: "NanumSquare";
+    font-weight: 300;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.div-section{
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+    height:10px; 
+    background-color: #E2D9D9;
+}
+
+.main-meal h2{
+    font-family: "NanumSquare";
+    font-weight: 900;
+    font-size: 20px;
+}
+.main-meal h5{
+    font-family: "NanumSquare";
+    font-weight: 400;
+    font-size: 16px;
+    color: #666666;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+.meal-card>div:first-child{
+    padding-top: 10px;
+}
+.meal-card span{
+    font-family: "NanumSquare";
+    font-weight: 500;
+    font-size: 16px;
+}
+#time{
+    font-family: "NanumSquare";
+    font-weight: 700;
+    font-size: 24px;
+}
+.today-meal-img{
+    overflow: hidden; 
+    width:100%;
+}
+.today-meal-img>img{
+    margin-top: 10px;
+}
+
+.nutrient-info{
+    margin-top: 10px;
+}
+.nutrient-info p{
+    font-family: "NanumSquare";
+    font-weight: 500;
+    font-size: 15px;
+}
+.nutrient-info span{
+    font-family: "NanumSquare";
+    font-weight: 700;
+    font-size: 18px;
+}
+/* .nutrient-info button{
+    border: none;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #1f8648;
+    color: #ffffff;
+    font-family: "NanumSquare";
+    font-size: 16px;
+    margin: 10px;
+    margin-top: -5px;
+} */
+
+/* footer */
+.footer{
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* 위쪽 그림자 효과 추가 */
+}
+.footer a{
+    font-family: "NanumSquare";
+    font-weight: 900;
+    font-size: 1em;
+    position: relative;
+    z-index: 1000;
+    
+
+}
+.footer a:first-child{
+    margin-left: 12px;
+}
+/* .footer a>div{
+    width: 100px;
+    height: 15px;
+    background-color: #4EFF60;
+    position: absolute;
+    z-index: -1;
+    opacity: 50%;
+    margin-top: 7px;
+    margin-left: 7px;
+} */
+
+/* 식자재보관함 */
+.add-food{
+  font-weight:600;
+  font-size:18px;
+  color:white;
+
+}
+
+#gpt-btn{
+  display:none;
+}
+.span-close{
+  position:absolute;
+  top:-40%;
+  left:95%;
+  display:none;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid #dee2e6;
+  background-color: #6c757d;
+
+}
+.span-close:after {content: "\00d7"; font-size:15pt;
+margin:4px} 
+
+
+.del-btn {
+ width:70%;
+color: white;
+font-weight: 600;
+}
+
+.robot {
+    position: absolute;
+    width: 220px;
+    height: 250px;
+    z-index: 999;
+    top: 17%;
+  }
+
+  .roBack{
+      height: 200px;
+      background-image: url("/image/back2.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .content-size{
+        width: 24rem;
+        border-radius: 30px;
+    }
+    .content-size h1{
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .foodbox{
+      font-size: 17px;
+        font-weight: 600;
+        height:40px;
+        width:27%;
+        margin-left: 5%;
+        margin-top: 4%;
+        border:1px solid #DDDDDD;
+        border-radius: 5px;
+        background-color:white;
+        color:black;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+    .gpt-btn {
+
+      height:45px;
+      background: linear-gradient(to bottom right, #8377F1, #91D9FF);
+      border-radius: 15px;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+  
+    }
+    .gpt-btn:hover{
+      color:white;
+    }
+  .gpt-btn img{
+    height:30px;
+  }
+  .gpt-btn span{
+    font-weight: 800;
+    font-size: 18px;
+  }
+  .border-green{
+    border-radius: 30px;
+    border:2px solid green;
+  }
+  .back img{
+    height:30px;
+    width:30px;
+  }
+  .food-sec{
+    margin-top: 50px;
+  }
+
+  .food-sec span{
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .grayline{
+    margin-top: 30px;
+    height: 2px;
+    background-color: #E2D9D9;
+  }
+  .grayline2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 2px;
+    background-color: #E2D9D9;
+
+  }
+
+  .bg-check span>div{
+    width: 100px;
+    height: 15px;
+    background-color: #4EFF60;
+    position: absolute;
+    z-index: -1;
+    opacity: 50%;
+    margin-top: 7px;
+    margin-left: 7px;
+}
+.testfont{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.recommand-con{
+    width: 24rem;
+    border-radius: 30px;
+}
+.recommand-text{
+    margin-top: 70px;
+}
+.recommand-text span{
+    font-size: 23px;
+}
+.recommand-text p{
+    font-size: 14px;
+    font-weight: 600;
+}
+.kcal-text{
+    font-size:20px;
+    font-weight: 600;
+    
+}
+.bg-check {
+  display: flex !important;
+  align-items: center !important;
+}
+.bg-check span{
+    font-weight: 600;
+
+}
+
+.bg-check span span{
+    font-weight: 600;
+    font-size: 20px;
+}
+#b1{
+    background-color:#f6f6d3 ;
+}
+#b2{
+    background-color: #cfe5f1;
+}
+#b3{
+    background-color: #f8dde5;
+}
+#b4{
+    background-color: #a6ffaf;
+}
+.rec-youtube-titte{
+    font-weight: 600;
+}
+
+/* 로그인페이지 */
+span img{
+    width:40px;
+    height:40px;
+}
+.login-logo{
+    color: #1f8648;
+    font-family: "TheJamsil";
+    font-style: italic;
+    font-size:45px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+.login-text{
+    font-size:23px;
+    font-weight: 600;
+
+}
+.login-btn{
+    font-weight: 600;
+    height:40px;
+    font-size: 18px;
+    width:100%;
+    margin-top: 20px;
+}
+.kakao-btn{
+    font-weight: 600;
+    height:40px;
+    font-size: 18px;
+    width:100%;
+    margin-top:10px;
+    background-color: #f7e111;
+}
+.join-text{
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+    color:#1f8648;
+}
+
+.yu1 {
+    position: relative;
+    width:100%;
+  }
+  
+  .yu2 {
+    font-size: 15px;
+    color: #222222;
+    width:100%;
+    border: none;
+    border-bottom: solid #aaaaaa 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+    background: none;
+  }
+  
+  .yu2::placeholder {
+    color: #aaaaaa;
+
+    }
+  input:focus { outline: none; }
+  
+  .yu3 {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0%;  /* right로만 바꿔주면 오 - 왼 */
+    background-color: #666;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    transition: 0.5s;
+  }
+  
+  .yu4 {
+    font-family: 'NanumSquare';
+    position: absolute;
+    color: #aaa;
+    left: 10px;
+    font-size: 17px;
+    bottom: 8px;
+    transition: all .2s;
+
+  }
+  
+  input:focus ~ .yu4, input:valid ~.yu4 {
+    font-size: 16px;
+    bottom: 40px;
+    color: #666;
+    font-weight: bold;
+  }
+  
+  input:focus ~ span, input:valid ~ span {
+    width: 100%;
+  }
+/* 
+.active {
+    background-color: green!important;
+    color: white!important;
+  } */
+/* 회원가입 */
+.scroll-60{
+  padding-top: 60px!important;
+}
+
+.scroll::before {
+  content: "";
+  display: block;
+  height: 60px;
+  margin: -60px 0 0;
+}
+#next-default{
+  background-color:#1b703d;
+  color:dddddd;
+}
+   /* 회원가입 섹션이동 0425 */
+   .join123 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  .join123 a {
+    height:50px;
+    background-color:#1f8648;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size:20px;
+    font-weight:600
+  }
+
+.join-logo{
+    color: #1f8648;
+    font-family: "TheJamsil";
+    font-style: italic;
+    font-size:35px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.form-label{
+    font-weight: 600;
+    font-size: 20px;
+
+}
+.form-control::placeholder {
+    color: #aaaaaa;
+    font-size: 14px;
+
+    }
+.next-btn{
+    height: 45px;
+    font-weight: 600;
+    color:white;
+}
+.cm-kg{
+    font-family: "TheJamsil";
+    font-weight: 600;
+    font-style: italic;
+    color:green;
+}
+.activity-title{
+    font-size: 18px;
+    color:gray;
+    font-weight:600;
+}
+.activity-sub{
+    font-size: 15px;
+    color:gray;
+}
+.purpose{
+    width:100%;
+    height:90px;
+    font-weight: 600;
+}
+.male-female{
+  width:100%;
+  height:60px;
+  font-weight: 600;
+}
+
+
+  .mymy :checked + .my-btn {
+    background-color: #1f8648;
+    color: white;
+  }
+  .mymy :checked + .my-btn > span {
+    background-color: #1f8648;
+    color: white;
+  }
+
+  .my-btn{
+    --bs-btn-bg:#f8f6f6;
+  }
+
+  .purpose-text :checked + .my-btn > span {
+    color: white;
+  }
+
+  .purpose-text :checked + .bulk-bc {
+    background-color: #0d6efd;
+    color: white;
+  }
+  .purpose-text :checked + .maintain-bc {
+    background-color: #ffc107;
+    color: white;
+  }
+  .purpose-text :checked + .diet-bc {
+    background-color: #dc3545;
+    color: white;
+  }
+  .purpose-text :checked + .male-bc {
+    background-color: #0d6efd;
+    color: white;
+  }
+  .purpose-text :checked + .female-bc {
+    background-color: #dc3545;
+    color: white;
+  }
+
+  /* 회원가입 성공 */
+/**
+ * Extracted from: SweetAlert
+ * Modified by: Istiak Tridip
+ */
+ .success-checkmark {
+    width: 80px;
+    height: 115px;
+    margin: 0 auto;
+  }
+  .success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid #4CAF50;
+  }
+  .success-checkmark .check-icon::before {
+    top: 3px;
+    left: -2px;
+    width: 30px;
+    transform-origin: 100% 50%;
+    border-radius: 100px 0 0 100px;
+  }
+  .success-checkmark .check-icon::after {
+    top: 0;
+    left: 30px;
+    width: 60px;
+    transform-origin: 0 50%;
+    border-radius: 0 100px 100px 0;
+    animation: rotate-circle 4.25s ease-in;
+  }
+  .success-checkmark .check-icon::before, .success-checkmark .check-icon::after {
+    content: "";
+    height: 100px;
+    position: absolute;
+    background: #FFFFFF;
+    transform: rotate(-45deg);
+  }
+  .success-checkmark .check-icon .icon-line {
+    height: 5px;
+    background-color: #4CAF50;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+  }
+  .success-checkmark .check-icon .icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s;
+  }
+  .success-checkmark .check-icon .icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s;
+  }
+  .success-checkmark .check-icon .icon-circle {
+    top: -4px;
+    left: -4px;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    border: 4px solid rgba(76, 175, 80, 0.5);
+  }
+  .success-checkmark .check-icon .icon-fix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: #FFFFFF;
+  }
+  
+  @keyframes rotate-circle {
+    0% {
+      transform: rotate(-45deg);
+    }
+    5% {
+      transform: rotate(-45deg);
+    }
+    12% {
+      transform: rotate(-405deg);
+    }
+    100% {
+      transform: rotate(-405deg);
+    }
+  }
+  @keyframes icon-line-tip {
+    0% {
+      width: 0;
+      left: 1px;
+      top: 19px;
+    }
+    54% {
+      width: 0;
+      left: 1px;
+      top: 19px;
+    }
+    70% {
+      width: 50px;
+      left: -8px;
+      top: 37px;
+    }
+    84% {
+      width: 17px;
+      left: 21px;
+      top: 48px;
+    }
+    100% {
+      width: 25px;
+      left: 14px;
+      top: 45px;
+    }
+  }
+  @keyframes icon-line-long {
+    0% {
+      width: 0;
+      right: 46px;
+      top: 54px;
+    }
+    65% {
+      width: 0;
+      right: 46px;
+      top: 54px;
+    }
+    84% {
+      width: 55px;
+      right: 0px;
+      top: 35px;
+    }
+    100% {
+      width: 47px;
+      right: 8px;
+      top: 38px;
+    }
+  }
+
+  .only-center{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .add-btn{
+    position: fixed;
+    bottom: 8%;
+    right: -70%;
+  }
+
+
+/* 쓸지말지 고민0425 */
+/* .bottom-nav{
+  background-image: url('../image/navbg4.png');
+  background-repeat: no-repeat;
+}
+ */
+
+
+
