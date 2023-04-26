@@ -1,3 +1,5 @@
 Manifest-Version: 1.0
-Class-Path: 
+Built-By: smhrd
+Build-Jdk: 11.0.5
+Created-By: Maven Integration for Eclipse
 
