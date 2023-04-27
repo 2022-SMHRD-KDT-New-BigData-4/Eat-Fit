@@ -96,6 +96,11 @@ public class JoinController {
 	}
 
 	
+	// 로그인 후 메인
+	@PostMapping("/loginMain.do")
+	public String loginMain() {
+		return "loginMain";
+	}
 	
 	// 식자재 보관함
 	@GetMapping("/food.do")

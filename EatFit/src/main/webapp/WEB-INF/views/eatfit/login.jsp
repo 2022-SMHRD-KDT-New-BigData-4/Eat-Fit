@@ -51,7 +51,7 @@
 
   <section class="container">
     <div class="row">
-      <form action="loginMain.do">
+      <form action="loginMain.do" method="post">
         <div class="yu1">
           <input class="yu2" type="text" autocomplete="off" id="id" name="id" required>
           <label for="id" class="yu4">아이디</label>
