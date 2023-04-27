@@ -52,13 +52,14 @@
   <section class="container">
     <div class="row">
       <form action="loginMain.do" method="post">
+      <form action="login.do" method="post">
         <div class="yu1">
-          <input class="yu2" type="text" autocomplete="off" id="id" name="id" required>
+          <input class="yu2" type="text" autocomplete="off" id="id" name="MEM_ID" required>
           <label for="id" class="yu4">아이디</label>
           <span class="yu3"></span>
         </div>
         <div class="yu1 mt-5">
-          <input class="yu2" type="password" id="pw" name="pw" required>
+          <input class="yu2" type="password" id="pw" name="MEM_PW" required>
           <label for="pw" class="yu4">비밀번호</label>
           <span class="yu3"></span>
         </div>
