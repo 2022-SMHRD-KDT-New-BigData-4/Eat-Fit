@@ -31,10 +31,10 @@
         <div class="dropdown">
           <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
+            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID }</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="#">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -75,7 +75,7 @@
       <div class="container">
         <div class="row pt-2 ps-2 pb-2 nutrient-bar-box">
           <div class="nutrient-bar-title">
-            <h1>유열공주님의 오늘의 영양분</h1>
+            <h1>${mvo.MEM_ID}님의 오늘의 영양분</h1>
           </div>
           <div class="col-9 p-0">
             <div class="row">
@@ -137,7 +137,7 @@
 
 <!-- 사용자 오늘 먹은 식단 -->
   <div class="contarier text-center main-meal">
-    <h2>유열님의 오늘드신 식단은?</h2>
+    <h2>${mvo.MEM_ID}님의 오늘드신 식단은?</h2>
     <h5>오늘 식단의 영양성분을 알려드릴게요!</h5>
   </div>
   <section class="container item-center">
