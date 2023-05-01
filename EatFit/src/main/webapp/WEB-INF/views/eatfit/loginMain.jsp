@@ -19,6 +19,33 @@
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+	$(document).ready(function() {
+		if (!('url' in window) && ('webkitURL' in window)) {
+			window.URL = window.webkitURL;
+		}
+
+		$('#camera').change(function(e) {
+			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+		});
+	});
+	
+	// 식단촬영 카메라 열기 함수
+	function camera_func(){
+		alert("카메라 연동")
+		$(document).ready(function(){
+		    if (!('url' in window) && ('webkitURL' in window)) {
+		        window.URL = window.webkitURL;
+		    }
+
+		    $('#clickCamera').change(function(e){
+		        $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
+		    });
+		});
+
+	}
+  </script>
+
 </head>
 
 <body>
@@ -151,6 +178,8 @@
   </div>
 
   <!-- 만들어져야하는 카드 -->
+  <!-- jstl if문 사용하기 
+      만약 DB에 해당 날짜에 데이터가 있다면 카드보여주기 / 없다면 "기록된 식단이 없습니다." 출력 -->
   <section class="container content-center">
     <div class="card mt-3">
       <div class="row p-2 meal-card">
@@ -203,11 +232,8 @@
       </div>
       <div class="modal-body">
         <div class="only-center modal-body-style">
-        <img class="img-fluid w-100" src="resources/images/Eat-fit_default.png" alt="" >
+        	<img class="img-fluid w-100" src="resources/images/Eat-fit_default.png" alt="" id="clickCamera" onclick="camera_func()">
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary w-100">Understood</button>
       </div>
     </div>
   </div>

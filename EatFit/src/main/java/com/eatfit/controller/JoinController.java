@@ -122,8 +122,8 @@ public class JoinController {
 	    return "loginMain";
 	}
 	
-	
-	@GetMapping("loginMain.do")
+
+	@GetMapping("/loginMain.do")
 	public String loginMain() {
 		return "loginMain";
 	}

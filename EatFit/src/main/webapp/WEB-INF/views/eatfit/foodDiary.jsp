@@ -96,6 +96,8 @@
         <div class=" grayline3 p-1 mt-3"></div>
       </div>
       <div class="col 11">
+      <!-- jstl if문 사용하기 
+      만약 DB에 해당 날짜에 데이터가 있다면 카드보여주기 / 없다면 "기록된 식단이 없습니다." 출력 -->
         <div class="card mt-3">
           <div class="row p-2 meal-card mt-2">
             <div class="col-6 text-start">
