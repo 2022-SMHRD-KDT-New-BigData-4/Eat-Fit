@@ -22,19 +22,18 @@
 </head>
 
 <body>
-
-  <!--header-->
+ <!--header-->
   <nav class="navbar shadow fixed-top bg-white p-0">
     <div class="container pe-0">
       <h1 class="m-0"><a class="navbar-bran logo m-0" href="#">Eat-Fit</a></h1>
       <div class="navbar-brand profile">
         <div class="dropdown">
-          <img src="resources/images/profile.png" data-bs-toggle="dropdown">
+          <img src="/image/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID }</li>
+            <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2 mb-2" href="/html/modify.html">- 회원정보 수정</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="/html/Foodcopy.html">- 로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -45,7 +44,7 @@
   <section id="mv">
     <div class="container">
       <div class="row">
-        <div class="col-12"><img src="resources/images/mv.jpg" alt=""></div>
+        <div class="col-12 only-center"><img class="img-fluid" src="/image/mv.jpg" alt=""></div>
       </div>
     </div>
   </section>
@@ -57,116 +56,139 @@
     </div>
     <div class="col text-center">
       <button class="col-sm-6 shadow p-3 mb-5 bg-body main-camera main-camera2" data-bs-toggle="modal" data-bs-target="#diet-camera-modal">
-        <img src="resources/images/camera.png">
+        <img src="/image/camera.png">
         <h6 class="mb-0">식단 촬영</h6>
       </button>
       <button class="col-sm-6 shadow p-3 mb-5 bg-body main-camera main-pen" data-bs-toggle="modal" data-bs-target="#diet-input-modal">
-        <img src="resources/images/text.png">
+        <img src="/image/text.png">
         <h6 class="mb-0">식단 입력</h6>
       </button>
 
     </div>
 
   </section>
-
   <!-- 사용자 영양분 대시보드 -->
   <section>
     <div class="container">
-      <div class="container">
-        <div class="row pt-2 ps-2 pb-2 nutrient-bar-box">
+        <div class="row p-3 m-1 border rounded">
           <div class="nutrient-bar-title">
-            <h1>${mvo.MEM_ID}님의 오늘의 영양분</h1>
+            <h1>유열님의 오늘의 영양분</h1>
           </div>
-          <div class="col-9 p-0">
+          <div class="col-8 p-0">
             <div class="row">
               <div class="col-3 p-0 only-center nutrient">
-                <span class="p-0 m-0">탄수화물</span>
+                <span class="p-0 m-0 fw-bold">탄수화물</span>
               </div>
               <div class="col-8 p-0">
                 <div class="progress">
-                  <span class="progress-bar bg-warning nutrient-bar" role="progressbar" style="width: 40%"
-                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
-                    data-placement="top"></span>
+                  <span class="progress-bar nutrient-bar" role="progressbar"data-toggle="tooltip" data-placement="top"
+                  style="width: 40%; background-color: #daa521;">
+                </span>
 
                 </div>
                 <span class="nutrient-bar-text">50/100</span>
               </div>
             </div>
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-3 p-0 only-center nutrient">
-                <span class="p-0 m-0">단백질</span>
+                <span class="p-0 m-0 fw-bold">단백질</span>
               </div>
               <div class="col-8 p-0">
                 <div class="progress">
-                  <span class="progress-bar bg-primary nutrient-bar" role="progressbar" style="width: 65%"
-                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
-                    data-placement="top"></span>
-
+                  <span class="progress-bar bg-primary nutrient-bar" role="progressbar" data-toggle="tooltip" data-placement="top"
+                  style="width: 65%; background-color: #87ceea;">
+                </span>
                 </div>
                 <span class="nutrient-bar-text">50/100</span>
 
               </div>
             </div>
-            <div class="row">
+            <div class="row mt-2">
               <div class="col-3 p-0 only-center nutrient">
-                <span class="p-0 m-0">지방</span>
+                <span class="p-0 m-0 fw-bold">지방</span>
               </div>
               <div class="col-8 p-0">
                 <div class="progress">
-                  <span class="progress-bar bg-danger nutrient-bar" role="progressbar" style="width: 65%"
-                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip"
-                    data-placement="top"></span>
+                  <span class="progress-bar nutrient-bar" data-toggle="tooltip" data-placement="top"
+                  style="width: 80%; background-color: #fe6347;">
+                </span>
                 </div>
-                <span class="nutrient-bar-text">50/100</span> 
+                <span class="nutrient-bar-text">50/10</span> 
               </div>
             </div>
           </div>
-          <div class="col-3 px-0 d item-center">
-            <div class="row">
-            <img class="col-12 pe-3 img-fluid" src="resources/images/lemon.png" alt="">
-            <div class="fw-bold only-center">1500kcal</div>
-          </div>
+          <div class="col-4 px-0">
+              <!-- 원형프로그래스-->
+              <div class="single-chart w-100 ms-2">
+                <svg viewBox="0 0 36 36" class="circular-chart green">
+                  <path class="circle-bg"
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                  />
+                  <path class="circle"
+                    stroke-dasharray="";
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                  />
+                  <text x="18" y="20.35" class="percentage" style="font-size:6px;">3500Kcal</text>
+                </svg>
+              </div>
+             <!-- 원형프로그래스 끝-->
           </div>
         </div>
-      </div>
+
     </div>
   </section>
 
-  <div class="container-fluid div-section">
-  </div>
+  <div class="div-section"></div>
 
 <!-- 사용자 오늘 먹은 식단 -->
   <div class="contarier text-center main-meal">
-    <h2>${mvo.MEM_ID}님의 오늘드신 식단은?</h2>
+    <h2>유열님의 오늘드신 식단은?</h2>
     <h5>오늘 식단의 영양성분을 알려드릴게요!</h5>
   </div>
-  <section class="container item-center">
+
+  <!-- 만들어져야하는 카드 -->
+  <section class="container content-center">
     <div class="card mt-3">
       <div class="row p-2 meal-card">
-        <div class="col-6 text-start">
-          <span>먹은 시간 07:30</span>
+        <div class="col-5 text-start ps-3 pt-0 item-center">
+          먹은 시간<span>00:00</span>
         </div>
-        <div class="col-6 text-end">
+        <div class="col-3 text-start p-0">
           <span id="time">아침</span>
         </div>
-        <div class="only-center today-meal-img">
-          <img src="resources/images/meal-ex.png" class="img-fluid rounded-start" alt="#">
+        <div class="col-4 only-center ps-5" style="display: none !important;">
+          <span class="fs20">0</span><span class="fs20">g</span>
+        </div>
+        <div class="content-center today-meal-img">
+          <!-- 변경시킬 이미지 -->
+          <img src="/image/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">
         </div>
       </div>
 
       <div class="row nutrient-info item-center mt-0 mb-2">
-        <div class="col-6">
-        <p class="text-center">탄 50g 단 20g 지 10g</p>
+        <div class="col-6 text-start ps-4 pe-0">
+          <span class="carbohydrate">탄</span>
+          <span class="gram-font">0</span>g
+          <span class="protein">단</span>
+          <span class="gram-font">0</span>g
+          <span class="lipid">지</span>
+          <span class="gram-font">0</span>g
       </div>
       <div class="col-3 p-0">
-        <span class="text-center">1500kcal</span>
+        <span class="content-center kcal-font"><span>0</span>kcal</span>
       </div>
-        <div class="col-3">
-        <button class="btn btn-success ms-3 main-modify-btn">수정</button>
+        <div class="col-3 ps-0 content-center">
+        <button class="btn btn-success ht35" id="modal-btn">수정</button>
       </div>
       </div>
     </div>
   </section>
+
+
 
 
   <!-- ///////////////////////////////////////////////////////////////////////////////////////////
@@ -181,11 +203,10 @@
       </div>
       <div class="modal-body">
         <div class="only-center modal-body-style">
-        <img class="img-fluid w-100" src="resources/images/Eat-fit_default.png" alt="" >
+        <img class="img-fluid w-100" src="/image/Eat-fit_default.png" alt="" >
         </div>
       </div>
       <div class="modal-footer">
-
         <button type="button" class="btn btn-primary w-100">Understood</button>
       </div>
     </div>
@@ -201,7 +222,7 @@
       </div>
       <div class="modal-body">
         <div class="only-center modal-body-style">
-        <img class="img-fluid w-100" src="resources/images/Eat-fit_default.png" alt="" >
+        <img class="img-fluid w-100" src="/image/Eat-fit_default.png" alt="" >
         </div>
       </div>
       <div class="modal-footer">
@@ -216,26 +237,25 @@
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center b-nav-1" href="food.do">식자재 보관함</a>
+    <a class="col-4 m-0 only-center b-nav-1" href="/html/Food.html">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="#">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="/html/LoginMaincopy.html">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center b-nav-3" href="#">식단 기록일지</a>
+    <a class="col-4 m-0 only-center b-nav-3" href="/html/dietRecord.html">식단 기록일지</a>
   
   </div>
   </footer>
 
 
-  <div class="container rec-btn" id="scroll-hidden">
-    <a href="recommand.do" class="btn btn-warning px-3 rec-btn-shadow" id="scroll-hidden">
+  <div class="container rec-btn p-0" id="scroll-hidden">
+    <a href="/html/recommand.html" class="btn btn-warning rec-btn-shadow px-3" id="scroll-hidden">
      <div class="rec-text me-1">식단</div>
      <div class="rec-text me-1">추천</div>
     </button>
     </div> 
-  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/pro.js"></script>
-  <script>
+  <script src="resources/js/main.js"></script>
     function handleSubmit(event) {
   event.preventDefault(); // 폼 제출 방지
   
