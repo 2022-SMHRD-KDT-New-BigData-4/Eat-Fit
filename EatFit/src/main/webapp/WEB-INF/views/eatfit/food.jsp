@@ -52,6 +52,13 @@
   </div>
 </nav>
 
+  <section class="container text-center p-5 pb-0 food-sec">
+  <span class="m-0">원하시는 식자재를 선택해 주시면 제가<br> 추천해드릴게요!</span>
+
+  </section>
+  <section class="roBack">
+  </section>
+  
   <section class="container only-center">
     <img src="resources/images/RO.png" class="robot">
   </section>

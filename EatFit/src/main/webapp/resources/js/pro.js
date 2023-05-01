@@ -38,6 +38,28 @@ $(document).ready(function() {
 });
 
 
+//////////////////////////////////////////////////////////////////////////////////////////
+//              ChatGPT - 0501                                         
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+$('#gpt-btn').click(function() {
+	let gpt_food = food.toString();
+	console.log("배열합친거 : ", gpt_food);
+	let gpt_query = gpt_food + " 사용하는 음식레시피 추천해줘"
+	console.log("질문할거 : ", gpt_query);
+
+	$.ajax({
+		url:"http://localhost:5001/gpt",
+		method:"POST",
+		data:{'query':gpt_query},
+		success: function(response) {
+            /*$('#result').text(response);*/
+			console.log('gpt답변 : ', response);
+        }
+	})
+});
+
 
 
 
