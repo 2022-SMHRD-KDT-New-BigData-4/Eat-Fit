@@ -37,7 +37,7 @@ public class JoinController {
 		double cal = 0;
 		if(gender.equals("남")) {
 			cal = (10*weigth)+(6.25*height)-(5*age)+5;
-		}else if(gender.equals("여")) {
+		}else{
 			cal = (10*weigth)+(6.25*height)-(5*age)-161;
 		}
 		
@@ -50,7 +50,7 @@ public class JoinController {
 			cal = cal*1.55;
 		}else if(goal.equals("HPA")) {
 			cal = cal*1.725;
-		}else if(goal.equals("VHPA")) {
+		}else {
 			cal = cal*1.9;
 		}
 		
@@ -94,13 +94,18 @@ public class JoinController {
 		}
 		
 	}
-
 	
-	// 로그인 후 메인
-	@PostMapping("/loginMain.do")
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.invalidate(); // 세션 무효화
+		return "login";
+	}
+	
+	@GetMapping("loginMain.do")
 	public String loginMain() {
 		return "loginMain";
 	}
+	
 	
 	// 식자재 보관함
 	@GetMapping("/food.do")
