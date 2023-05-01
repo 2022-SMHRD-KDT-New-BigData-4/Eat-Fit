@@ -29,7 +29,7 @@
   <div class="container mt-2 mb-2">
     <div class="row">
       <div class="col-3 item-center">
-    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="/image/back.png" alt=""></a></div>
+    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back.png" alt=""></a></div>
   </div>
   <div class="col-6 only-center">
     <span class="m-0 logo">Eat-Fit</span>
@@ -37,7 +37,7 @@
     <div class="col-3 text-end">
       <div class="navbar-brand profile">
         <div class="dropdown">
-          <img src="/image/profile.png" data-bs-toggle="dropdown">
+          <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
             <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
             <li><hr class="dropdown-divider"></li>
@@ -75,21 +75,22 @@
     </div> 
   </div>
 
-  
   <div class="con-12 text-center fw-bold fs-5 mt-2">날짜를 클릭하여 식단을 확인하세요!</div>
 </section>
+
 <div class="div-section"></div>
-  <section class="container">
-    <div class="row">
-      <div class="col-12">
-      <div class="fw-bold ms-3 click-day mb-4" style="font-size: 25px; ">
-      </div>
-      </div>
 
-    </div>
 
-  </section>
-  <section class="container">
+	<section class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="fw-bold ms-3 click-day mb-4" style="font-size: 25px;">
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="container">
     <div class="row">
       <div class="col-1">
         <div class=" grayline3 p-1 mt-3"></div>
@@ -106,7 +107,35 @@
           </div>
           <div class="row">
             <div class="d-flex justify-content-center today-meal-img">
-              <img src="/image/meal-ex.png" class="img-fluid rounded-start" alt="#">
+              <img src="resources/images/meal-ex.png" class="img-fluid rounded-start" alt="#">
+            </div>
+          </div>
+    
+          <div class="row nutrient-info d-flex align-items-center mt-0 mb-2">
+            <div class="col-6">
+            <p class="text-center">탄 50g 단 20g 지 10g</p>
+          </div>
+          <div class="col-3 p-0">
+            <span class="text-center">1500kcal</span>
+          </div>
+            <div class="col-3">
+            <button class="btn btn-success ms-3" style="height:35px;">수정</button>
+          </div>
+          </div>
+        </div>
+		
+        <div class="card mt-3">
+          <div class="row p-2 meal-card mt-2">
+            <div class="col-6 text-start">
+              <span>먹은 시간 07:30</span>
+            </div>
+            <span class="col-6 text-end">
+              <span id="time">아침</span>
+            </span>
+          </div>
+          <div class="row">
+            <div class="d-flex justify-content-center today-meal-img">
+              <img src="resources/images/meal-ex.png" class="img-fluid rounded-start" alt="#">
             </div>
           </div>
     
@@ -134,35 +163,7 @@
           </div>
           <div class="row">
             <div class="d-flex justify-content-center today-meal-img">
-              <img src="/image/meal-ex.png" class="img-fluid rounded-start" alt="#">
-            </div>
-          </div>
-    
-          <div class="row nutrient-info d-flex align-items-center mt-0 mb-2">
-            <div class="col-6">
-            <p class="text-center">탄 50g 단 20g 지 10g</p>
-          </div>
-          <div class="col-3 p-0">
-            <span class="text-center">1500kcal</span>
-          </div>
-            <div class="col-3">
-            <button class="btn btn-success ms-3" style="height:35px;">수정</button>
-          </div>
-          </div>
-        </div>
-
-        <div class="card mt-3">
-          <div class="row p-2 meal-card mt-2">
-            <div class="col-6 text-start">
-              <span>먹은 시간 07:30</span>
-            </div>
-            <span class="col-6 text-end">
-              <span id="time">아침</span>
-            </span>
-          </div>
-          <div class="row">
-            <div class="d-flex justify-content-center today-meal-img">
-              <img src="/image/meal-ex.png" class="img-fluid rounded-start" alt="#">
+              <img src="resources/images/meal-ex.png" class="img-fluid rounded-start" alt="#">
             </div>
           </div>
     
@@ -202,11 +203,11 @@
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center" href="/html/Food.html">식자재 보관함</a>
+    <a class="col-4 m-0 only-center" href="food.do">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center" href="/html/LoginMaincopycopy.html">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center" href="loginMain.do">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center" id="nav-this" href="/html/Foodcopy.html">식단 기록일지</a>
+    <a class="col-4 m-0 only-center" id="nav-this" href="#">식단 기록일지</a>
   
   </div>
   </footer>

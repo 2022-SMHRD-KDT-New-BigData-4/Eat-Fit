@@ -83,7 +83,7 @@ public class JoinController {
 		return "login";
 	}
 	
-	@PostMapping("login.do")
+	@PostMapping("/login.do")
 	public String login(Member vo, HttpSession session) {
 		Member mvo = mapper.login(vo);
 		if(mvo != null) { // 로그인 성공 체크
@@ -120,9 +120,15 @@ public class JoinController {
 	}
 	
 	// 식단추천 페이지
-	@GetMapping("/recommand.do")
+	@GetMapping("/recommend.do")
 	public String recommand() {
-		return "recommand";
+		return "recommend";
+	}
+	
+	// 식단기록일지 페이지
+	@GetMapping("/foodDiary.do")
+	public String foodDiary() {
+		return "foodDiary";
 	}
 	
 }

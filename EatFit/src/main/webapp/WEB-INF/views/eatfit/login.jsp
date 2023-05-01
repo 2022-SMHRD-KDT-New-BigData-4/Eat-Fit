@@ -51,7 +51,6 @@
 
   <section class="container">
     <div class="row">
-      <form action="loginMain.do" method="post">
       <form action="login.do" method="post">
         <div class="yu1">
           <input class="yu2" type="text" autocomplete="off" id="id" name="MEM_ID" required>

@@ -28,12 +28,12 @@
       <h1 class="m-0"><a class="navbar-bran logo m-0" href="#">Eat-Fit</a></h1>
       <div class="navbar-brand profile">
         <div class="dropdown">
-          <img src="/image/profile.png" data-bs-toggle="dropdown">
+          <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
+            <li class=" mb-1 fw-bold text-center">${mvo.MEM_NICK}님</li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-start mt-2 mb-2" href="/html/modify.html">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="/html/Foodcopy.html">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="#">- 로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -44,7 +44,7 @@
   <section id="mv">
     <div class="container">
       <div class="row">
-        <div class="col-12 only-center"><img class="img-fluid" src="/image/mv.jpg" alt=""></div>
+        <div class="col-12 only-center"><img class="img-fluid" src="resources/images/mv.jpg" alt=""></div>
       </div>
     </div>
   </section>
@@ -56,11 +56,11 @@
     </div>
     <div class="col text-center">
       <button class="col-sm-6 shadow p-3 mb-5 bg-body main-camera main-camera2" data-bs-toggle="modal" data-bs-target="#diet-camera-modal">
-        <img src="/image/camera.png">
+        <img src="resources/images/camera.png">
         <h6 class="mb-0">식단 촬영</h6>
       </button>
       <button class="col-sm-6 shadow p-3 mb-5 bg-body main-camera main-pen" data-bs-toggle="modal" data-bs-target="#diet-input-modal">
-        <img src="/image/text.png">
+        <img src="resources/images/text.png">
         <h6 class="mb-0">식단 입력</h6>
       </button>
 
@@ -72,7 +72,7 @@
     <div class="container">
         <div class="row p-3 m-1 border rounded">
           <div class="nutrient-bar-title">
-            <h1>유열님의 오늘의 영양분</h1>
+            <h1>${mvo.MEM_NICK}님의 오늘의 영양분</h1>
           </div>
           <div class="col-8 p-0">
             <div class="row">
@@ -146,7 +146,7 @@
 
 <!-- 사용자 오늘 먹은 식단 -->
   <div class="contarier text-center main-meal">
-    <h2>유열님의 오늘드신 식단은?</h2>
+    <h2>${mvo.MEM_NICK}님의 오늘드신 식단은?</h2>
     <h5>오늘 식단의 영양성분을 알려드릴게요!</h5>
   </div>
 
@@ -165,7 +165,7 @@
         </div>
         <div class="content-center today-meal-img">
           <!-- 변경시킬 이미지 -->
-          <img src="/image/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">
+          <img src="resources/images/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">
         </div>
       </div>
 
@@ -203,7 +203,7 @@
       </div>
       <div class="modal-body">
         <div class="only-center modal-body-style">
-        <img class="img-fluid w-100" src="/image/Eat-fit_default.png" alt="" >
+        <img class="img-fluid w-100" src="resources/images/Eat-fit_default.png" alt="" >
         </div>
       </div>
       <div class="modal-footer">
@@ -222,7 +222,7 @@
       </div>
       <div class="modal-body">
         <div class="only-center modal-body-style">
-        <img class="img-fluid w-100" src="/image/Eat-fit_default.png" alt="" >
+        <img class="img-fluid w-100" src="resources/images/Eat-fit_default.png" alt="" >
         </div>
       </div>
       <div class="modal-footer">
@@ -237,18 +237,18 @@
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center b-nav-1" href="/html/Food.html">식자재 보관함</a>
+    <a class="col-4 m-0 only-center b-nav-1" href="food.do">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="/html/LoginMaincopy.html">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="#">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center b-nav-3" href="/html/dietRecord.html">식단 기록일지</a>
+    <a class="col-4 m-0 only-center b-nav-3" href="foodDiary.do">식단 기록일지</a>
   
   </div>
   </footer>
 
 
   <div class="container rec-btn p-0" id="scroll-hidden">
-    <a href="/html/recommand.html" class="btn btn-warning rec-btn-shadow px-3" id="scroll-hidden">
+    <a href="recommend.do" class="btn btn-warning rec-btn-shadow px-3" id="scroll-hidden">
      <div class="rec-text me-1">식단</div>
      <div class="rec-text me-1">추천</div>
     </button>
@@ -256,13 +256,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/pro.js"></script>
   <script src="resources/js/main.js"></script>
-    function handleSubmit(event) {
-  event.preventDefault(); // 폼 제출 방지
-  
-  const formData = new FormData(event.target); // 폼 데이터 가져오기
-  console.log(Object.fromEntries(formData)); // 객체로 변환하여 콘솔에 출력
-}
-  </script>
+
 </body>
 
 </html>
