@@ -93,7 +93,7 @@
   
     <a class="col-4 m-0 only-center b-nav-2" href="loginMain.do">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center b-nav-3" href="#">식단 기록일지</a>
+    <a class="col-4 m-0 only-center b-nav-3" href="foodDiary.do">식단 기록일지</a>
   
   </div>
   </footer>

@@ -82,7 +82,7 @@
   <section class="container">
     <div class="row">
       <div class="col-12">
-      <div class="fw-bold ms-3 click-day mb-4" style="font-size: 25px; ">
+      <div class="fw-bold ms-3 click-day mb-2" style="font-size: 25px; ">
       </div>
       </div>
 
@@ -94,132 +94,60 @@
       <div class="col-1">
         <div class=" grayline3 p-1 mt-3"></div>
       </div>
-      <div class="col 11">
-        <div class="card mt-3">
-          <div class="row p-2 meal-card mt-2">
-            <div class="col-6 text-start">
-              <span>먹은 시간 07:30</span>
+      <div class="col-11 ps-0">
+        <section class="container content-center">
+          <div class="card mt-4">
+            <div class="row p-2 meal-card">
+              <div class="col-5 text-start ps-3 pt-0 item-center">
+                <span>00:00</span>
+              </div>
+              <div class="col-3 text-start p-0">
+                <span id="time">아침</span>
+              </div>
+              <div class="col-4 only-center ps-5" style="display: none !important;">
+                <span class="fs20">0</span><span class="fs20">g</span>
+              </div>
+              <div class="content-center today-meal-img">
+                <!-- 변경시킬 이미지 -->
+                <img src="/image/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">
+              </div>
             </div>
-            <span class="col-6 text-end">
-              <span id="time">아침</span>
-            </span>
-          </div>
-          <div class="row">
-            <div class="d-flex justify-content-center today-meal-img">
-              <img src="/image/meal-ex.png" class="img-fluid rounded-start" alt="#">
+      
+            <div class="row nutrient-info item-center mt-1 mb-2">
+              <div class="col-6 text-start ps-4 pe-0">
+                <span class="carbohydrate">탄</span>
+                <span class="gram-font">0</span>g
+                <span class="protein">단</span>
+                <span class="gram-font">0</span>g
+                <span class="lipid">지</span>
+                <span class="gram-font">0</span>g
             </div>
-          </div>
-    
-          <div class="row nutrient-info d-flex align-items-center mt-0 mb-2">
-            <div class="col-6">
-            <p class="text-center">탄 50g 단 20g 지 10g</p>
-          </div>
-          <div class="col-3 p-0">
-            <span class="text-center">1500kcal</span>
-          </div>
-            <div class="col-3">
-            <button class="btn btn-success ms-3" style="height:35px;">수정</button>
-          </div>
-          </div>
-        </div>
-
-        <div class="card mt-3">
-          <div class="row p-2 meal-card mt-2">
-            <div class="col-6 text-start">
-              <span>먹은 시간 07:30</span>
+            <div class="col-1 ps-0 content-center">
             </div>
-            <span class="col-6 text-end">
-              <span id="time">아침</span>
-            </span>
-          </div>
-          <div class="row">
-            <div class="d-flex justify-content-center today-meal-img">
-              <img src="/image/meal-ex.png" class="img-fluid rounded-start" alt="#">
+            <div class="col-5 p-0">
+              <span class="content-center kcal-font"><span>0</span>kcal</span>
+            </div>
+            
             </div>
           </div>
-    
-          <div class="row nutrient-info d-flex align-items-center mt-0 mb-2">
-            <div class="col-6">
-            <p class="text-center">탄 50g 단 20g 지 10g</p>
-          </div>
-          <div class="col-3 p-0">
-            <span class="text-center">1500kcal</span>
-          </div>
-            <div class="col-3">
-            <button class="btn btn-success ms-3" style="height:35px;">수정</button>
-          </div>
-          </div>
-        </div>
-
-        <div class="card mt-3">
-          <div class="row p-2 meal-card mt-2">
-            <div class="col-6 text-start">
-              <span>먹은 시간 07:30</span>
-            </div>
-            <span class="col-6 text-end">
-              <span id="time">아침</span>
-            </span>
-          </div>
-          <div class="row">
-            <div class="d-flex justify-content-center today-meal-img">
-              <img src="/image/meal-ex.png" class="img-fluid rounded-start" alt="#">
-            </div>
-          </div>
-    
-          <div class="row nutrient-info d-flex align-items-center mt-0 mb-2">
-            <div class="col-6">
-            <p class="text-center">탄 50g 단 20g 지 10g</p>
-          </div>
-          <div class="col-3 p-0">
-            <span class="text-center">1500kcal</span>
-          </div>
-            <div class="col-3">
-            <button class="btn btn-success ms-3" style="height:35px;">수정</button>
-          </div>
-          </div>
-        </div>
-
+        </section>
       </div>
     </div>
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   <div style="height:70px;"></div>
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center" href="/html/Food.html">식자재 보관함</a>
+    <a class="col-4 m-0 only-center" href="food.do">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center" href="/html/LoginMaincopycopy.html">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center" href="loginMain.do">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center" id="nav-this" href="/html/Foodcopy.html">식단 기록일지</a>
+    <a class="col-4 m-0 only-center" id="nav-this" href="#">식단 기록일지</a>
   
   </div>
   </footer>
-
-
-
-
-
-
-
-
-
-
 
 
 

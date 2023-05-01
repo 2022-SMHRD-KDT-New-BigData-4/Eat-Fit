@@ -1,48 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                            
+                                
+    
     
     
     
     
     
     <wb-module deploy-name="SpringMVC01-1.0.0">
-                                                        
+                                                                
+        
         
         
         
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                                                        
+                                                                
+        
         
         
         
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-                                                        
+                                                                
+        
         
         
         
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                                                        
+                                                                
+        
         
         
         
         
         
         <property name="java-output-path" value="/SpringMVC01/target/classes"/>
-        <property name="context-root" value="SpringMVC01"/>
+        <property name="context-root" value="eatfit"/>
+<<<<<<< HEAD
                                                     
+=======
+                                                            
+    
+>>>>>>> branch 'main' of https://github.com/2022-SMHRD-KDT-New-BigData-4/Eat-Fit.git
     
     
     
     
     
     </wb-module>
-                        
+                            
+
 
 
 

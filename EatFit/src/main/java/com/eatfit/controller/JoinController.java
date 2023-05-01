@@ -91,6 +91,7 @@ public class JoinController {
 		return "login";
 	}
 	
+
 	// 로그인페이지에서 로그인 성공여부에 따라 페이지 이동
 	@PostMapping("/login.do")
 	public String login(Member vo, HttpSession session) {
@@ -121,8 +122,8 @@ public class JoinController {
 	    return "loginMain";
 	}
 	
-	
-	@GetMapping("loginMain.do")
+
+	@GetMapping("/loginMain.do")
 	public String loginMain() {
 		return "loginMain";
 	}
@@ -147,9 +148,15 @@ public class JoinController {
 	}
 	
 	// 식단추천 페이지
-	@GetMapping("/recommand.do")
+	@GetMapping("/recommend.do")
 	public String recommand() {
-		return "recommand";
+		return "recommend";
+	}
+	
+	// 식단기록일지 페이지
+	@GetMapping("/foodDiary.do")
+	public String foodDiary() {
+		return "foodDiary";
 	}
 	
 }
