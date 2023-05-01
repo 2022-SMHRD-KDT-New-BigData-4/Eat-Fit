@@ -30,7 +30,7 @@
   <div class="container mt-2 mb-2">
     <div class="row">
       <div class="col-3 d-flex align-items-center ">
-    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back.png" alt=""></a></div>
+    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back.png" alt=""></a></div>
   </div>
   <div class="col-6 d-flex justify-content-center align-items-center">
     <span class="m-0 logo">Eat-Fit</span>
@@ -40,10 +40,10 @@
         <div class="dropdown">
           <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
+            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID} 님</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="#">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -52,23 +52,24 @@
   </div>
 </nav>
 
-  <section class="container text-center p-5 pb-0 food-sec">
-    <span class="m-0">원하시는 식자재를 선택해 주시면 제가<br> 추천해드릴게요!</span>
-
-  </section>
-  <section class="roBack">
-  </section>
-
   <section class="container only-center">
     <img src="resources/images/RO.png" class="robot">
   </section>
   <!-- class="position-absolute top-0 start-100 translate-middle bg-secondary border border-light rounded-circle span-close" -->
   <section class="container">
       <div class="p-4 shadow content-size row mx-auto">
-        <h1 class="mb-4 text-center">김유열님의 식자재 보관함</h1>
+        <h1 class="mb-4 text-center">${mvo.MEM_ID}님의 식자재 보관함</h1>
         <h5 class="card-subtitle mb-2 text-muted text-center">식자재를 선택하여 chatGPT에게 요리를<br>추천받아보세요!</h5>
         <div class="m-0">
-          <span class="position-relative">
+        
+        <c:forEach var="food" items="${msb}">
+        	<span class="position-relative">
+          		<button class="foodbox">${food.FOOD_NAME}</button>
+          		<span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
+          	</span>
+        </c:forEach>
+        
+          <!-- <span class="position-relative">
           <button class="foodbox">양파</button>
           <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
           </span>
@@ -127,7 +128,7 @@
                                     <span class="position-relative">
                                       <button class="foodbox">10</button>
                                       <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                                      </span>
+                                      </span> -->
             
             <div class="col-12" id="gpt-btn">
           <button class="btn btn-unstyled gpt-btn mt-5 w-100 only-center">

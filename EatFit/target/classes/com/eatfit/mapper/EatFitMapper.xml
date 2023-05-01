@@ -2,12 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.eatfit.mapper.EatFitMapper">
 
+	<!-- 회원가입 -->
 	<insert id="join" parameterType="com.eatfit.entity.Member">
 		insert into member_info(MEM_ID, MEM_PW, MEM_NICK, MEM_AGE, MEM_GENDER, MEM_HEIGHT, MEM_WEIGTH, MEM_GOAL, MEM_ACTIVITY, MEM_CALORIE, MEM_CRB, MEM_PROTEIN, MEM_FAT) 
 		values (#{MEM_ID}, #{MEM_PW}, #{MEM_NICK}, #{MEM_AGE}, #{MEM_GENDER}, #{MEM_HEIGHT}, #{MEM_WEIGTH}, #{MEM_GOAL}, #{MEM_ACTIVITY}, #{MEM_CALORIE}, #{MEM_CRB}, #{MEM_PROTEIN}, #{MEM_FAT})
 	</insert>
 	
+	<!-- 로그인 -->
 	<select id="login" parameterType="com.eatfit.entity.Member" resultType="com.eatfit.entity.Member">
 		select * from member_info where mem_id = #{MEM_ID} and mem_pw = #{MEM_PW}
 	</select>
+	
+	<!-- 식자재보관함 정보 가져오기 -->
+	<select id="foodMSB" parameterType="com.eatfit.entity.Member" resultType="com.eatfit.entity.Food">
+		SELECT A.*
+    	  FROM food_info A INNER JOIN member_msb B
+    	    ON A.food_seq = B.food_seq
+    	 WHERE B.mem_id = #{MEM_ID}
+	</select>
+	
 </mapper>
