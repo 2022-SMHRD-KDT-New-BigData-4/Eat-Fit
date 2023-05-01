@@ -34,7 +34,7 @@
         
         
         <property name="java-output-path" value="/SpringMVC01/target/classes"/>
-        <property name="context-root" value="SpringMVC01"/>
+        <property name="context-root" value="eatfit"/>
                                                     
     
     
