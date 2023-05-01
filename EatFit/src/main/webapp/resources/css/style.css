@@ -1,6 +1,18 @@
 
 /* 글꼴 */
 @font-face {
+  font-family: 'OTWelcomeRA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'LINESeedKR-Bd';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
     font-family: 'TheJamsil';
     font-weight: 100;
     font-style: normal;
@@ -104,6 +116,58 @@ body {
 
 
 /* 로그인 후 메인페이지 */
+
+.col-6.text-start.ps-3.pt-0.item-center span{
+  font-size: 20px;
+}
+.ht35{
+  height:35px;
+}
+.kcal-font{
+  font-size: 20px;
+  color:#105133;
+}
+.gram-font{
+  font-size:15px;
+}
+div.col-5.text-start.ps-3.pt-0.item-center span {
+  margin-left: 10px;
+}
+.carbohydrate{
+  font-size: 17px;
+  padding:2px;
+  border-radius: 5px;
+  background-color:#ffc107;
+  color:white;
+  
+}
+.carbohydrate span {
+  margin-left: 5px;
+}
+
+.protein{
+  font-size: 17px;
+  padding:2px;
+  border-radius: 5px;
+  background-color:#0d6efd;
+  color:white;
+}
+.lipid{
+  font-size: 17px;
+  padding:2px;
+  border-radius: 5px;
+  background-color:#e45d6b;
+  color:white;
+}
+.main-image{
+  height:300px;
+  width:370px;
+}
+.content-center{
+   display: flex !important;
+   justify-content: center!important;
+}
+
 .item-center{
   display: flex !important;
   align-items: center !important;
@@ -227,11 +291,11 @@ body {
     font-size: 17px;
 }
 .main-camera2>img{
-    width: 70%;
+    width: 110px;
     margin-top: -15px;
 }
 .main-pen>img{
-    width: 70%;
+    width: 110px;
     margin-top: -15px;
 }
 .main-camera2{
@@ -241,10 +305,10 @@ body {
     margin-left: 3%;
 }
 
-.nutrient-bar-box{
+/* .nutrient-bar-box{
     border: 1px solid #DDDDDD;
     border-radius: 20px;
-}
+} */
 .nutrient-bar-title>h1{
     font-family: "NanumSquare";
     font-weight: 900;
@@ -274,8 +338,11 @@ body {
 .div-section{
     margin-top: 40px; 
     margin-bottom: 40px; 
-    height:10px; 
-    background-color: #E2D9D9;
+    height: 12px; 
+    background-color: #F3F3F3;
+     box-shadow: inset 0 3px 5px -5px #333;
+             
+
 }
 
 .main-meal h2{
@@ -304,6 +371,8 @@ body {
     font-family: "NanumSquare";
     font-weight: 700;
     font-size: 24px;
+    margin-right: 10px;
+    
 }
 .today-meal-img{
     overflow: hidden; 
@@ -324,7 +393,7 @@ body {
 .nutrient-info span{
     font-family: "NanumSquare";
     font-weight: 700;
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 /* .nutrient-info button{
     border: none;
@@ -406,12 +475,12 @@ font-weight: 600;
     top: 17%;
   }
 
-.roBack{
-    height: 200px;
-    background-image: url("resources/images/back2.png"); 
-    background-repeat: no-repeat;
-    background-position: center;
-}
+  .roBack{
+      height: 200px;
+      background-image: url("/image/back2.png");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
     .content-size{
         width: 24rem;
         border-radius: 30px;
@@ -942,4 +1011,233 @@ span img{
  */
 
 
+/* 캘린더 CSS */
+       /* section calendar */
+
+
+       .sec_cal {
+        width: 360px;
+        margin: 0 auto;
+        font-family: "NotoSansR";
+    }
+    
+    .sec_cal .cal_nav {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        /* font-weight: 700; */
+        font-size: 20px;
+        line-height: 78px;
+ 
+    }
+
+    .sec_cal .cal_nav .year-month {
+        width: 270px;
+        text-align: center;
+        line-height: 1;
+    }
+    
+    .sec_cal .cal_nav .nav {
+        display: flex;
+        border: 1px solid #333333;
+        border-radius: 5px;
+    }
+    
+    .sec_cal .cal_nav .go-prev,
+    .sec_cal .cal_nav .go-next {
+        display: block;
+        width: 20px;
+        height: 60px;
+        font-size: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .sec_cal .cal_nav .go-prev::before,
+    .sec_cal .cal_nav .go-next::before {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        border: 5px solid #000;
+        border-width: 2px 2px 0 0;
+        transition: border 0.1s;
+    }
+    
+    .sec_cal .cal_nav .go-prev:hover::before,
+    .sec_cal .cal_nav .go-next:hover::before {
+        border-color: #ed2a61;
+    }
+    
+    .sec_cal .cal_nav .go-prev::before {
+        transform: rotate(-135deg);
+    }
+    
+    .sec_cal .cal_nav .go-next::before {
+        transform: rotate(45deg);
+    }
+    
+    .sec_cal .cal_wrap {
+        /* padding-top: 40px; */
+        position: relative;
+        margin: 0 auto;
+    }
+    
+    .sec_cal .cal_wrap .days {
+        display: flex;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+        /* border-bottom: 1px solid #ddd; */
+    }
+    
+    .sec_cal .cal_wrap::after {
+        top: 368px;
+    }
+    
+    .sec_cal .cal_wrap .day {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% / 7);
+        text-align: left;
+        /* color: #999; */
+        font-size: 20px;
+        text-align: center;
+        border-radius:10%;
+        /* font-weight: 600; */
+      
+    }
+    .current{
+      /* margin-top:20px */
+      font-weight: 600;
+      height:46px;
+      font-size:12px!important;
+      font-family:'OTWelcomeRA'
+    }
+
+  
+    
+    .sec_cal .cal_wrap .dates {
+        display: flex;
+        flex-flow: wrap;
+        height: 100px;
+    }
+    
+    .sec_cal .cal_wrap .day:nth-child(7n -1) {
+        color: #212529;
+        /* color:#404447; */
+        color:#4286f5;
+    }
+    
+    .sec_cal .cal_wrap .day:nth-child(7n) {
+        /* color: #dc3545 */
+        color:		#e54537;
+    }
+    
+    .sec_cal .cal_wrap .day.disable {
+        color: white;
+    }
+
+    .current.today {
+    border:2px solid #1f8648;
+    /* color: white !important; */
+  }
+    
+    .current-change{
+      /* background-size: 300px!important; */
+      background-color: #f1f1f1;
+      border:2px solid #cfcfcf;
+      color: #4F4F4F !important;
+      /* font: weight 600px !important; */
+    }
+
+    .day-text{
+      /* font-family: "LINESeedKR-Bd"; */
+      /* font-family: 'OTWelcomeRA'; */
+      font-weight: 600;
+      font-size: 15px!important;
+    }
+    .ym-font{
+      /* font-family: "LINESeedKR-Bd"; */
+      font-family: 'OTWelcomeRA';
+      font-size:20px;
+    }
+    .mt9{
+      margin-top:90px;
+    }
+    .ht37{
+      height:380px;
+    }
+
+    /* .cal-content{
+      border-radius: 30px;
+      background-color:#f5f5f5;
+    } */
+    .ht37 div {
+      color:#302E2E;
+    }
+
+  .grayline3{
+    border-right: 2px solid #E2D9D9;
+    width: 0.1px;
+    height: 100%;
+  }
+  .fs20{
+    font-size:20px;
+  }
+/* 원형프로그래스바 css */
+
+.single-chart {
+  width: 33%;
+  justify-content: space-around ;
+}
+
+.circular-chart {
+  display: block;
+  /* margin: 10px auto; */
+  max-width: 100%;
+  /* max-height: 250px; */
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+.progress .progress-bar{
+  animation: progress2 1s ease-out forwards;
+}
+
+@keyframes progress2 {
+  from {
+    width: 0%;
+  }
+
+}
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circular-chart.green .circle {
+  stroke: #4CC790;
+}
+
+
+
+.percentage {
+  fill: #666;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
 

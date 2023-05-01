@@ -1,62 +1,4 @@
 
-// $('.foodbox').click(function() {
-//   console.log("클릭 실행");
-//   $(this).css('background-color', '#1f8648');
-//   $(this).css('color', 'white');
-//   food.push($(this).text());
-
-//   console.log($(this).text());
-//   for(var i=0; i<food.length; i++){
-//     console.log(food[i]);
-//   }
-// });
-   
-    // join3 버튼하나만 선택하기
-
-    // const activityLevels = document.querySelectorAll('.activity-level');
-    // activityLevels.forEach(level => {
-    //     level.addEventListener('click', () => {
-    //         activityLevels.forEach(otherLevel => {
-    //             if (otherLevel !== level) {
-    //                 otherLevel.checked = false;
-    //             }
-    //         });
-    //     });
-    // });
-
-
-// $('.foodbox').click(function() {
-
-//     console.log($(this).text());
-//     console.log(food);
-//     if(food.length>0){
-//       $('#gpt-btn').css('display','block')
-//     }else if(food.length==0){
-//       $('#gpt-btn').css('display','none')
-//     }
-//    // food안에 값이 있다면 if 안으로 들어가지 않음
-//     if(food.indexOf($(this).text())==-1){
-//       $(this).closest('.position-relative').find('span').css('display', 'block');
-//       food.push($(this).text());
-//      $(this).css('background-color', '#1f8648');
-//      $(this).css('color', 'white');
-//       console.log(food);
-//     }
-//     else{
-//       $(this).css('background-color', 'white')
-//       $(this).css('color', 'black')
-//       $(this).closest('.position-relative').find('span').css('display', 'none');
-//       food = food.filter(item => item !== $(this).text());
-//       console.log(food);
-//   }
-//  });
-
-
-
-
-
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //              식자재보관함 각 재료 식별 함수 - 0425                                         
@@ -99,16 +41,14 @@ $(document).ready(function() {
 
 
 
-
 //////////////////////////////////////////////////////////////////////////////////////////
 //                          식자재보관함 삭제 함수 - 0425                                                      
 /////////////////////////////////////////////////////////////////////////////////////////
 
-  let text=""
-  const foodText =`${text}`;
+  let text="";
+  // const foodText =`${text}`;
 
   $('.span-close').click(function() {
-    
     console.log("닫기클릭");
     text=$(this).closest('.position-relative').find('button').text()
     $(".food-text").text(text+"를(을) 보관함에서 삭제할까요?");
@@ -120,7 +60,6 @@ $(document).ready(function() {
     console.log(text)
     // 이후에 디비 갔다와서 삭제하는 코드 작성 0425 미완
   });
-
 
 
 
@@ -167,27 +106,27 @@ $('.bmd-check').on('click', function() {
 //          임시 회원가입 value 확인 - 0425        
 /////////////////////////////////////////////////////////////////////////////////////////
 
-  // join3.html에서 실행될 함수
-function displayInfo() {
-  // URL에서 GET parameter 값들을 추출
-  const params = new URLSearchParams(window.location.search);
+//   // join3.html에서 실행될 함수
+// function displayInfo() {
+//   // URL에서 GET parameter 값들을 추출
+//   const params = new URLSearchParams(window.location.search);
 
-  // 추출한 값들을 변수에 저장
-  const male = params.get("male");
-  const female = params.get("female");
-  const age = params.get("age");
-  const height = params.get("height");
-  const weight = params.get("weight");
+//   // 추출한 값들을 변수에 저장
+//   const male = params.get("male");
+//   const female = params.get("female");
+//   const age = params.get("age");
+//   const height = params.get("height");
+//   const weight = params.get("weight");
 
-  // 변수들의 값을 출력
-  console.log(`성별: ${male ? "남" : ""} ${female ? "여" : ""}`);
-  console.log(`나이: ${age}`);
-  console.log(`키: ${height}`);
-  console.log(`몸무게: ${weight}`);
-}
+//   // 변수들의 값을 출력
+//   console.log(`성별: ${male ? "남" : ""} ${female ? "여" : ""}`);
+//   console.log(`나이: ${age}`);
+//   console.log(`키: ${height}`);
+//   console.log(`몸무게: ${weight}`);
+// }
 
-// join3.html이 로드될 때 displayInfo 함수를 실행
-window.addEventListener("load", displayInfo);
+// // join3.html이 로드될 때 displayInfo 함수를 실행
+// window.addEventListener("load", displayInfo);
 
 
 
@@ -227,8 +166,6 @@ $(document).ready(function() {
 
 
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////
 //                      전체 하단 footer 관련 함수 - 0425               
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -253,3 +190,5 @@ $(window).scroll(function() {
     $("#scroll-hidden").css("display", "block")
   }, 300);
 });
+
+

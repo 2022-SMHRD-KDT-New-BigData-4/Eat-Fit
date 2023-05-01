@@ -1,13 +1,18 @@
 package com.eatfit.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.eatfit.entity.Food;
 import com.eatfit.entity.Member;
 import com.eatfit.mapper.EatFitMapper;
 
@@ -17,11 +22,13 @@ public class JoinController {
 	@Autowired
 	private EatFitMapper mapper;
 	
+	// 회원가입 페이지로 이동
 	@GetMapping("/join.do")
 	public String join() {
 		return "join";
 	}
 	
+	// 회원가입페이지에서 회원가입 성공여부에 따라 페이지 이동
 	@PostMapping("/join.do")
 	public String join(Member vo) {
 		
@@ -78,12 +85,14 @@ public class JoinController {
 		}
 	}
 	
+	// 로그인 페이지로 이동
 	@GetMapping("/login.do")
 	public String login() {
 		return "login";
 	}
 	
-	@PostMapping("login.do")
+	// 로그인페이지에서 로그인 성공여부에 따라 페이지 이동
+	@PostMapping("/login.do")
 	public String login(Member vo, HttpSession session) {
 		Member mvo = mapper.login(vo);
 		if(mvo != null) { // 로그인 성공 체크
@@ -92,14 +101,26 @@ public class JoinController {
 		}else {
 			return "login";
 		}
-		
 	}
 	
+	// logout시 세션무효화 후 로그인 페이지로이동 -> 추후 메인페이지로 이동 시켜줘야함
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate(); // 세션 무효화
-		return "login";
+		return "redirect:/login.do";
 	}
+	
+	
+	// 뒤로가기 버튼시 loginMain페이지로 이동
+	// -> url에 back.do로 나옴 수정필요
+	@RequestMapping("/back.do")
+	public String back(HttpServletRequest request, Model model) {
+	    HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    model.addAttribute("mvo", mvo);
+	    return "loginMain";
+	}
+	
 	
 	@GetMapping("loginMain.do")
 	public String loginMain() {
@@ -108,9 +129,15 @@ public class JoinController {
 	
 	
 	// 식자재 보관함
-	@GetMapping("/food.do")
-	public String food() {
-		return "food";
+	// 회원정보 세션을 가져오면서 식자재 보관함 이동
+	@RequestMapping("/food.do")
+	public String food(HttpServletRequest request, Model model) {
+	    HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    model.addAttribute("mvo", mvo);
+	    List<Food> food = mapper.foodMSB(mvo);
+	    model.addAttribute("msb",food);
+	    return "food";
 	}
 	
 	// 회원정보수정
