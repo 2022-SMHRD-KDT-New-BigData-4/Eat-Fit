@@ -21,4 +21,35 @@
     	 WHERE B.mem_id = #{MEM_ID}
 	</select>
 	
+	
+	<!-- 식자재보관함 음식 추가하기 -->
+	<!-- 1. 추가하고자하는 음식이름이 포함된 음식의 SEQ값 가져오기 -->
+	<!-- select MIN(food_seq) from food_info where food_name in (#{add_food}) -->
+	<select id="addFoodSearch" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT * FROM (
+        	SELECT MIN(food_seq) AS food_seq, food_name
+        	FROM food_info
+        	WHERE food_group IN (
+          		'어류', '패류', '갑각류', '두족류', '해조류',
+          		'식육가공품 및 포장육', '두부류 또는 묵류', '곡류 및 그 제품',
+          		'감자 및 전분류', '두류', '견과류 및 종실류', '채소류',
+          		'버섯류', '과실류', '육류', '난류', '어패류 및 기타 수산물',
+          		'우유 및 유제품류', '유지류', '조미료류'
+        		)
+        	and food_name like(#{add_food}||'%') 
+        	GROUP BY food_name
+        	ORDER BY food_seq)
+		WHERE ROWNUM =1
+	</select>
+	<!-- 2. 식단보관함에 추가하기 -->
+	<insert id="addMSB" parameterType="com.eatfit.entity.MSB">
+		insert into member_msb values (#{MEM_ID}, #{FOOD_SEQ})
+	</insert>
+	
+	
+	<!-- 식자재보관함 음식 삭제하기 -->
+	<delete id="deleteMSB" parameterType="com.eatfit.entity.MSB">
+		delete from member_msb where mem_id = #{MEM_ID} and food_seq = #{FOOD_SEQ} 
+	</delete>
+	
 </mapper>

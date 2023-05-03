@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.eatfit.entity.Food;
+import com.eatfit.entity.MSB;
 import com.eatfit.entity.Member;
 import com.eatfit.mapper.EatFitMapper;
 
@@ -139,6 +140,41 @@ public class JoinController {
 	    List<Food> food = mapper.foodMSB(mvo);
 	    model.addAttribute("msb",food);
 	    return "food";
+	}
+	
+	
+	// 식자재 추가하기
+	@RequestMapping("/addMSB.do")
+	public int addMSB(HttpServletRequest request, String add_food) {
+		// 회원 아이디 가져오기
+		HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    String MEM_ID = mvo.getMEM_ID();
+	    
+	    // 사용자가 입력한 음식이름이 포함된 식재료중 가장 낮은 food_seq값 가져오기
+		int FOOD_SEQ = mapper.addFoodSearch(add_food);
+		
+		// MEM_ID와 FOOD_SEQ로 MSB객체 만들어 식단보관함 테이블에 데이터 추가하기
+		MSB msb = new MSB(MEM_ID, FOOD_SEQ);
+		int cnt = mapper.addMSB(msb);
+
+		return cnt;
+	}
+	
+	
+	// 식자재 삭제하기
+	@RequestMapping("/deleteMSB.do")
+	public int deleteMSB(HttpServletRequest request, int delete_seq) {
+		// 회원 아이디 가져오기
+		HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    String MEM_ID = mvo.getMEM_ID();
+	    
+	    MSB msb = new MSB(MEM_ID, delete_seq);
+	    
+	    int cnt = mapper.deleteMSB(msb);
+	    
+	    return cnt;
 	}
 	
 	// 회원정보수정

@@ -1241,3 +1241,20 @@ span img{
   text-anchor: middle;
 }
 
+#gptTextarea {
+	display:none; 
+    border: none !important;
+    font-size: 16px; 
+    padding: 25px;
+    line-height: 1.3rem;
+    font-family: 'NanumSquare'; 
+    border-radius: 5px;
+}
+
+#gptTextarea:focus {
+	outline: none;
+}
+
+.text-muted {
+	line-height: 1.3rem;
+}

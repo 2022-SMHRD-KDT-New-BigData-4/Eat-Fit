@@ -19,6 +19,8 @@
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  
 </head>
 
 <body>
@@ -53,122 +55,74 @@
 </nav>
 
   <section class="container text-center p-5 pb-0 food-sec">
-  <span class="m-0">원하시는 식자재를 선택해 주시면 제가<br> 추천해드릴게요!</span>
+  <span class="m-0">원하시는 식자재를 선택해 주시면<br> 제가 추천해드릴게요!</span>
 
   </section>
   <section class="roBack">
   </section>
-  
+
   <section class="container only-center">
     <img src="resources/images/RO.png" class="robot">
   </section>
   <!-- class="position-absolute top-0 start-100 translate-middle bg-secondary border border-light rounded-circle span-close" -->
   <section class="container">
       <div class="p-4 shadow content-size row mx-auto">
-        <h1 class="mb-4 text-center">${mvo.MEM_ID}님의 식자재 보관함</h1>
+        <h1 class="mb-2 text-center">${mvo.MEM_ID}님의 식자재 보관함</h1>
         <h5 class="card-subtitle mb-2 text-muted text-center">식자재를 선택하여 chatGPT에게 요리를<br>추천받아보세요!</h5>
         <div class="m-0">
-        
         <c:forEach var="food" items="${msb}">
         	<span class="position-relative">
-          		<button class="foodbox">${food.FOOD_NAME}</button>
-          		<span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
+          		<button class="foodbox" value="${food.FOOD_SEQ}">
+					<c:if test="${food.FOOD_NAME.contains(',')}">
+						<c:set var="text" value="${fn:split(food.FOOD_NAME, ',')[0].trim()}"/>
+						${text}
+					</c:if>
+					<c:if test="${not food.FOOD_NAME.contains(',')}">
+						${food.FOOD_NAME.trim()}
+					</c:if>
+				</button> <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
           	</span>
         </c:forEach>
-        
-          <!-- <span class="position-relative">
-          <button class="foodbox">양파</button>
-          <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-          </span>
-          <span class="position-relative">
-            <button class="foodbox">소고기</button>
-            <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-            </span>
-            <span class="position-relative">
-              <button class="foodbox">돼지고기</button>
-              <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-              </span>
-              <span class="position-relative">
-                <button class="foodbox">감자</button>
-                <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                </span>
-                <span class="position-relative">
-                  <button class="foodbox">파</button>
-                  <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                  </span>
-                  <span class="position-relative">
-                    <button class="foodbox">1</button>
-                    <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                    </span>
-                    <span class="position-relative">
-                      <button class="foodbox">2</button>
-                      <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                      </span>
-                      <span class="position-relative">
-                        <button class="foodbox">3</button>
-                        <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                        </span>
-                        <span class="position-relative">
-                          <button class="foodbox">4</button>
-                          <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                          </span>
-                          <span class="position-relative">
-                            <button class="foodbox">5</button>
-                            <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                            </span>
-                            <span class="position-relative">
-                              <button class="foodbox">6</button>
-                              <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                              </span>
-                              <span class="position-relative">
-                                <button class="foodbox">7</button>
-                                <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                                </span>
-                                <span class="position-relative">
-                                  <button class="foodbox">8</button>
-                                  <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                                  </span>
-                                  <span class="position-relative">
-                                    <button class="foodbox">9</button>
-                                    <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                                    </span>
-                                    <span class="position-relative">
-                                      <button class="foodbox">10</button>
-                                      <span class="span-close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></span>
-                                      </span> -->
-            
-            <div class="col-12" id="gpt-btn">
+        <div class="col-12" id="gpt-btn">
           <button class="btn btn-unstyled gpt-btn mt-5 w-100 only-center">
             <img src="resources/images/GPT.png">
             <span class="m-0 ms-2 fw-bold">ChatGPT에게 추천받기</span>
-       
           </button>
         </div>
+        <!-- ChatGPT답변 로딩 박스 -->
+        <div class="loading-progress" style="display: none;">
+          <div class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>      
+        </div>
+        
+        <!-- ChatGPT답변 텍스트 박스 -->
+        <div class="container shadow rounded only-center" id="result-container">
+        	<textarea id="gptTextarea" readonly="readonly" rows="30" cols="50"></textarea>
+        </div>
+        
         <div class="col-12" style="height:50px"></div>
         </div>
       </div>
 
   </section>
   <div class="container add-btn">
-      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-       <span class="add-food">식자재<br>추가</span>
+      <button class="btn btn-warning eat-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+       <span class="add-food">식자재</span><span class="add-food">추가</span>
       </button>
-      </div> 
+  </div> 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-green">
   
       <div class="modal-body mt-3 mb-3">
-        <!-- <div class="d-flex justify-content-end me-3">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div> -->
         <form>
           <div class="row only-center">
           <div class="col-9">
             <input type="text" class="form-control" id="recipient-name" placeholder="가지고 있는 식자재를 입력해 추가해주세요!" style="height:40px;">
           </div>
-          <div class="col-3 p-0 only-center">
+          <div id="addMSB-btn" class="col-3 p-0 only-center">
             <button type="button" class="btn btn-warning">추가</button>
           </div>
         </div>
@@ -177,8 +131,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- 삭제 -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -191,7 +143,7 @@
        <span class="fw-bold fs-5 food-text"></span>
       </div>
         <div class="col-6 text-center">
-        <button type="button" class="btn btn-warning del-btn del-btn-check">네!</button>
+        <button type="button" class="btn btn-warning del-btn del-btn-check">네!</a></button>
       </div>
       <div class="col-6  text-center">
         <button type="button" class="btn btn-secondary del-btn" data-bs-dismiss="modal">아니요!</button>
