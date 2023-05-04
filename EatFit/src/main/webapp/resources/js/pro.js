@@ -39,122 +39,24 @@ $(document).ready(function() {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//              ChatGPT - 0501                                         
-/////////////////////////////////////////////////////////////////////////////////////////
-
-
-$('#gpt-btn').click(function() {
-	let gpt_food = food.toString();
-	let gpt_query = gpt_food + " 사용하는 음식레시피 추천해줘"
-
-	$.ajax({
-		url:"http://localhost:5002/gpt",
-		method:"POST",
-		data:{'query':gpt_query},
-		success: function(response) {
-			// GPT답변 보여주기
-			$('#gptTextarea').val(response);
-			document.getElementById("gptTextarea").style.display = "block";
-        },
-		// 통신전에 로딩화면 보여주기
-        beforeSend: function () {
-			var width = 0;
-			var height = 0;
-			var left = 0;
-			var top = 0;
-				width = 100;
-				height = 100;
-              	top = ( $(window).height() - height ) / 2 + $(window).scrollTop();
-              	left = ( $(window).width() - width ) / 2 + $(window).scrollLeft();
-			if($("#div_ajax_load_image").length != 0) {
-				$("#div_ajax_load_image").css({
-					"top": top+"px",
-					"left": left+"px"
-                });
-				$("#div_ajax_load_image").show();
-			}else {
-				$('body').append('<div id="div_ajax_load_image" style="position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; background:none; filter:alpha(opacity=50); opacity:alpha*0.5; margin:auto; padding:0; "><img src="resources/images/loading4.gif" style="width:100px; height:100px;"></div>');
-            }
-       	},
-		// 통신이 끝나면 로딩화면 숨김
-       complete: function () {
-			$("#div_ajax_load_image").hide();
-       }
-	})
-});
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-//                          식자재보관함 식자재 추가 함수 - 0502                                                      
-/////////////////////////////////////////////////////////////////////////////////////////
-$('#addMSB-btn').click(function() {
-	let add_food = $('#recipient-name').val();
-	
-	$.ajax({
-		url:"addMSB.do",
-		method:"POST",
-		data:{'add_food':add_food},
-		datatype:"number",
-		success: function(resposne){
-			location.reload();
-			/*$('#exampleModal').modal('hide');  // 원래의 모달 창 닫기
-			$('#successModal').modal('show');  // 성공 모달 창 보여주기
-			$('#successModal').on('hidden.bs.modal', function() {
-				location.reload();  // 확인 버튼을 누르면 새로고침하기	
-			});*/
-		},
-		error: function(response){
-			location.reload();
-			/*$('#exampleModal').modal('hide');  // 원래의 모달 창 닫기
-			$('#successModal').modal('show');  // 성공 모달 창 보여주기
-			$('#successModal').on('hidden.bs.modal', function() {
-				location.reload();  // 확인 버튼을 누르면 새로고침하기	
-			});*/
-		}
-	})
-})
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-//                          식자재보관함 삭제 함수 - 0425 -> 0503 김준혁 수정                                                   
+//                          식자재보관함 삭제 함수 - 0425                                                      
 /////////////////////////////////////////////////////////////////////////////////////////
 
   let text="";
-  let seq=0;
   // const foodText =`${text}`;
 
   $('.span-close').click(function() {
     console.log("닫기클릭");
     text=$(this).closest('.position-relative').find('button').text()
-	seq=$(this).closest('.position-relative').find('button').val()
     $(".food-text").text(text+"를(을) 보관함에서 삭제할까요?");
-    console.log(text);
-	console.log(seq);
+    console.log(text)
   });
 
   $('.del-btn-check').click(function() {
     console.log("모달삭제버튼클릭");
     console.log(text)
-	console.log(seq);
-	
-	// 이후에 디비 갔다와서 삭제하는 코드 작성 0425 미완 -> 0503 김준혁 수정
-	$.ajax({
-		url:"deleteMSB.do",
-		method:"POST",
-		data:{'delete_seq':seq},
-		datatype:"number",
-		success: function(resposne){
-			console.log("통신성공")
-			location.reload();
-		},
-		error: function(response){
-			console.log("통신에라")
-			location.reload();
-		}
-	})	
+    // 이후에 디비 갔다와서 삭제하는 코드 작성 0425 미완
   });
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -188,40 +90,6 @@ $('.bmd-check').on('click', function() {
     // 클릭된 체크박스의 상태를 변경
     $(this).prop('checked', isChecked);
   });
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-//          임시 회원가입 value 확인 - 0425        
-/////////////////////////////////////////////////////////////////////////////////////////
-
-//   // join3.html에서 실행될 함수
-// function displayInfo() {
-//   // URL에서 GET parameter 값들을 추출
-//   const params = new URLSearchParams(window.location.search);
-
-//   // 추출한 값들을 변수에 저장
-//   const male = params.get("male");
-//   const female = params.get("female");
-//   const age = params.get("age");
-//   const height = params.get("height");
-//   const weight = params.get("weight");
-
-//   // 변수들의 값을 출력
-//   console.log(`성별: ${male ? "남" : ""} ${female ? "여" : ""}`);
-//   console.log(`나이: ${age}`);
-//   console.log(`키: ${height}`);
-//   console.log(`몸무게: ${weight}`);
-// }
-
-// // join3.html이 로드될 때 displayInfo 함수를 실행
-// window.addEventListener("load", displayInfo);
-
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -271,7 +139,12 @@ $(document).ready(function() {
   });
 });
 
-// 로그인메인화면 스크롤시 식단추천 버튼 숨기는 함수 0426
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//                로그인메인화면 스크롤시 식단추천 버튼 숨기는 함수 0426             
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
 var scrollTimeout;
 $(window).scroll(function() {
   clearTimeout(scrollTimeout);
@@ -284,3 +157,121 @@ $(window).scroll(function() {
 });
 
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//                메인 사진 처리              
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+window.onload = function() {
+  console.log("로드완료")
+ }
+function mainCameraImg(){
+  console.log("클릭123")
+  $('#photoFile').click();
+}
+    // 사진 선택 후
+    $("#photoFile").on('change', function() {
+    $('.mc-display').css('display', 'block');
+    
+      // 파일명만 추출
+      if(window.FileReader){  // modern browser
+        var filename1 = $(this)[0].files[0];
+        filename1.stream();
+        var filename = $(this)[0].files[0].name;
+      } else {  // old IE
+        var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+      }
+      // var fileSize = document.getElementById("photoFile").files[0].size;
+      // console.log( "파일사이즈 : " + $("#photoFile")[0].files[0].size );
+      console.log( "풀네임 : " + $(this));
+      console.log( "파일사이즈 : " + $(this)[0].files[0].size );
+      console.log( "파일명 : " + filename );
+
+      LoadImg($("#photoFile")[0]);
+      
+    let fileFlask=$(this)[0].files[0]
+      // 플라스크 전송 ajax
+      var formData = new FormData();
+      formData.append('image', fileFlask);
+      console.log(formData[0])
+      $.ajax({
+          type: 'POST',
+          url: 'http://172.30.1.84:5000/upload-image',
+          data: formData,
+          dataType: "json",
+          contentType: false,
+          processData: false,
+          success: function(response) {
+              console.log('이미지 업로드 성공');
+              // 분석된 사진이미지
+              console.log(response.analyze_image)
+              // 원본사진 이미지
+              console.log(response.origin_image)
+              // 음식객체이름, json형태 
+              console.log(response.cNames)
+          },
+          error: function(xhr, status, error) {
+              console.error('이미지 업로드 실패: ' + error);
+          }
+      });
+    });
+
+//************************************************* */
+// 선택이미지 미리보기-- flask에서 분석완료된 사진을 넘겨받은후 집어넣기
+function LoadImg(value) {
+    if(value.files && value.files[0]) {
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#photoImg').attr('src', e.target.result);
+        $('#photoImg').show();
+      }
+
+      reader.readAsDataURL(value.files[0]);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//                메인 텍스트 js - 0504              
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+// DISCLAIMER: This function does require jQuery. I've used it here because the project I'm building this for already uses jQuery, so I thought why not. It can be modified quite simply to be done in raw JavaScript.  Just thought I'd let you know.
+// This is the funtion you need to copy
+// Copy from line 9 to 34
+
+function autoType(elementClass, typingSpeed){
+  var thhis = $(elementClass);
+  thhis.css({
+    "position": "relative",
+    "display": "inline-block"
+  });
+  thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+  thhis = thhis.find(".text-js");
+  var text = thhis.text().trim().split('');
+  var amntOfChars = text.length;
+  var newString = "";
+  thhis.text("|");
+  setTimeout(function(){
+    thhis.css("opacity",1);
+    thhis.prev().removeAttr("style");
+    thhis.text("");
+    for(var i = 0; i < amntOfChars; i++){
+      (function(i,char){
+        setTimeout(function() {        
+          newString += char;
+          thhis.text(newString);
+        },i*typingSpeed);
+      })(i+1,text[i]);
+    }
+  },100);
+}
+
+$(document).ready(function(){
+  // Now to start autoTyping just call the autoType function with the 
+  // class of outer div
+  // The second paramter is the speed between each letter is typed.   
+  autoType(".type-js",100);
+});
