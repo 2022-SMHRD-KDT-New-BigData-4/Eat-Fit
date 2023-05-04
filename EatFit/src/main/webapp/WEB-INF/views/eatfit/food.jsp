@@ -92,7 +92,8 @@
         
         <!-- ChatGPT답변 텍스트 박스 -->
         <div class="container shadow rounded only-center" id="result-container">
-        	<textarea id="gptTextarea" readonly="readonly" rows="30" cols="50"></textarea>
+        	<textarea id="gptTextarea" readonly="readonly" rows="30" cols="50"
+        	class="fw-bold" style="line-height:1em"></textarea>
         </div>
         
         <div class="col-12" style="height:50px"></div>
