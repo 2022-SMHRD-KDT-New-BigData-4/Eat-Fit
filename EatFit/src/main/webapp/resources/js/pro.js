@@ -45,21 +45,41 @@ $(document).ready(function() {
 
 $('#gpt-btn').click(function() {
 	let gpt_food = food.toString();
-	console.log("배열합친거 : ", gpt_food);
 	let gpt_query = gpt_food + " 사용하는 음식레시피 추천해줘"
-	console.log("질문할거 : ", gpt_query);
 
 	$.ajax({
 		url:"http://localhost:5002/gpt",
 		method:"POST",
 		data:{'query':gpt_query},
 		success: function(response) {
-			console.log('gpt답변 : ', response);
-			$(".loading-progress").show();
+			// GPT답변 보여주기
 			$('#gptTextarea').val(response);
-			$(".loading-progress").hide();
 			document.getElementById("gptTextarea").style.display = "block";
-        }
+        },
+		// 통신전에 로딩화면 보여주기
+        beforeSend: function () {
+			var width = 0;
+			var height = 0;
+			var left = 0;
+			var top = 0;
+				width = 50;
+				height = 50;
+              	top = ( $(window).height() - height ) / 2 + $(window).scrollTop();
+              	left = ( $(window).width() - width ) / 2 + $(window).scrollLeft();
+			if($("#div_ajax_load_image").length != 0) {
+				$("#div_ajax_load_image").css({
+					"top": top+"px",
+					"left": left+"px"
+                });
+				$("#div_ajax_load_image").show();
+			}else {
+				$('body').append('<div id="div_ajax_load_image" style="position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; background:#f0f0f0; filter:alpha(opacity=50); opacity:alpha*0.5; margin:auto; padding:0; "><img src="resources/images/loading.gif" style="width:50px; height:50px;"></div>');
+            }
+       	},
+		// 통신이 끝나면 로딩화면 숨김
+       complete: function () {
+			$("#div_ajax_load_image").hide();
+       }
 	})
 });
 

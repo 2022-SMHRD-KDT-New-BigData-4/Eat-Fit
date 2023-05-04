@@ -89,12 +89,6 @@
             <span class="m-0 ms-2 fw-bold">ChatGPT에게 추천받기</span>
           </button>
         </div>
-        <!-- ChatGPT답변 로딩 박스 -->
-        <div class="loading-progress" style="display: none;">
-          <div class="spinner-border text-secondary" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>      
-        </div>
         
         <!-- ChatGPT답변 텍스트 박스 -->
         <div class="container shadow rounded only-center" id="result-container">
@@ -168,7 +162,7 @@
   
     <a class="col-4 m-0 only-center" href="loginMain.do">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center" href="#">식단 기록일지</a>
+    <a class="col-4 m-0 only-center" href="foodDiary.do">식단 기록일지</a>
   
   </div>
   </footer>

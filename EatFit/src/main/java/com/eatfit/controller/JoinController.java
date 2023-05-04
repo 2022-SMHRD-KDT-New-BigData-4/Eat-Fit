@@ -124,8 +124,12 @@ public class JoinController {
 	}
 	
 
-	@GetMapping("/loginMain.do")
-	public String loginMain() {
+	// 로그인메인 페이지로 이동
+	@RequestMapping("/loginMain.do")
+	public String loginMain(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    model.addAttribute("mvo", mvo);
 		return "loginMain";
 	}
 	
