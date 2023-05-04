@@ -114,8 +114,13 @@ body {
     font-family: 'NanumSquare';
 }
 
+.shadow {
+  box-shadow: 1px 3px 5px 2px rgba(0,0,0,.08) !important;
+}
 
 /* 로그인 후 메인페이지 */
+
+
 
 .col-6.text-start.ps-3.pt-0.item-center span{
   font-size: 20px;
@@ -179,8 +184,7 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
 
 .modal-body-style{
   border-radius: 20px;
-  border: 4px solid green;
-  height:200px;
+  height:270px;
   overflow: hidden;
 }
 
@@ -283,7 +287,9 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
     border-radius: 20px;
     text-decoration: none;
     font-weight: bold;
-    border: none;
+    border:none;
+    box-shadow: 0px 5px 10px 0px #dddddd;
+
 }
 .main-camera h6{
     font-family: "NanumSquare";
@@ -305,10 +311,6 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
     margin-left: 3%;
 }
 
-/* .nutrient-bar-box{
-    border: 1px solid #DDDDDD;
-    border-radius: 20px;
-} */
 .nutrient-bar-title>h1{
     font-family: "NanumSquare";
     font-weight: 900;
@@ -395,18 +397,6 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
     font-weight: 700;
     /* font-size: 18px; */
 }
-/* .nutrient-info button{
-    border: none;
-    width: 70px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: #1f8648;
-    color: #ffffff;
-    font-family: "NanumSquare";
-    font-size: 16px;
-    margin: 10px;
-    margin-top: -5px;
-} */
 
 /* footer */
 .footer{
@@ -424,16 +414,6 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
 .footer a:first-child{
     margin-left: 12px;
 }
-/* .footer a>div{
-    width: 100px;
-    height: 15px;
-    background-color: #4EFF60;
-    position: absolute;
-    z-index: -1;
-    opacity: 50%;
-    margin-top: 7px;
-    margin-left: 7px;
-} */
 
 /* 식자재보관함 */
 .add-food{
@@ -528,8 +508,8 @@ font-weight: 600;
     border:2px solid green;
   }
   .back img{
-    height:30px;
-    width:30px;
+    height:45px;
+    width:50px;
   }
   .food-sec{
     margin-top: 50px;
@@ -711,11 +691,7 @@ span img{
   input:focus ~ span, input:valid ~ span {
     width: 100%;
   }
-/* 
-.active {
-    background-color: green!important;
-    color: white!important;
-  } */
+
 /* 회원가입 */
 .scroll-60{
   padding-top: 60px!important;
@@ -1003,18 +979,8 @@ span img{
     right: -75%;
   }
 
-/* 쓸지말지 고민0425 */
-/* .bottom-nav{
-  background-image: url('../image/navbg4.png');
-  background-repeat: no-repeat;
-}
- */
-
-
 /* 캘린더 CSS */
        /* section calendar */
-
-
        .sec_cal {
         width: 360px;
         margin: 0 auto;
@@ -1025,7 +991,6 @@ span img{
         display: flex;
         justify-content:center;
         align-items: center;
-        /* font-weight: 700; */
         font-size: 20px;
         line-height: 78px;
  
@@ -1079,7 +1044,6 @@ span img{
     }
     
     .sec_cal .cal_wrap {
-        /* padding-top: 40px; */
         position: relative;
         margin: 0 auto;
     }
@@ -1088,7 +1052,6 @@ span img{
         display: flex;
         margin-bottom: 0px;
         padding-bottom: 10px;
-        /* border-bottom: 1px solid #ddd; */
     }
     
     .sec_cal .cal_wrap::after {
@@ -1101,15 +1064,14 @@ span img{
         justify-content: center;
         width: calc(100% / 7);
         text-align: left;
-        /* color: #999; */
         font-size: 20px;
         text-align: center;
         border-radius:10%;
-        /* font-weight: 600; */
+
       
     }
     .current{
-      /* margin-top:20px */
+
       font-weight: 600;
       height:46px;
       font-size:12px!important;
@@ -1126,12 +1088,12 @@ span img{
     
     .sec_cal .cal_wrap .day:nth-child(7n -1) {
         color: #212529;
-        /* color:#404447; */
+
         color:#4286f5;
     }
     
     .sec_cal .cal_wrap .day:nth-child(7n) {
-        /* color: #dc3545 */
+
         color:		#e54537;
     }
     
@@ -1140,26 +1102,28 @@ span img{
     }
 
     .current.today {
-    border:2px solid #1f8648;
-    /* color: white !important; */
+    border-bottom:3px solid #1f8648; 
+    border-radius: 0px!important;
+    border-style: var()
+    
+ 
   }
     
     .current-change{
-      /* background-size: 300px!important; */
+
       background-color: #f1f1f1;
       border:2px solid #cfcfcf;
       color: #4F4F4F !important;
-      /* font: weight 600px !important; */
+
     }
 
     .day-text{
-      /* font-family: "LINESeedKR-Bd"; */
-      /* font-family: 'OTWelcomeRA'; */
+
       font-weight: 600;
       font-size: 15px!important;
     }
     .ym-font{
-      /* font-family: "LINESeedKR-Bd"; */
+
       font-family: 'OTWelcomeRA';
       font-size:20px;
     }
@@ -1170,10 +1134,6 @@ span img{
       height:380px;
     }
 
-    /* .cal-content{
-      border-radius: 30px;
-      background-color:#f5f5f5;
-    } */
     .ht37 div {
       color:#302E2E;
     }
@@ -1241,6 +1201,374 @@ span img{
   text-anchor: middle;
 }
 
+.mc-display{
+  display:none;
+}
+
+
+.main-camera2:active{
+
+           box-shadow:none;
+           background-color: #f8f9fb!important;
+
+}
+
+.main-pen:active{
+
+  box-shadow:none;
+  background-color: #f8f9fb!important;
+
+
+}
+
+.btn.btn-warning.rec-btn-shadow.px-3:active{
+
+ box-shadow: inset 0 0 4px!important;
+}
+
+.fs-14{
+  font-size: 14px;
+}
+
+.join-btn{
+  text-decoration: none;
+  border:1px solid green;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:green;
+
+  
+}
+.join-btn:hover{
+  text-decoration: none!important;
+  border:1px solid green;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:green;
+
+}
+.join-btn:active{
+  text-decoration: none;
+  border:1px solid green;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:white!important;
+  background-color: green;
+}
+
+.mv-wrap {
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+
+.join-btn1{
+  height:50px;
+  font-size:20px;
+  text-decoration: none;
+  border:2px solid #1f8648;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:white;
+  font-weight: 600;
+  
+}
+.join-btn1:hover{
+  text-decoration: none!important;
+  border:2px solid #156133;
+
+  border-radius: 20px;
+  color:white;
+
+}
+.join-btn1:active{
+  text-decoration: none;
+  border:2px solid #156133;
+
+  border-radius: 20px;
+  color:white!important;
+  background-color: #156133;
+}
+
+.join-btn1:active span{
+  text-decoration: none;
+  border:1px solid #156133;
+  border-radius: 20px;
+  color:white!important;
+  background-color: #156133;
+}
+
+.join-btn2{
+  font-size:20px;
+  text-decoration: none;
+  border:2px solid #f7e111;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:white;
+  /* background-color:#f7e111 ; */
+  font-weight: 600;
+  
+}
+.join-btn2:hover{
+  text-decoration: none!important;
+  border:2px solid #d9c50f;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:white;
+
+}
+.join-btn2:active{
+  text-decoration: none;
+  border:2px solid #d9c50f;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:white!important;
+  background-color: #d9c50f;
+}
+
+.logo-home-text{
+  color: white;
+  font-family:"TheJamsil";
+  font-style: italic;
+  font-size:20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#video_area {
+
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+  position: absolute;
+
+  
+}
+
+.home-footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+
+}
+
+
+/* 홈 메인 텍스트 css */
+.text-js {
+  opacity: 0;
+}
+
+.cursor {
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: -5px;
+  width: 2px;
+  /* Change colour of Cursor Here */
+  background-color: white;
+  z-index: 1;
+  animation: flash 0.5s none infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.headline {
+ 
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom:50px;
+  font-family: "TheJamsil";
+  font-style: italic;
+}
+
+@media (max-width: 380px) {
+  .headline {
+    font-size: 30px;
+}
+}
+  @media (max-width: 400px) {
+    .headline {
+      font-size: 35px;
+    }
+}
+.headline h1 {
+  letter-spacing: 1.6px;
+  font-weight: 600;
+}
+
+.twitterLink {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px 15px;
+  z-index: 3;
+}
+.twitterLink svg {
+  width: 25px;
+}
+
+.credit {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-decoration: none;
+}
+.ccc{
+  width:100%;
+  height:100%;
+}
+.fs-18{
+  font-size: 18px;
+}
+
+.w-70{
+  width:70%
+}
+.wh-30{
+  width:30px;
+  height:30px; 
+}
+.home-sub-title{
+  font-size: 17px;
+  line-height: 1.4rem;
+  margin-bottom:80px;
+  color:#fff;
+}
+.b-70{
+  bottom:70px;
+}
+.main-center-text{
+  height:150px;
+  margin-top:150px;
+}
+.carousel-text{
+  font-size: 30px;
+}
+
+/* 홈화면 CSS */
+.container123 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text123 {
+  display: block;
+  margin-top: 75px;
+  margin-left: -30px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
+.ht-59{
+  height:59px;
+}
+.color-green{
+  color:#1f8648;
+}
+.percentage {
+  fill: #666;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+/* 0504 식자재보관함 */
 #gptTextarea {
 	display:none; 
     border: none !important;
@@ -1258,3 +1586,36 @@ span img{
 .text-muted {
 	line-height: 1.3rem;
 }
+
+/* MLD  0504 */
+.MLD-title-div{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#MLD-title{
+    font-family: "NanumSquare";
+   font-weight: 700;
+   font-size: 18px;
+}
+.MLD-body{
+  margin-bottom: 50px;
+}
+.M-bc, .L-bc, .D-bc{
+  height: 70px;
+}
+.MLD-text :checked + .M-bc{
+   background-color: #1f8648;
+   color: white;
+}
+.MLD-text :checked + .L-bc{
+   background-color: #1f8648;
+   color: white;
+}
+.MLD-text :checked + .D-bc{
+   background-color: #1f8648;
+   color: white;
+}
+.MLD-text :checked + .my-btn > span {
+   color: white;
+ }
+
