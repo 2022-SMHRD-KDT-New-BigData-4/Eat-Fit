@@ -22,8 +22,7 @@
 </head>
 
 <body>
-<body>
-  <!--header-->
+ <!--header-->
   <nav class="navbar fixed-top bg-white p-0 shadow ht-59">
     <div class="container pe-0">
         <div class="row">
@@ -87,27 +86,24 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
-            <img src="/image/제목을 입력해주세요_-001 (1).png" class="d-block w-100 h-fit-content" alt="...">
-            <div class="carousel-caption d-md-block">
-              <p class="fw-bold carousel-text mb-3">기능설명</p>
-              <p>기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1기능설명1</p>
+            <img src="/image/0116.png" class="d-block w-100 h-fit-content" alt="...">
+            <div class="carousel-caption d-md-block pt-0">
+              <p class="fw-bold carousel-text mb-4">식단분석</p>
+              <p class="carousel-sub-text">이미지를 클릭하여 사진촬영 또는 업로드시  잇-핏AI가 사진을 분석하여 영영정보를 제공합니다</p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="/image/제목을 입력해주세요_-001 (1).png" class="d-block w-100 h-fit-content" alt="...">
-            <div class="carousel-caption d-md-block">
-              <p class="fw-bold carousel-text mb-3">기능설명</p>
-                <p>기능설명2<br>
-                    기능설명2<br>
-                    기능설명2<br>
-                    기능설명2<br></p>
+            <img src="/image/0113.png" class="d-block w-100 h-fit-content" alt="...">
+            <div class="carousel-caption d-md-block pt-0">
+              <p class="fw-bold carousel-text mb-4">chatGPT's 레시피</p>
+                <p class="carousel-sub-text">식자재를 보관함에 추가하여 관리하고, 선택된 식자재를 기반으로 chatGPT에게 추천레시피를 제공받을 수 있습니다</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="/image/제목을 입력해주세요_-001 (1).png" class="d-block w-100 h-fit-content" alt="...">
-            <div class="carousel-caption d-md-block">
-              <p class="fw-bold carousel-text mb-3">기능설명</p>
-                <p>기능설명3</p>
+            <img src="/image/0112.png" class="d-block w-100 h-fit-content" alt="...">
+            <div class="carousel-caption d-md-block pt-0">
+              <p class="fw-bold carousel-text mb-4">맞춤 식단 추천</p>
+                <p class="carousel-sub-text">남은 하루섭취 영양을 계산하여 한끼식사의 영양을 맞추어 최적의 식단을 추천해드립니다! </p>
             </div>
           </div>
         </div>

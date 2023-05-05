@@ -466,8 +466,9 @@ font-weight: 600;
         border-radius: 30px;
     }
     .content-size h1{
-        font-weight: 600;
-        font-size: 20px;
+      font-weight: 600;
+      padding-top: 45px;
+      font-size: 20px;
     }
     .foodbox{
       font-size: 17px;
@@ -579,16 +580,16 @@ font-weight: 600;
     font-size: 20px;
 }
 #b1{
-    background-color:#f6f6d3 ;
+    color:#ffc107;
 }
 #b2{
-    background-color: #cfe5f1;
+    color: #0d6efd;
 }
 #b3{
-    background-color: #f8dde5;
+    color:#bc3545;
 }
 #b4{
-    background-color: #a6ffaf;
+    color:#198754;
 }
 .rec-youtube-titte{
     font-weight: 600;
@@ -1619,3 +1620,10 @@ span img{
    color: white;
  }
 
+ .carousel-sub-text{
+  font-family:'NanumSquare';
+  line-height: 1.5em;
+  font-size: 16px;
+  color: gray;
+  font-weight: 500;
+ }
