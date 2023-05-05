@@ -19,32 +19,6 @@
   <link href="resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-	$(document).ready(function() {
-		if (!('url' in window) && ('webkitURL' in window)) {
-			window.URL = window.webkitURL;
-		}
-
-		$('#camera').change(function(e) {
-			$('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
-		});
-	});
-	
-	// 식단촬영 카메라 열기 함수
-	function camera_func(){
-		alert("카메라 연동")
-		$(document).ready(function(){
-		    if (!('url' in window) && ('webkitURL' in window)) {
-		        window.URL = window.webkitURL;
-		    }
-
-		    $('#clickCamera').change(function(e){
-		        $('#pic').attr('src', URL.createObjectURL(e.target.files[0]));
-		    });
-		});
-
-	}
-  </script>
 
 </head>
 
@@ -95,58 +69,53 @@
 
   </section>
   <!-- 사용자 영양분 대시보드 -->
-  <section>
+    <section>
     <div class="container">
         <div class="row p-3 m-1 border rounded">
           <div class="nutrient-bar-title">
-            <h1>${mvo.MEM_NICK}님의 오늘의 영양분</h1>
+            <h1>유열님의 오늘의 영양분</h1>
           </div>
           <div class="col-8 p-0">
             <div class="row">
-              <div class="col-3 p-0 only-center nutrient">
-                <span class="p-0 m-0 fw-bold">탄수화물</span>
+              <div class="col-3 p-0 only-center nutrient" style="display:block;">
+                <span class="p-0 m-0 fw-bold mb-2">탄수화물</span>
               </div>
-              <div class="col-8 p-0">
-                <div class="progress">
-                  <span class="progress-bar nutrient-bar" role="progressbar"data-toggle="tooltip" data-placement="top"
-                  style="width: 40%; background-color: #daa521;">
-                </span>
-
+              <div class="col-8 p-0 mb-2">
+      
+                <div class="progress2 progress-moved">
+                  <div class="progress-all progress-bar1" style="width:20%">
+                  </div>       
                 </div>
                 <span class="nutrient-bar-text">50/100</span>
-              </div>
             </div>
-            <div class="row mt-2">
-              <div class="col-3 p-0 only-center nutrient">
-                <span class="p-0 m-0 fw-bold">단백질</span>
-              </div>
-              <div class="col-8 p-0">
-                <div class="progress">
-                  <span class="progress-bar bg-primary nutrient-bar" role="progressbar" data-toggle="tooltip" data-placement="top"
-                  style="width: 65%; background-color: #87ceea;">
-                </span>
-                </div>
-                <span class="nutrient-bar-text">50/100</span>
-
-              </div>
+            <div class="col-3 p-0 only-center nutrient" style="display:block;">
+              <span class="p-0 m-0 fw-bold mb-2">단백질</span>
             </div>
-            <div class="row mt-2">
-              <div class="col-3 p-0 only-center nutrient">
-                <span class="p-0 m-0 fw-bold">지방</span>
+            <div class="col-8 p-0 mb-2">
+    
+              <div class="progress2 progress-moved">
+                <div class="progress-all progress-bar2" style="width:50%">
+                </div>       
               </div>
-              <div class="col-8 p-0">
-                <div class="progress">
-                  <span class="progress-bar nutrient-bar" data-toggle="tooltip" data-placement="top"
-                  style="width: 80%; background-color: #fe6347;">
-                </span>
-                </div>
-                <span class="nutrient-bar-text">50/10</span> 
-              </div>
-            </div>
+              <span class="nutrient-bar-text">50/100</span>
           </div>
+          <div class="col-3 p-0 only-center nutrient" style="display:block;">
+            <span class="p-0 m-0 fw-bold">지방</span>
+          </div>
+
+          <div class="col-8 p-0">
+  
+            <div class="progress2 progress-moved">
+              <div class="progress-all progress-bar3" style="width:75%">
+              </div>       
+            </div>
+            <span class="nutrient-bar-text">50/100</span>
+        </div>
+      </div>
+      </div>
           <div class="col-4 px-0">
               <!-- 원형프로그래스-->
-              <div class="single-chart w-100 ms-2">
+              <div class="single-chart w-100 ms-2" style="width:100%!important; height:100%!important" >
                 <svg viewBox="0 0 36 36" class="circular-chart green">
                   <path class="circle-bg"
                     d="M18 2.0845
@@ -166,7 +135,7 @@
           </div>
         </div>
 
-    </div>
+   
   </section>
 
   <div class="div-section"></div>
