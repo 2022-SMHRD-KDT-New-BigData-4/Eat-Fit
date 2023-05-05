@@ -56,12 +56,12 @@
       <h1 class="col text-center main-text">오늘 드신 식단을 업로드하세요!</h1>
     </div>
     <div class="col text-center">
-      <button class="col-sm-6 shadow p-3 mb-5 bg-body main-camera main-camera2" data-bs-toggle="modal" data-bs-target="#diet-camera-modal">
-        <img src="resources/images/camera.png">
+      <button class="col-sm-6 p-3 mb-5 bg-body main-camera main-camera2" data-bs-toggle="modal" data-bs-target="#diet-camera-modal">
+        <img src="/image/camera.png">
         <h6 class="mb-0">식단 촬영</h6>
       </button>
-      <button class="col-sm-6 shadow p-3 mb-5 bg-body main-camera main-pen" data-bs-toggle="modal" data-bs-target="#diet-input-modal">
-        <img src="resources/images/text.png">
+      <button class="col-sm-6 p-3 mb-5 bg-body main-camera main-pen" data-bs-toggle="modal" data-bs-target="#diet-input-modal">
+        <img src="/image/text.png">
         <h6 class="mb-0">식단 입력</h6>
       </button>
 
