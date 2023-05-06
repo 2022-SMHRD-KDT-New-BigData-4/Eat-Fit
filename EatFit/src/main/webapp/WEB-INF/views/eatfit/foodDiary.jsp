@@ -25,24 +25,24 @@
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////
                            1 - NAV BAR  
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
-<nav class="shadow fixed-top mb-2 bg-white">
+<nav class="shadow fixed-top mb-2 bg-white ht-59">
   <div class="container mt-2 mb-2">
     <div class="row">
-      <div class="col-3 item-center">
-    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="/image/back.png" alt=""></a></div>
+      <div class="col-3 d-flex align-items-center ">
+    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back3.png" alt=""></a></div>
   </div>
-  <div class="col-6 only-center">
+  <div class="col-6 d-flex justify-content-center align-items-center">
     <span class="m-0 logo">Eat-Fit</span>
   </div>
     <div class="col-3 text-end">
       <div class="navbar-brand profile">
         <div class="dropdown">
-          <img src="/image/profile.png" data-bs-toggle="dropdown">
+          <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
+            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID} 님</li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-start mt-2 mb-2" href="#">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="#">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
           </ul>
         </div>
       </div>

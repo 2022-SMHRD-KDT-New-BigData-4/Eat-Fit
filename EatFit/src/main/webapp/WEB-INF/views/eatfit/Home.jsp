@@ -28,7 +28,7 @@
         <div class="row">
       <h1 class="navbar-bran logo m-0 color-green">Eat-Fit</h1>
     </div>
-    <a href="/html/join.html" class="me-4 join-btn">회원가입</a>
+    <a href="./resourse/join.do" class="me-4 join-btn">회원가입</a>
 </div>
   </nav>
   <div id="video_area">

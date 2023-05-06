@@ -23,23 +23,35 @@
 </head>
 
 <body>
- <!--header-->
-  <nav class="navbar shadow fixed-top bg-white p-0">
-    <div class="container pe-0">
-      <h1 class="m-0"><a class="navbar-bran logo m-0" href="#">Eat-Fit</a></h1>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////
+                           1 - NAV BAR  
+///////////////////////////////////////////////////////////////////////////////////////////////-->
+<nav class="shadow fixed-top mb-2 bg-white ht-59">
+  <div class="container mt-2 mb-2">
+    <div class="row">
+      <div class="col-3 d-flex align-items-center ">
+    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back3.png" alt=""></a></div>
+  </div>
+  <div class="col-6 d-flex justify-content-center align-items-center">
+    <span class="m-0 logo">Eat-Fit</span>
+  </div>
+    <div class="col-3 text-end">
       <div class="navbar-brand profile">
         <div class="dropdown">
           <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center">${mvo.MEM_NICK}님</li>
+            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID} 님</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="#">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
           </ul>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+  </div>
+</nav>
+
 
   <!-- 메인 사진 -->
   <section id="mv">
@@ -57,11 +69,11 @@
     </div>
     <div class="col text-center">
       <button class="col-sm-6 p-3 mb-5 bg-body main-camera main-camera2" data-bs-toggle="modal" data-bs-target="#diet-camera-modal">
-        <img src="/image/camera.png">
+        <img src="./resources/images/camera.png">
         <h6 class="mb-0">식단 촬영</h6>
       </button>
       <button class="col-sm-6 p-3 mb-5 bg-body main-camera main-pen" data-bs-toggle="modal" data-bs-target="#diet-input-modal">
-        <img src="/image/text.png">
+        <img src="./resources/images/text.png">
         <h6 class="mb-0">식단 입력</h6>
       </button>
 
@@ -201,7 +213,7 @@
 
         <div class="only-center modal-body-style">
           <input type="file" name="photoFile" id="photoFile" accept="image/*" capture="camera" style="display:none;">
-        <img class="img-fluid w-100 ccc" id="photoImg" src="/image/Eat-fit_default.png" alt="" onclick="mainCameraImg()">
+        <img class="img-fluid w-100 ccc" id="photoImg" src="./resources/images/Eat-fit_default.png" alt="" onclick="mainCameraImg()">
         </div>
         <div class="container mc-display">
         <div class="mt-3 text-center">
@@ -274,11 +286,11 @@
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center b-nav-1" href="/html/Food.html">식자재 보관함</a>
+    <a class="col-4 m-0 only-center b-nav-1" href="${cpath}/food.do">식자재 보관함</a>
   
     <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="/html/LoginMain2.html">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center b-nav-3" href="/html/FoodDiary.html">식단 기록일지</a>
+    <a class="col-4 m-0 only-center b-nav-3" href="${cpath}/foodDiary.do">식단 기록일지</a>
   
   </div>
   </footer>

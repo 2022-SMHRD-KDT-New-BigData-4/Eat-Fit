@@ -27,11 +27,11 @@
   <!-- ///////////////////////////////////////////////////////////////////////////////////////////
                            1 - NAV BAR  
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
-  <nav class="shadow fixed-top mb-2 bg-white">
+  <nav class="shadow fixed-top mb-2 bg-white ht-59">
     <div class="container mt-2 mb-2">
       <div class="row">
         <div class="col-3 ">
-          <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back.png" alt=""></a></div>
+          <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back3.png" alt=""></a></div>
         </div>
         <div class="col-6 only-center">
           <span class="login-text">로그인</span>
