@@ -91,7 +91,7 @@
         </div>
         
         <!-- ChatGPT답변 텍스트 박스 -->
-        <div class="container shadow rounded only-center" id="result-container">
+        <div class="container rounded only-center" id="result-container">
         	<textarea id="gptTextarea" readonly="readonly" rows="30" cols="50"
         	class="fw-bold" style="line-height:1em"></textarea>
         </div>
@@ -103,7 +103,7 @@
   </section>
   <div class="container add-btn">
       <button class="btn btn-warning eat-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-       <span class="add-food">식자재</span><span class="add-food">추가</span>
+       <span class="add-food">식자재</span><br><span class="add-food">추가</span>
       </button>
   </div> 
 
@@ -159,7 +159,7 @@
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center" id="nav-this" href="#">식자재 보관함</a>
+    <a class="col-4 m-0 only-center" id="nav-this" href="#"> 보관함</a>
   
     <a class="col-4 m-0 only-center" href="loginMain.do">오늘의 잇-핏</a>
   

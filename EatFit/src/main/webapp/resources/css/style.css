@@ -418,9 +418,11 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
 
 /* 식자재보관함 */
 .add-food{
+  font-family:"TheJamsil";
   font-weight:600;
   font-size:18px;
   color:white;
+  font-style:italic;
 
 }
 
@@ -458,9 +460,10 @@ font-weight: 600;
 
   .roBack{
       height: 200px;
-      background-image: url("./resources/images/back2.png");
+      background-image: url("../../resources/images/back2.png");
       background-repeat: no-repeat;
       background-position: center;
+      opacity:0.3;
     }
     .content-size{
         width: 24rem;
@@ -973,7 +976,7 @@ span img{
   .add-btn{
     position: fixed;
     bottom: 8%;
-    right: -70%;
+    right: -75%;
   }
   .rec-btn{
     position: fixed;
