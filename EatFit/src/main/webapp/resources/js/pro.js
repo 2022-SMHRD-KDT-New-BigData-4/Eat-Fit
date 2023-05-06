@@ -270,7 +270,7 @@ function mainCameraImg(){
 }
     // 사진 선택 후
     $("#photoFile").on('change', function() {
-    $('.mc-display').css('display', 'block');
+
     
       // 파일명만 추출
       if(window.FileReader){  // modern browser
@@ -295,12 +295,13 @@ function mainCameraImg(){
       console.log(formData[0])
       $.ajax({
           type: 'POST',
-          url: 'http://172.30.1.84:5000/upload-image',
+          url: 'http://172.30.1.28:5000/upload-image',
           data: formData,
           dataType: "json",
           contentType: false,
           processData: false,
           success: function(response) {
+			$('.mc-display').css('display', 'block');
               console.log('이미지 업로드 성공');
               // 분석된 사진이미지
               console.log(response.analyze_image)
@@ -308,12 +309,88 @@ function mainCameraImg(){
               console.log(response.origin_image)
               // 음식객체이름, json형태 
               console.log(response.cNames)
+
+			  $.ajax({
+	               type: 'POST',
+	               url: 'getFoodData.do',
+	               data: {
+					    analyze_image: response.analyze_image,
+					    origin_image: response.origin_image,
+					    cNames: JSON.stringify(response.cNames)
+					},
+					dataType: "json",
+	               success: function(response1) {
+	               console.log('데이터 전송 성공');
+	               },
+	               error: function(xhr, status, error) {
+	                   console.error('데이터 전송 실패: ' + error);
+	               }
+	           });
+
           },
           error: function(xhr, status, error) {
               console.error('이미지 업로드 실패: ' + error);
           }
       });
     });
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//                중량, MLD 입력받아서 데이터 보내자             
+/////////////////////////////////////////////////////////////////////////////////////////
+// gram 값 배열에 저장
+function final_submit(){
+	
+	// MLD 데이터 가져오기
+	const MLDchecked = document.querySelector('input[type="checkbox"]:checked');
+	const MLDValue = MLDchecked.value;
+	console.log(MLDValue)
+	
+	// foreach문 속 입력된 food_name들 리스트에 저장하기
+	let foodName_arr = [];
+	let food_names = document.getElementsByName("food_name[]");
+		
+	for (let i = 0; i < food_names.length; i++) {
+	    foodName_arr.push(food_names[i].value);
+	  	console.log(foodName_arr[i]);
+	}
+	// foreach문 속 입력된 gram들 리스트에 저장하기
+	let foodGram_arr = [];
+	let food_grams = document.getElementsByName("gram[]");
+	for (let i = 0; i < food_grams.length; i++) {
+		
+		// foreach문 속 입력되지 않으면 쓸 디폴트 gram들 리스트에 저장하기
+		let food_Dgram_arr = [];
+		let food_Dgrams = document.getElementsByName("food_weigth[]");
+		
+		if(food_grams[i].value === ''){
+			foodGram_arr.push(food_Dgrams[i].value);
+		}else{
+			foodGram_arr.push(food_grams[i].value);
+			
+		}
+	  	console.log(foodGram_arr[i]);
+		
+    }
+    
+
+	$.ajax({
+	        type:'POST',
+	        url: 'getFoodData2.do',
+	        data: {
+				 	MLDValue: MLDValue,
+					foodGram_arr: foodGram_arr.join(','),
+    				foodName_arr: foodName_arr.join(','),
+	        	},
+	        success: function(response) {
+				console.log('데이터 전송 성공');
+				location.reload();
+	        	},
+	        error: function(xhr, status, error) {
+	            console.error('데이터 전송 실패: ' + error);
+				location.reload();
+	        	}
+			});
+}	
 
 //************************************************* */
 // 선택이미지 미리보기-- flask에서 분석완료된 사진을 넘겨받은후 집어넣기

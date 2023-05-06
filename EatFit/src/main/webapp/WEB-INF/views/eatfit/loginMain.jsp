@@ -162,45 +162,61 @@
     <h5>오늘 식단의 영양성분을 알려드릴게요!</h5>
   </div>
 
-  <!-- 만들어져야하는 카드 -->
+ <!-- 만들어져야하는 카드 -->
   <!-- jstl if문 사용하기 
       만약 DB에 해당 날짜에 데이터가 있다면 카드보여주기 / 없다면 "기록된 식단이 없습니다." 출력 -->
-  <section class="container content-center">
-    <div class="card mt-3">
-      <div class="row p-2 meal-card">
-        <div class="col-5 text-start ps-3 pt-0 item-center">
-          먹은 시간<span>00:00</span>
-        </div>
-        <div class="col-3 text-start p-0">
-          <span id="time">아침</span>
-        </div>
-        <div class="col-4 only-center ps-5" style="display: none !important;">
-          <span class="fs20">0</span><span class="fs20">g</span>
-        </div>
-        <div class="content-center today-meal-img">
-          <!-- 변경시킬 이미지 -->
-          <img src="resources/images/Eat-fit_default.png" class="rounded-start main-image img-fluid border" onclick="mainImg()" alt="#">
-        </div>
-      </div>
+  <c:choose>
+    <c:when test="${not empty uploadContent}">
+	<c:forEach items="${uploadContent}" var="upload">
+  		  <section class="container content-center">
+		    <div class="card mt-3">
+		      <div class="row p-2 meal-card">
+		        <div class="col-4 text-start ps-3 pt-0 item-center">${upload.REQ_DATE}
+		        </div>
 
-      <div class="row nutrient-info item-center mt-0 mb-2">
-        <div class="col-6 text-start ps-4 pe-0">
-          <span class="carbohydrate">탄</span>
-          <span class="gram-font">0</span>g
-          <span class="protein">단</span>
-          <span class="gram-font">0</span>g
-          <span class="lipid">지</span>
-          <span class="gram-font">0</span>g
-      </div>
-      <div class="col-3 p-0">
-        <span class="content-center kcal-font"><span>0</span>kcal</span>
-      </div>
-        <div class="col-3 ps-0 content-center">
-        <button class="btn btn-success ht35" id="modal-btn">수정</button>
-      </div>
-      </div>
-    </div>
-  </section>
+		        <div class="col-4 text-center p-0">
+		        <span id="time">${upload.MLD}</span>
+		          
+		        </div>
+		        <div class="col-4 only-center ps-5">
+		          <span class="fs20">${upload.FOOD_WEIGTH}</span><span class="fs20">g</span>
+		        </div>
+		        <div class="content-center today-meal-img">
+		          <!-- 변경시킬 이미지 -->
+		          <img src="resources/images/origin/${upload.FOOD_IMG}" class="rounded-start main-image img-fluid border" alt="#">
+		        </div>
+		      </div>
+		
+		      <div class="row nutrient-info item-center mt-0 mb-2">
+		      
+		        <div class="col-7 text-start ps-4 pe-0">
+		          <span class="carbohydrate">탄</span>
+		          <span class="gram-font">${upload.FOOD_CRB}</span>g
+		          <span class="protein">단</span>
+		          <span class="gram-font">${upload.FOOD_PROTEIN}</span>g
+		          <span class="lipid">지</span>
+		          <span class="gram-font">${upload.FOOD_FAT}</span>g
+		      </div>
+		      <div class="col-3 p-0">
+		        <span class=" content-center kcal-font"><span>${upload.FOOD_CALORIE}</span>kcal</span>
+		      </div>
+		        <div class="col-2 ps-0 content-center">
+		        <button class="btn btn-success ht35" id="modal-btn">수정</button>
+		      </div>
+		      </div>
+		    </div>
+		  </section>
+  	</c:forEach>
+  </c:when>
+    <c:otherwise>
+        <!-- 데이터가 없는 경우 메시지 출력 -->
+        <div class="container text-center">
+        	<p></p>
+            <p>· 기록된 식단이 없습니다.</p>
+        </div>
+    </c:otherwise>
+</c:choose>
+
 
 
 
@@ -219,30 +235,64 @@
           <input type="file" name="photoFile" id="photoFile" accept="image/*" capture="camera" style="display:none;">
         <img class="img-fluid w-100 ccc" id="photoImg" src="./resources/images/Eat-fit_default.png" alt="" onclick="mainCameraImg()">
         </div>
-        <div class="container mc-display">
-        <div class="mt-3 text-center">
-        <div class="fw-bold mt-4 fs-18">중량을 따로 입력하시고 싶다면 입력해주세요!</div>
-        <div class="mt-2 fs-14">입력하지 않으면 일일 제공량으로 영양성분을 제공합니다</div>
-        <div class="row mt-4">
-          <div class="col-3 only-center fw-bold p-0 fs-18">중량 입력1:</div>
-        <div class="col-8 px-0">
-          <input type="number" class="w-100" placeholder="ex)500" name="gram" id="gram" autocomplete="off" max="5000" min="1" oninput="validity.valid||(value='');" style="border-bottom: 2px solid #aaaaaa;">
-        </div>
-          <div class="col-1 text-start p-0 only-center">
-          <span class="cm-kg p-0">g</span>
-        </div>
-      </div>
-      
-     
-</div>    
-        <div class="only-center">
-        <button type="button" class="btn btn-warning mt-4" style="width:80%">확인완료!</button>
+					<div class="container mc-display">
+						<div class="mt-3 text-center">
+							<div class="text-center MLD-title-div">
+								<span id="MLD-title">식사 종류를 선택해 주세요!</span>
+							</div>
+							<div class="container MLD-body">
+								<div class="row mx-auto">
+									<div class="col-4 MLD-text">
+										<input type="checkbox" class="btn-check bmd-check"
+											id="morning" autocomplete="off" name="MLD" value="M">
+										<label class="btn my-btn only-center M-bc" for="morning"><span
+											class="activity-title">아침</span></label>
+									</div>
+
+									<div class="col-4 MLD-text">
+										<input type="checkbox" class="btn-check bmd-check" id="lunch"
+											autocomplete="off" name="MLD" value="L"> <label
+											class="btn my-btn only-center L-bc" for="lunch"><span
+											class="activity-title">점심</span></label>
+									</div>
+
+									<div class="col-4 MLD-text">
+										<input type="checkbox" class="btn-check bmd-check" id="dinner"
+											autocomplete="off" name="MLD" value="D"> <label
+											class="btn my-btn only-center D-bc" for="dinner"><span
+											class="activity-title">저녁</span></label>
+									</div>
+								</div>
+							</div>
+						<div class="fw-bold mt-4 fs-18">중량을 따로 입력하시고 싶다면 입력해주세요!</div>
+						<div class="mt-2 fs-14">입력하지 않으면 일일 제공량으로 영양성분을 제공합니다</div>
+						<div class="row mt-4">
+							<c:forEach var="food_names" items="${food_names}">
+										<div class="col-7 only-center fw-bold p-0 line-height-10" style="font-size: 18px;">${food_names} 중량 입력 : </div>
+										<div class="col-4 px-0 line-height-10">
+											<input type="hidden" name="food_name[]" value="${food_names}">
+											<input type="number" class="w-100" placeholder="ex)200" name="gram[]" id="gram" autocomplete="off" max="5000" min="1" oninput="validity.valid||(value='');" style="border-bottom: 2px solid #aaaaaa;">
+										</div>
+										<div class="col-1 text-start p-0 only-center line-height-10">
+											<span class="cm-kg p-0">g</span>
+										</div>
+									</c:forEach>
+									<c:forEach var="food_weigth_arr" items="${food_weigth_arr}">
+										<input type="hidden" name="food_weigth[]" value="${food_weigth_arr}">	
+									</c:forEach>
+						</div>
+
+
+					</div>
+					<div class="only-center">
+       <button type="button" class="btn btn-warning mt-4"style="width: 80%" onclick="final_submit()">확인완료!</button>
       </div>
       </div>
     </div>
   </div>
 </div>
 </div>
+
 
 <div class="modal fade" id="diet-input-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="diet-input-modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -266,7 +316,7 @@
         <div class="fw-bold mt-4" style="font-size: 18px;">중량을 따로 입력하시고 싶다면 입력해주세요!</div>
         <div class="mt-2 fs-14">입력하지 않으면 일일 제공량으로 영양성분을 제공합니다</div>
         <div class="row mt-4">
-          <div class="col-3 only-center fw-bold p-0" style="font-size:18px;">중량 입력1:</div>
+          <div class="col-3 only-center fw-bold p-0" style="font-size:18px;">중량 입력:</div>
         <div class="col-8 px-0">
           <input type="number" class="w-100" placeholder="ex)500" name="gram" id="gram" autocomplete="off" max="5000" min="1" oninput="validity.valid||(value='');" style="border-bottom: 2px solid #aaaaaa;">
         </div>
