@@ -266,12 +266,11 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
   border:2px solid #1f8648;
 }
 #mv{
-    margin-top: 35px;
+    margin-top: 50px;
 }
 #mv img{
-    width: 108%;
-    height: 100%;
-    margin-left: -13px;
+    width: 100%;
+    
 }
 
 .main-text{

@@ -55,12 +55,9 @@
 
   <!-- 메인 사진 -->
   <section id="mv">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 only-center"><img class="img-fluid" src="resources/images/mv.jpg" alt=""></div>
-      </div>
-    </div>
+        <img src="./resources/images/mv1.png" alt="">
   </section>
+
 
   <!-- 식단 업로드 섹션 -->
   <section>
