@@ -1680,3 +1680,192 @@ span img{
   0%   { width: 5%; background-color: #F9BCCA;}
   /* 100% { width: 85%; background-color: #EF476F; } */
 }
+
+
+
+
+
+
+/*------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------*/
+/*----------------------------------- 관리자 페이지-------------------------------------------- */
+/*------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------*/
+
+/* 대시보드 */
+.admin-header{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    z-index: 999;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.left-nav{
+    position: absolute;
+    width: 10%;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    text-align: center;
+}
+.admin-header>span:first-child{
+    flex-basis: 90%;
+    color: #1f8648;
+    font-family: "THE JAMSIL 5";
+    font-style: italic;
+    font-size:33px;
+    box-sizing:inherit;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.admin-header img{
+    flex-basis: 3%;
+    height: 55px;
+}.admin-header>span{
+    flex-basis: 7%;
+    font-family: "NanumSquare";
+    font-size:20px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+.left-nav ul {
+    margin-top: 120px;
+}
+.left-nav a{
+    text-decoration: none;
+    color: black;
+}
+
+.left-nav li{
+    font-family: "NanumSquare";
+    font-size:20px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.all-dash-board{
+    box-sizing: border-box;
+    width: 90%;
+    height: 100vh;
+    right: 0;
+    position: absolute;
+    background-color: #eee;
+
+}
+.board-con {
+    width: 95%;
+    height: 88%;
+    margin-top: 100px;
+    box-sizing: border-box;
+    position: absolute;
+}
+.board-wrap {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 30px;
+    column-gap: 20px;
+}
+.dash-borad-content{
+    width: 50;
+    border: 1px solid plum;
+}
+.board-wrap div {
+    margin-left: 45px;
+    display: block;
+    width: 500px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+.board-wrap div span{
+    font-family: "NanumSquare";
+    font-size:17px;
+    font-weight: 900;
+}
+
+
+/* 사용자 관리 페이지*/
+.all-user-box{
+    box-sizing: border-box;
+    width: 90%;
+    height:91.7vh;
+    right: 0;
+    position: absolute;
+    background-color: #eee;
+    margin-top: 80px;
+}
+.all-white-box{
+    width: 96%;
+    height: 93%;
+    position: inherit;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 30px;
+}
+.user-list-text{
+    margin-top: 30px;
+    margin-left: 50px;
+    font-family: "NanumSquare";
+    font-size:20px;
+    font-weight: 900;
+}
+.search-box{
+    padding-right: 30px;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 50px;
+}
+.search-box span{
+    font-family: "NanumSquare";
+    font-size:17px;
+    font-weight: 700;
+}
+.search-box input{
+    border: 1px solid #777;
+    border-radius: 4px;
+    margin-left: 10px;
+    margin-right: 5px;
+    width: 250px;
+    height: 35px;
+    box-sizing: border-box;
+}
+.search-box input:last-child{
+    border: 1px solid #777;
+    width: 50px;
+    font-family: "Noto Sans KR";
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.table-parent{
+    display: flex;
+    text-align: center;
+}
+.user-table{
+    border: 2px solid #777;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-left: 50px;
+    width: 93%;
+}
+.user-table td{
+    border: 1px solid #eee;
+    padding: 10px;
+    font-family: "NanumSquare";
+    font-size:17px;
+    font-weight: 00;
+}
+.bold {
+    font-weight: 800;
+}
