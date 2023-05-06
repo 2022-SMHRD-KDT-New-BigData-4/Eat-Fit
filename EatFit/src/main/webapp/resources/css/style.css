@@ -458,7 +458,7 @@ font-weight: 600;
 
   .roBack{
       height: 200px;
-      background-image: url("/image/back2.png");
+      background-image: url("./resources/images/back2.png");
       background-repeat: no-repeat;
       background-position: center;
     }

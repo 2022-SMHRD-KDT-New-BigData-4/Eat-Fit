@@ -182,7 +182,7 @@
         </div>
         <div class="content-center today-meal-img">
           <!-- 변경시킬 이미지 -->
-          <img src="resources/images/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">
+          <img src="resources/images/Eat-fit_default.png" class="rounded-start main-image img-fluid border" onclick="mainImg()" alt="#">
         </div>
       </div>
 

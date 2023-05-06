@@ -275,3 +275,60 @@ $(document).ready(function(){
   // The second paramter is the speed between each letter is typed.   
   autoType(".type-js",100);
 });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//                메인 음식별 탄단지+중량 - 0506              
+/////////////////////////////////////////////////////////////////////////////////////////
+const mainFoodModal = `
+<div class="modal" tabindex="-1" id="mainFoodModal">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content shadow" style="border: 3px solid green;">
+    <div class="modal-body row">
+    <div class="col-11 text-center fw-bold ps-5 pe-0 mb-4" style="font-size:20px;">
+    분석된 음식별로 중량을 확인하세요!
+    </div>
+
+    <div class="col-1 text-end p-0 pe-2 pb-3">
+    <button type="button" class="btn-close" id="food-modal-btn-close"></button>
+    </div>
+    <table class="table table-bordered border-primary text-center">
+    <thead>
+      <tr class="fs-18">
+        
+        <th scope="col">이름</th>
+        <th scope="col">탄수화물</th>
+        <th scope="col">단백질</th>
+        <th scope="col">지방</th>
+        <th scope="col">중량</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="font-size:16px;">
+        <td class="fw-bold">음식이름</td>
+        <td class="text-warning">탄</td>
+        <td class="text-primary">단</td>
+        <td class="text-danger">지</td>
+        <td class="text-success">중</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>
+</div>
+`;
+$("body").append(mainFoodModal);
+let foodModal = $("#mainFoodModal");
+let mainFoodModalClose = $("#food-modal-btn-close");
+function mainImg(){
+  console.log("클릭");
+  $('#mainFoodModal').modal('show');
+}
+mainFoodModalClose.on("click", function() {
+  console.log("메인음식모달닫기클릭");
+  $('#mainFoodModal').modal('hide');
+  });
+  
+
+
