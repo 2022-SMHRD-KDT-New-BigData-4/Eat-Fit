@@ -11,11 +11,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eatfit.entity.Diary;
 import com.eatfit.entity.Food;
 import com.eatfit.entity.MSB;
 import com.eatfit.entity.Member;
+import com.eatfit.entity.SearchDiary;
 import com.eatfit.mapper.EatFitMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class JoinController {
@@ -195,9 +201,47 @@ public class JoinController {
 	}
 	
 	// 식단기록일지 페이지
-	@GetMapping("/foodDiary.do")
-	public String foodDiary() {
+	@RequestMapping("/foodDiary.do")
+	public String foodDiary(HttpServletRequest request, Model model) {
+		// 회원 아이디 가져오기
+		HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    
+	    // 식단기록장 기록 날짜 조회하기
+	    List<Integer> diary = mapper.foodDiary(mvo.getMEM_ID());
+	    
+	    model.addAttribute("mvo", mvo);
+	    model.addAttribute("diary", diary);
+	    
 		return "foodDiary";
+	}
+	
+	// 식단기록일지 선택날짜 정보가져오기
+	@RequestMapping(value = "/searchDiary.do", method = RequestMethod.POST, produces = "application/json")
+	@ResponseBody
+	public String searchDiary(HttpServletRequest request, String req_date) {
+		HttpSession session = request.getSession();
+	    Member mvo = (Member) session.getAttribute("mvo");
+	    
+	    // 객체 생성
+	    Diary diary = new Diary(mvo.getMEM_ID(), req_date);
+	    
+	    // 특정 날짜의 식단기록 조회
+	    List<SearchDiary> diary_list = mapper.searchDiary(diary);
+	    
+	    //model.addAttribute("diary_list", diary_list);
+	    // List<SearchDiary>를 JSON 문자열로 변환
+	    ObjectMapper mapper = new ObjectMapper();
+	    String json = null;
+	    try {
+	        json = mapper.writeValueAsString(diary_list);
+	    } catch (JsonProcessingException e) {
+	        // 예외 처리
+	        e.printStackTrace();
+	    }
+
+	    // JSON 응답
+	    return json;
 	}
 	
 	// 홈화면

@@ -39,24 +39,122 @@ $(document).ready(function() {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//                          식자재보관함 삭제 함수 - 0425                                                      
+//              ChatGPT - 0501                                         
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+$('#gpt-btn').click(function() {
+	let gpt_food = food.toString();
+	let gpt_query = gpt_food + " 사용하는 음식레시피 추천해줘"
+
+	$.ajax({
+		url:"http://localhost:5002/gpt",
+		method:"POST",
+		data:{'query':gpt_query},
+		success: function(response) {
+			// GPT답변 보여주기
+			$('#gptTextarea').val(response);
+			document.getElementById("gptTextarea").style.display = "block";
+        },
+		// 통신전에 로딩화면 보여주기
+        beforeSend: function () {
+			var width = 0;
+			var height = 0;
+			var left = 0;
+			var top = 0;
+				width = 100;
+				height = 100;
+              	top = ( $(window).height() - height ) / 2 + $(window).scrollTop();
+              	left = ( $(window).width() - width ) / 2 + $(window).scrollLeft();
+			if($("#div_ajax_load_image").length != 0) {
+				$("#div_ajax_load_image").css({
+					"top": top+"px",
+					"left": left+"px"
+                });
+				$("#div_ajax_load_image").show();
+			}else {
+				$('body').append('<div id="div_ajax_load_image" style="position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; background:none; filter:alpha(opacity=50); opacity:alpha*0.5; margin:auto; padding:0; "><img src="resources/images/loading4.gif" style="width:100px; height:100px;"></div>');
+            }
+       	},
+		// 통신이 끝나면 로딩화면 숨김
+       complete: function () {
+			$("#div_ajax_load_image").hide();
+       }
+	})
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//                          식자재보관함 식자재 추가 함수 - 0502                                                      
+/////////////////////////////////////////////////////////////////////////////////////////
+$('#addMSB-btn').click(function() {
+	let add_food = $('#recipient-name').val();
+	
+	$.ajax({
+		url:"addMSB.do",
+		method:"POST",
+		data:{'add_food':add_food},
+		datatype:"number",
+		success: function(resposne){
+			location.reload();
+			/*$('#exampleModal').modal('hide');  // 원래의 모달 창 닫기
+			$('#successModal').modal('show');  // 성공 모달 창 보여주기
+			$('#successModal').on('hidden.bs.modal', function() {
+				location.reload();  // 확인 버튼을 누르면 새로고침하기	
+			});*/
+		},
+		error: function(response){
+			location.reload();
+			/*$('#exampleModal').modal('hide');  // 원래의 모달 창 닫기
+			$('#successModal').modal('show');  // 성공 모달 창 보여주기
+			$('#successModal').on('hidden.bs.modal', function() {
+				location.reload();  // 확인 버튼을 누르면 새로고침하기	
+			});*/
+		}
+	})
+})
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//                          식자재보관함 삭제 함수 - 0425 -> 0503 김준혁 수정                                                   
 /////////////////////////////////////////////////////////////////////////////////////////
 
   let text="";
+  let seq=0;
   // const foodText =`${text}`;
 
   $('.span-close').click(function() {
     console.log("닫기클릭");
     text=$(this).closest('.position-relative').find('button').text()
+	seq=$(this).closest('.position-relative').find('button').val()
     $(".food-text").text(text+"를(을) 보관함에서 삭제할까요?");
-    console.log(text)
+    console.log(text);
+	console.log(seq);
   });
 
   $('.del-btn-check').click(function() {
     console.log("모달삭제버튼클릭");
     console.log(text)
-    // 이후에 디비 갔다와서 삭제하는 코드 작성 0425 미완
+	console.log(seq);
+	
+	// 이후에 디비 갔다와서 삭제하는 코드 작성 0425 미완 -> 0503 김준혁 수정
+	$.ajax({
+		url:"deleteMSB.do",
+		method:"POST",
+		data:{'delete_seq':seq},
+		datatype:"number",
+		success: function(resposne){
+			console.log("통신성공")
+			location.reload();
+		},
+		error: function(response){
+			console.log("통신에라")
+			location.reload();
+		}
+	})	
   });
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

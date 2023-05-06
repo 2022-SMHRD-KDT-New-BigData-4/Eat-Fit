@@ -52,4 +52,26 @@
 		delete from member_msb where mem_id = #{MEM_ID} and food_seq = #{FOOD_SEQ} 
 	</delete>
 	
+	
+	<!-- 식단기록장 정보 가져오기 -->
+	<select id="foodDiary" parameterType="java.lang.String" resultType="Integer">
+		SELECT TO_NUMBER(SUBSTR(REQ_DATE, 9, 2))
+ 		  FROM MEMBER_DR 
+		 WHERE MEM_ID = #{MEM_ID} AND  SUBSTR(REQ_DATE, 6, 2) = SUBSTR(TO_CHAR(SYSDATE, 'YYYY-MM-DD'), 6, 2)
+		 GROUP BY SUBSTR(REQ_DATE, 9, 2)
+	</select>
+	
+	
+	<!-- 특정날짜 사용자 식단기록 가져오기 -->
+	<select id="searchDiary" parameterType="com.eatfit.entity.Diary" resultType="com.eatfit.entity.SearchDiary">
+		SELECT A.FOOD_NAME,SUBSTR(B.REQ_DATE, 12, 5) AS REQ_DATE, B.MLD, B.FOOD_IMG,
+      		   TRUNC(A.FOOD_CALORIE*(B.FOOD_WEIGTH/A.FOOD_WEIGTH)) AS FOOD_CALORIE,
+      		   TRUNC(A.FOOD_CRB*(B.FOOD_WEIGTH/A.FOOD_WEIGTH)) AS FOOD_CRB,
+       		   TRUNC(A.FOOD_PROTEIN*(B.FOOD_WEIGTH/A.FOOD_WEIGTH)) AS FOOD_PROTEIN,
+       		   TRUNC(A.FOOD_FAT*(B.FOOD_WEIGTH/A.FOOD_WEIGTH)) AS FOOD_FAT
+  		  FROM FOOD_INFO A INNER JOIN (SELECT * FROM MEMBER_DR WHERE MEM_ID = #{MEM_ID} AND REQ_DATE LIKE (#{REQ_DATE}||'%')) B
+    	    ON A.FOOD_SEQ = B.FOOD_SEQ
+	</select>
+	
+		
 </mapper>

@@ -22,6 +22,10 @@
 </head>
 
 <body>
+     <script type="text/javascript">
+      // diary 변수에 세션에서 불러온 diary 정보 할당
+      var diary = ${diary};
+    </script>
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////
                            1 - NAV BAR  
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -29,7 +33,7 @@
   <div class="container mt-2 mb-2">
     <div class="row">
       <div class="col-3 d-flex align-items-center ">
-    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back3.png" alt=""></a></div>
+    <div class="navbar-brand back"><a href="loginMain.do"><img src="resources/images/back3.png" alt=""></a></div>
   </div>
   <div class="col-6 d-flex justify-content-center align-items-center">
     <span class="m-0 logo">Eat-Fit</span>
@@ -39,7 +43,7 @@
         <div class="dropdown">
           <img src="resources/images/profile.png" data-bs-toggle="dropdown">
           <ul class="dropdown-menu shadow profile-drop">
-            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID} 님</li>
+            <li class=" mb-1 fw-bold text-center">${mvo.MEM_ID}</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
             <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
@@ -89,49 +93,15 @@
     </div>
 
   </section>
+  
+  <!-- 선택한 날짜에 먹은 음식 보여줄 section -->
   <section class="container">
     <div class="row">
       <div class="col-1">
         <div class=" grayline3 p-1 mt-3"></div>
       </div>
-      <div class="col-11 ps-0">
-        <section class="container content-center">
-          <div class="card mt-4">
-            <div class="row p-2 meal-card">
-              <div class="col-5 text-start ps-3 pt-0 item-center">
-                <span>00:00</span>
-              </div>
-              <div class="col-3 text-start p-0">
-                <span id="time">아침</span>
-              </div>
-              <div class="col-4 only-center ps-5" style="display: none !important;">
-                <span class="fs20">0</span><span class="fs20">g</span>
-              </div>
-              <div class="content-center today-meal-img">
-                <!-- 변경시킬 이미지 -->
-                <img src="/image/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">
-              </div>
-            </div>
-      
-            <div class="row nutrient-info item-center mt-1 mb-2">
-              <div class="col-6 text-start ps-4 pe-0">
-                <span class="carbohydrate">탄</span>
-                <span class="gram-font">0</span>g
-                <span class="protein">단</span>
-                <span class="gram-font">0</span>g
-                <span class="lipid">지</span>
-                <span class="gram-font">0</span>g
-            </div>
-            <div class="col-1 ps-0 content-center">
-            </div>
-            <div class="col-5 p-0">
-              <span class="content-center kcal-font"><span>0</span>kcal</span>
-            </div>
-            
-            </div>
-          </div>
-        </section>
-      </div>
+      <!-- 그날의 먹은 음식에 따라 생성될 section -->
+      <div id="diary-list" class="col-11 ps-0"></div>
     </div>
   </section>
 
