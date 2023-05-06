@@ -77,12 +77,12 @@
     </div>
 
   </section>
-  <!-- 사용자 영양분 대시보드 -->
+    <!-- 사용자 영양분 대시보드 -->
     <section>
     <div class="container">
         <div class="row p-3 m-1 border rounded">
           <div class="nutrient-bar-title">
-            <h1>유열님의 오늘의 영양분</h1>
+            <h1>${mvo.MEM_NICK}님의 오늘의 영양분</h1>
           </div>
           <div class="col-8 p-0">
             <div class="row">
@@ -95,7 +95,7 @@
                   <div class="progress-all progress-bar1" style="width:20%">
                   </div>       
                 </div>
-                <span class="nutrient-bar-text">50/100</span>
+                <span class="nutrient-bar-text">${getNTSum.FOOD_CRB}/${mvo.MEM_CRB}</span>
             </div>
             <div class="col-3 p-0 only-center nutrient" style="display:block;">
               <span class="p-0 m-0 fw-bold mb-2">단백질</span>
@@ -106,7 +106,7 @@
                 <div class="progress-all progress-bar2" style="width:50%">
                 </div>       
               </div>
-              <span class="nutrient-bar-text">50/100</span>
+              <span class="nutrient-bar-text">${getNTSum.FOOD_PROTEIN}/${mvo.MEM_PROTEIN}</span>
           </div>
           <div class="col-3 p-0 only-center nutrient" style="display:block;">
             <span class="p-0 m-0 fw-bold">지방</span>
@@ -118,7 +118,7 @@
               <div class="progress-all progress-bar3" style="width:75%">
               </div>       
             </div>
-            <span class="nutrient-bar-text">50/100</span>
+            <span class="nutrient-bar-text">${getNTSum.FOOD_FAT}/${mvo.MEM_FAT}</span>
         </div>
       </div>
       </div>
@@ -131,21 +131,21 @@
       <stop offset="0%" stop-color="#4CC790"/>
       <stop offset="100%" stop-color="#318760"/>
     </linearGradient>
-  </defs>
-  <path class="circle-bg"
-    d="M18 2.0845
-      a 15.9155 15.9155 0 0 1 0 31.831
-      a 15.9155 15.9155 0 0 1 0 -31.831"
-  />
-  <path class="circle"
-    stroke-dasharray="";
-    d="M18 2.0845
-      a 15.9155 15.9155 0 0 1 0 31.831
-      a 15.9155 15.9155 0 0 1 0 -31.831"
-    style="stroke: url(#gradient);"
-  />
-  <text x="18" y="20.35" class="percentage" style="font-size:6px;">1500Kcal</text>
-</svg>
+		  </defs>
+		  <path class="circle-bg"
+		    d="M18 2.0845
+		      a 15.9155 15.9155 0 0 1 0 31.831
+		      a 15.9155 15.9155 0 0 1 0 -31.831"
+		  />
+		  <path class="circle"
+		    stroke-dasharray="";
+		    d="M18 2.0845
+		      a 15.9155 15.9155 0 0 1 0 31.831
+		      a 15.9155 15.9155 0 0 1 0 -31.831"
+		    style="stroke: url(#gradient);"
+		  />
+		  <text x="18" y="20.35" class="percentage" style="font-size:6px;">${mvo.MEM_CALORIE}Kcal</text>
+		</svg>
               </div>
              <!-- 원형프로그래스 끝-->
           </div>

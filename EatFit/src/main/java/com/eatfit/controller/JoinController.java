@@ -138,86 +138,37 @@ public class JoinController {
 		Member mvo = (Member) session.getAttribute("mvo");
 		String mem_id = mvo.getMEM_ID();
 		System.out.println(mem_id);
-		// 업로드 select
+
+		// 로그인 메인페이지 사용자 대시보드 섭취하고 난 뒤 영양정보 가져오기
+		// 사용자 대시보드에 보여줄 섭취한 칼로리 가져오기
+
+		// 업로드 정보 select
 		List<Upload> uploadContent = mapper.upload(mem_id);
-		// System.out.println(uploadContent);
-		// System.out.println("uploadContent : " + uploadContent.get(0).getFOOD_CRB());
-		// System.out.println("uploadContent : " + uploadContent.get(1).getFOOD_CRB());
+		Upload getNTSum = mapper.getNTSum(mem_id);
 
 		// 시간만 빼내기
 		String moveURL = null;
 
 		if (uploadContent.isEmpty()) {
+			// 섭취 칼로리 0
+			session.setAttribute("getNTSum", "0");
 			moveURL = "loginMain";
 		} else {
+			// System.out.println(uploadContent);
 
 			for (int i = 0; i < uploadContent.size(); i++) {
-
-				String req_time = uploadContent.get(i).getREQ_DATE().substring(11, 16); // 17:02
-				uploadContent.get(i).setREQ_DATE(req_time);
-				// System.out.println(uploadContent.get(i).getREQ_DATE());
-
 				// 아침, 점심, 저녁으로 바꾸기
-				if (uploadContent.get(i).getMLD() == "M") {
+				if (uploadContent.get(i).getMLD().equals("M")) {
 					uploadContent.get(i).setMLD("아침");
-				} else if (uploadContent.get(i).getMLD() == "L") {
+				} else if (uploadContent.get(i).getMLD().equals("L")) {
 					uploadContent.get(i).setMLD("점심");
-				} else {
+				} else if (uploadContent.get(i).getMLD().equals("D")) {
 					uploadContent.get(i).setMLD("저녁");
 				}
-				// System.out.println(uploadContent.get(i).getMLD());
 			}
-			// 중량, 칼로리, 탄단지 더해서 저장하기
-			double plus_weigth = 0;
-			double plus_cal = 0;
-			double plus_CRB = 0;
-			double plus_protein = 0;
-			double plus_fat = 0;
-
-			for (int i = 0; i < uploadContent.size(); i++) {
-				// 중량
-				double food_weigth = uploadContent.get(i).getFOOD_WEIGTH();
-				plus_weigth += food_weigth;
-
-				// 칼로리
-				double food_cal = uploadContent.get(i).getFOOD_CALORIE();
-				plus_cal += food_cal;
-
-				// 탄수화물
-				double food_CRB = uploadContent.get(i).getFOOD_CRB();
-				plus_CRB += food_CRB;
-
-				// 단백질
-				double food_protein = uploadContent.get(i).getFOOD_PROTEIN();
-				plus_protein += food_protein;
-
-				// 지방
-				double food_fat = uploadContent.get(i).getFOOD_FAT();
-				plus_fat += food_fat;
-			}
-
-			BigDecimal CRB = new BigDecimal(uploadContent.get(0).getFOOD_CRB());
-			CRB = CRB.setScale(1, RoundingMode.HALF_UP);
-			double new_CRB = CRB.doubleValue();
-			uploadContent.get(0).setFOOD_CRB(new_CRB);
-
-			BigDecimal protein = new BigDecimal(uploadContent.get(0).getFOOD_PROTEIN());
-			protein = protein.setScale(1, RoundingMode.HALF_UP);
-			double new_protein = protein.doubleValue();
-			uploadContent.get(0).setFOOD_PROTEIN(new_protein);
-
-			BigDecimal fat = new BigDecimal(uploadContent.get(0).getFOOD_FAT());
-			fat = fat.setScale(1, RoundingMode.HALF_UP);
-			double new_fat = fat.doubleValue();
-			uploadContent.get(0).setFOOD_FAT(new_fat);
-
-			uploadContent.get(0).setFOOD_WEIGTH(plus_weigth);
-			uploadContent.get(0).setFOOD_CALORIE(plus_cal);
-			uploadContent.get(0).setFOOD_PROTEIN(plus_protein);
-
-			List<Upload> uploadList = new ArrayList<>();
-			uploadList.add(uploadContent.get(0));
-			model.addAttribute("uploadContent", uploadList);
+			model.addAttribute("uploadContent", uploadContent);
+			model.addAttribute("getNTSum", getNTSum);
+			// System.out.println(uploadContent);
 
 			moveURL = "loginMain";
 		}
