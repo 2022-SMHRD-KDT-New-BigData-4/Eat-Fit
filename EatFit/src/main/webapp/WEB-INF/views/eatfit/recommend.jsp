@@ -22,14 +22,34 @@
 </head>
 
 <body>
-  <!--header-->
-  <nav class="navbar navbar-expand-lg navbar-dark menu shadow fixed-top bg-white p-0">
-    <div class="container pe-0">
-      <div class="navbar-brand back"><a href="#"><img src="resources/images/back.png" alt=""></a></div>
-      <h1 class="m-0"><a class="logo m-0" href="#">Eat-Fit</a></h1>
-      <div class="navbar-brand profile"><a href="#"><img src="resources/images/profile.png" alt=""></a></div>
+  <!-- ///////////////////////////////////////////////////////////////////////////////////////////
+                           1 - NAV BAR  
+///////////////////////////////////////////////////////////////////////////////////////////////-->
+<nav class="shadow fixed-top mb-2 bg-white ht-59 scroll-hidden">
+  <div class="container mt-2 mb-2">
+    <div class="row">
+      <div class="col-3 d-flex align-items-center ">
+    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back3.png" alt=""></a></div>
+  </div>
+  <div class="col-6 d-flex justify-content-center align-items-center">
+    <span class="m-0 logo">Eat-Fit</span>
+  </div>
+    <div class="col-3 text-end">
+      <div class="navbar-brand profile">
+        <div class="dropdown">
+          <img src="resources/images/profile.png" data-bs-toggle="dropdown">
+          <ul class="dropdown-menu shadow profile-drop">
+            <li class=" mb-1 fw-bold text-center"> ${mvo.MEM_ID} 님</li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-start mt-2 mb-2" href="modify.do">- 회원정보 수정</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </nav>
+  </div>
+  </div>
+</nav>
   
   <section class="container text-center p-2 pb-0 mb-5 recommand-text">
     <span class="m-0 fw-bold">Eat-Fit 추천 식단</span>
@@ -87,13 +107,13 @@
 
   <div style="height:70px;"></div>
   <!-- footer -->
-  <footer class="container-fluid main-footer bg-white">
+  <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center b-nav-1" href="food.do">식자재 보관함</a>
+    <a class="col-4 m-0 only-center b-nav-1" href="${cpath}/food.do">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center b-nav-2" href="loginMain.do">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center b-nav-2" href="${cpath}/loginMain.do">오늘의 잇-핏</a>
   
-    <a class="col-4 m-0 only-center b-nav-3" href="foodDiary.do">식단 기록일지</a>
+    <a class="col-4 m-0 only-center b-nav-3" href="${cpath}/foodDiary.do">식단 기록일지</a>
   
   </div>
   </footer>

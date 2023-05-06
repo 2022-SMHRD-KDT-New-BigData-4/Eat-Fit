@@ -26,11 +26,11 @@
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////
                            1 - NAV BAR  
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
-<nav class="shadow fixed-top mb-2 bg-white">
+<nav class="shadow fixed-top mb-2 bg-white ht-59">
   <div class="container mt-2 mb-2">
     <div class="row">
       <div class="col-3 ">
-    <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back.png" alt=""></a></div>
+    <div class="navbar-brand back"><a href="${cpath}/eatfit.do"><img src="resources/images/back3.png" alt=""></a></div>
   </div>
   <div class="col-6 only-center">
     <span class="login-text">회원가입</span>
@@ -45,7 +45,7 @@
 <section class="container">
   <div class="row text-center">
 <h1 class="col-12 join-logo">Eat-Fit</h1>
-<h1 class="col-12 text-muted mb-5">잇-핏만의 건강한 식단 추천서비스를 이용해 보세요!</h1>
+<h1 class="col-12 text-muted mb-5 fs-18">잇-핏만의 건강한 식단 추천서비스를 이용해 보세요!</h1>
 </div>
 </section>
 

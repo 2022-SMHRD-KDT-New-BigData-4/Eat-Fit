@@ -28,12 +28,12 @@
         <div class="row">
       <h1 class="navbar-bran logo m-0 color-green">Eat-Fit</h1>
     </div>
-    <a href="./resourse/join.do" class="me-4 join-btn">회원가입</a>
+    <a href="${cpath}/join.do" class="me-4 join-btn">회원가입</a>
 </div>
   </nav>
   <div id="video_area">
     <video id="bgvid" autoplay muted loop >
-      <source src="/image/video.mov" type="video/mp4">
+      <source src="./resources/images/video.mov" type="video/mp4">
     </video>
   </div>
 
@@ -47,15 +47,16 @@
         <!-- <div class="home-logo ffffff" style="color:white;"> -->
           <!-- <p class="home-logo home-logo-text ffffff" style="color:white;">" Eat, Live, Well "</p> -->
           <div class="type-js headline home-logo">
-            <h1 class="text-js">" Eat, live, well "</h1>
+            <h1 class="text-js">" Eat, Live, Well "</h1>
           </div>
 
         <div class="fw-bold home-sub-title">YOLOv7과 ChatGPT를 활용한 1인가구<br>건강식단 추천 서비스</div>
         <div class="only-center">
-        <a class="join-btn1 only-center shadow d-block w-70"><span class="logo-home-text me-3">잇-핏</span>로그인</a>
+        <a href="${cpath}/login.do" class="join-btn1 only-center shadow d-block w-70"><span class="logo-home-text me-3">잇-핏</span>로그인</a>
     </div>
     <div class="only-center">
-        <a href="/html/HomeKaKao.html" class="join-btn2 only-center shadow d-block w-70 mt-2"><img class="me-2 wh-30" src="/image/kakao.png">카카오 계정으로 로그인</a>
+   <!-- 카카오로그인 아직 -->
+        <a href="${cpath}/HomeKakao.do" class="join-btn2 only-center shadow d-block w-70 mt-2"><img class="me-2 wh-30" src="./resources/images/kakao.png">카카오 계정으로 로그인</a>
     </div>
     </div>
 </div>
@@ -86,24 +87,24 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="10000">
-            <img src="/image/0116.png" class="d-block w-100 h-fit-content" alt="...">
+            <img src="./resources/images/0116.png" class="d-block w-100 h-fit-content" alt="...">
             <div class="carousel-caption d-md-block pt-0">
               <p class="fw-bold carousel-text mb-4">식단분석</p>
               <p class="carousel-sub-text">이미지를 클릭하여 사진촬영 또는 업로드시  잇-핏AI가 사진을 분석하여 영영정보를 제공합니다</p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="/image/0113.png" class="d-block w-100 h-fit-content" alt="...">
+            <img src="./resources/images/0113.png" class="d-block w-100 h-fit-content" alt="...">
             <div class="carousel-caption d-md-block pt-0">
               <p class="fw-bold carousel-text mb-4">chatGPT's 레시피</p>
                 <p class="carousel-sub-text">식자재를 보관함에 추가하여 관리하고, 선택된 식자재를 기반으로 chatGPT에게 추천레시피를 제공받을 수 있습니다</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="/image/0112.png" class="d-block w-100 h-fit-content" alt="...">
+            <img src="./resources/images/0112.png" class="d-block w-100 h-fit-content" alt="...">
             <div class="carousel-caption d-md-block pt-0">
               <p class="fw-bold carousel-text mb-4">맞춤 식단 추천</p>
-                <p class="carousel-sub-text">남은 하루섭취 영양을 계산하여 한끼식사의 영양을 맞추어 최적의 식단을 추천해드립니다! </p>
+                <p class="carousel-sub-text">남은 하루섭취 영양을 계산하여 한끼식사의 영양을 맞추어 최적의 식단을 추천해드립니다</p>
             </div>
           </div>
         </div>

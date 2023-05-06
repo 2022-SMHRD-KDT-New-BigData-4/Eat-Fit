@@ -199,4 +199,12 @@ public class JoinController {
 		return "foodDiary";
 	}
 	
+	// 홈화면
+	@GetMapping("/eatfit.do")
+	public String eatfit() {
+		return "Home";
+	}
+	
+	
+	
 }

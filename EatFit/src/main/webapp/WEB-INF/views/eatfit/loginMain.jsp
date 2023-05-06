@@ -26,15 +26,15 @@
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////
                            1 - NAV BAR  
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
-<nav class="shadow fixed-top mb-2 bg-white ht-59">
+<nav class="shadow fixed-top mb-2 bg-white ht-59 scroll-hidden">
   <div class="container mt-2 mb-2">
     <div class="row">
-      <div class="col-3 d-flex align-items-center ">
-    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back3.png" alt=""></a></div>
-  </div>
-  <div class="col-6 d-flex justify-content-center align-items-center">
+      <div class="col-6 item-center ps-4">
     <span class="m-0 logo">Eat-Fit</span>
   </div>
+      <div class="col-3 d-flex align-items-center ">
+  </div>
+
     <div class="col-3 text-end">
       <div class="navbar-brand profile">
         <div class="dropdown">
@@ -303,8 +303,8 @@
   </footer>
 
 
-  <div class="container rec-btn p-0" id="scroll-hidden">
-    <a href="/html/recommand.html" class="btn btn-warning rec-btn-shadow px-3" id="scroll-hidden">
+  <div class="container rec-btn p-0 scroll-hidden">
+    <a href="${cpath}/recommend.do" class="btn btn-warning rec-btn-shadow px-3">
      <div class="rec-text me-1">식단</div>
      <div class="rec-text me-1">추천</div>
     </button>

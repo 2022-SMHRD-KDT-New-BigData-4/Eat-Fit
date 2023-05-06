@@ -148,11 +148,11 @@ $(document).ready(function() {
 var scrollTimeout;
 $(window).scroll(function() {
   clearTimeout(scrollTimeout);
-  // $('#scroll-hidden').fadeOut();
-  $("#scroll-hidden").css("display", "none");
+  // $('.scroll-hidden').fadeOut();
+  $(".scroll-hidden").css("display", "none");
   scrollTimeout = setTimeout(function() {
-    // $('#scroll-hidden').fadeIn();
-    $("#scroll-hidden").css("display", "block")
+    // $('.scroll-hidden').fadeIn();
+    $(".scroll-hidden").css("display", "block")
   }, 300);
 });
 
