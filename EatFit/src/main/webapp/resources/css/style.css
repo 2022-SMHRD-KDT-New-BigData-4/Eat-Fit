@@ -1096,7 +1096,7 @@ span img{
     
     .sec_cal .cal_wrap .day:nth-child(7n) {
 
-        color:		#e54537;
+        color:      #e54537;
     }
     
     .sec_cal .cal_wrap .day.disable {
@@ -1578,7 +1578,7 @@ span img{
 }
 /* 0504 식자재보관함 */
 #gptTextarea {
-	display:none; 
+   display:none; 
     border: none !important;
     font-size: 16px; 
     padding: 25px;
@@ -1588,11 +1588,11 @@ span img{
 }
 
 #gptTextarea:focus {
-	outline: none;
+   outline: none;
 }
 
 .text-muted {
-	line-height: 1.3rem;
+   line-height: 1.3rem;
 }
 
 /* MLD  0504 */

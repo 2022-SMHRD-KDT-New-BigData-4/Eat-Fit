@@ -15,8 +15,8 @@
   <!-- 부트스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- style.css 연결 -->
-  <link href="resources/css/style.css" rel="stylesheet">
-  <link href="resources/css/style.css" rel="stylesheet">
+  <link href="./resources/css/style.css" rel="stylesheet">
+  <link href="./resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
