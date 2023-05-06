@@ -128,20 +128,27 @@
           <div class="col-4 px-0">
               <!-- 원형프로그래스-->
               <div class="single-chart w-100 ms-2" style="width:100%!important; height:100%!important" >
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                  <path class="circle-bg"
-                    d="M18 2.0845
-                      a 15.9155 15.9155 0 0 1 0 31.831
-                      a 15.9155 15.9155 0 0 1 0 -31.831"
-                  />
-                  <path class="circle"
-                    stroke-dasharray="";
-                    d="M18 2.0845
-                      a 15.9155 15.9155 0 0 1 0 31.831
-                      a 15.9155 15.9155 0 0 1 0 -31.831"
-                  />
-                  <text x="18" y="20.35" class="percentage" style="font-size:6px;">3500Kcal</text>
-                </svg>
+       <svg viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="gradient" gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#4CC790"/>
+      <stop offset="100%" stop-color="#318760"/>
+    </linearGradient>
+  </defs>
+  <path class="circle-bg"
+    d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831"
+  />
+  <path class="circle"
+    stroke-dasharray="";
+    d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831"
+    style="stroke: url(#gradient);"
+  />
+  <text x="18" y="20.35" class="percentage" style="font-size:6px;">1500Kcal</text>
+</svg>
               </div>
              <!-- 원형프로그래스 끝-->
           </div>
