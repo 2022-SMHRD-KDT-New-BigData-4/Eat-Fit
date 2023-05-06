@@ -144,6 +144,7 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
   border-radius: 5px;
   background-color:#ffc107;
   color:white;
+   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
   
 }
 .carbohydrate span {
@@ -156,6 +157,7 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
   border-radius: 5px;
   background-color:#0d6efd;
   color:white;
+   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
 }
 .lipid{
   font-size: 17px;
@@ -163,6 +165,7 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
   border-radius: 5px;
   background-color:#e45d6b;
   color:white;
+   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
 }
 .main-image{
   height:300px;
