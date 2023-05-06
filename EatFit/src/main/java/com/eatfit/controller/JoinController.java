@@ -29,6 +29,7 @@ public class JoinController {
 		return "join";
 	}
 	
+	
 	// 회원가입페이지에서 회원가입 성공여부에 따라 페이지 이동
 	@PostMapping("/join.do")
 	public String join(Member vo) {
