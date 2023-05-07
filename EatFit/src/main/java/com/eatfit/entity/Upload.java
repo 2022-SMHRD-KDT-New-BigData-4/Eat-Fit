@@ -21,4 +21,12 @@ public class Upload {
 	private double FOOD_FAT;
 	private String MLD;
 	
+	public Upload() {
+		// TODO Auto-generated constructor stub
+	}
+	public Upload(String MEM_ID, String MLD) {
+		this.MEM_ID = MEM_ID;
+		this.MLD = MLD;
+	}
+
 }

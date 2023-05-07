@@ -455,55 +455,56 @@ $(document).ready(function(){
 //////////////////////////////////////////////////////////////////////////////////////////
 //                메인 음식별 탄단지+중량 - 0506              
 /////////////////////////////////////////////////////////////////////////////////////////
-const mainFoodModal = `
-<div class="modal" tabindex="-1" id="mainFoodModal">
-<div class="modal-dialog modal-dialog-centered">
-  <div class="modal-content shadow" style="border: 3px solid green;">
-    <div class="modal-body row">
-    <div class="col-11 text-center fw-bold ps-5 pe-0 mb-4" style="font-size:20px;">
-    분석된 음식별로 중량을 확인하세요!
-    </div>
+// 모달을 열기 위한 이벤트 핸들러
 
-    <div class="col-1 text-end p-0 pe-2 pb-3">
-    <button type="button" class="btn-close" id="food-modal-btn-close"></button>
-    </div>
-    <table class="table table-bordered border-primary text-center">
-    <thead>
-      <tr class="fs-18">
-        
-        <th scope="col">이름</th>
-        <th scope="col">탄수화물</th>
-        <th scope="col">단백질</th>
-        <th scope="col">지방</th>
-        <th scope="col">중량</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="font-size:16px;">
-        <td class="fw-bold">음식이름</td>
-        <td class="text-warning">탄</td>
-        <td class="text-primary">단</td>
-        <td class="text-danger">지</td>
-        <td class="text-success">중</td>
-      </tr>
-    </tbody>
-  </table>
-    </div>
-  </div>
-</div>
-</div>
-`;
-$("body").append(mainFoodModal);
-let foodModal = $("#mainFoodModal");
-let mainFoodModalClose = $("#food-modal-btn-close");
-function mainImg(){
-  console.log("클릭");
-  $('#mainFoodModal').modal('show');
+function mainImg(MLD) {
+	//console.log("클릭");
+	$('#mainFoodModal').modal('show');
+
+	if (MLD === "아침") {
+		MLD = "M";
+	} else if (MLD === "점심") {
+		MLD = "L";
+	} else if (MLD === "저녁") {
+		MLD = "D";
+	}
+
+	// AJAX 요청을 통해 데이터 가져오기
+	$.ajax({
+		url: 'getFoodDetailData.do',
+		method: 'POST',
+		data: { 'MLD': MLD },
+		success: function(response) {
+
+			let tableRows = '';
+
+			// 데이터를 기반으로 동적으로 테이블 행 생성
+			for (let i = 0; i < response.length; i++) {
+				var food = response[i];
+				tableRows += '<tr style="font-size:16px;">'
+				tableRows += '<td class="fw-bold">' + food.food_NAME + '</td>'
+				tableRows += '<td class="text-warning">' + food.food_CRB + '</td>'
+				tableRows += '<td class="text-primary">' + food.food_PROTEIN + '</td>'
+				tableRows += '<td class="text-danger">' + food.food_FAT + '</td>'
+				tableRows += '<td class="text-info">' + food.food_WEIGTH + '</td>'
+				tableRows += '<td class="text-success">' + food.food_CALORIE + '</td>'
+				tableRows += '</tr>'
+			};
+			$("tbody").empty();
+			$("tbody").append(tableRows);
+		},
+		error: function() {
+			// 에러 처리
+			console.log('데이터를 가져오는 중에 오류가 발생했습니다.');
+		}
+	});
 }
+
+// 모달 닫기 버튼 클릭 시
+let mainFoodModalClose = $("#food-modal-btn-close");
 mainFoodModalClose.on("click", function() {
-  console.log("메인음식모달닫기클릭");
-  $('#mainFoodModal').modal('hide');
-  });
-  
+	console.log("메인음식모달닫기클릭");
+	$('#mainFoodModal').modal('hide');
+});
 
 

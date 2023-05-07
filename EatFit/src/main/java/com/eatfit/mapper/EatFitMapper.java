@@ -52,4 +52,6 @@ public interface EatFitMapper {
 	// 로그인 메인페이지 사용자 대시보드 섭취하고 난 뒤 영양정보 가져오기
 	public Upload getNTSum(String vo);
 
+	// 상세 영양정보 불러오기 위한 select
+	public List<Upload> getFoodDetailData(Upload foodData);
 }

@@ -184,7 +184,7 @@
 		        </div>
 		        <div class="content-center today-meal-img">
 		          <!-- 변경시킬 이미지 -->
-		          <img src="resources/images/origin/${upload.FOOD_IMG}" class="rounded-start main-image img-fluid border" onclick="mainImg()" alt="#">
+		          <img src="resources/images/origin/${upload.FOOD_IMG}" class="rounded-start main-image img-fluid border" onclick="mainImg('${upload.MLD}')" alt="#">
 		        </div>
 		      </div>
 		
@@ -337,6 +337,43 @@
 </div>
 </div>
   <div style="height:140px;"></div>
+
+
+
+<!-- 업로드된 음식이미지 눌렀을 때 음식 하나하나의 상세 영양정보 확인할 수 있는 모달 -->
+<div class="modal" tabindex="-1" id="mainFoodModal">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content shadow" style="border: 3px solid green;">
+    <div class="modal-body row">
+    <div class="col-11 text-center fw-bold ps-5 pe-0 mb-4" style="font-size:20px;">
+    분석된 음식별로 중량을 확인하세요!
+    </div>
+
+    <div class="col-1 text-end p-0 pe-2 pb-3">
+    <button type="button" class="btn-close" id="food-modal-btn-close"></button>
+    </div>
+    <table class="table table-bordered border-primary text-center">
+    <thead>
+      <tr class="fs-18">
+
+        <th scope="col">이름</th>
+        <th scope="col">탄수화물</th>
+        <th scope="col">단백질</th>
+        <th scope="col">지방</th>
+        <th scope="col">중량</th>
+        <th scope="col">칼로리</th>
+      </tr>
+    </thead>
+	<tbody>
+	
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>
+</div>
+
+
 
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">

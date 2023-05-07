@@ -399,5 +399,33 @@ public class JoinController {
 	public String eatfit() {
 		return "Home";
 	}
+	
+	// 로그인 메인에서 음식 상세정보 가져오기
+	@RequestMapping(value = "/getFoodDetailData.do", method = RequestMethod.POST, produces = "application/json")
+	@ResponseBody
+	public String getFoodDetailData(HttpServletRequest request, String MLD) {
+
+		HttpSession session = request.getSession();
+		Member mvo = (Member) session.getAttribute("mvo");
+
+		// 객체 생성
+		Upload foodData = new Upload(mvo.getMEM_ID(), MLD);
+		// 음식 상세정보 가져오기
+		List<Upload> foodData_arr = mapper.getFoodDetailData(foodData);
+
+		// List<Upload> foodData_arr를 JSON 문자열로 변환
+		ObjectMapper mapper = new ObjectMapper();
+		String json = null;
+		try {
+			json = mapper.writeValueAsString(foodData_arr);
+			// System.out.println(json);
+		} catch (JsonProcessingException e) {
+			// 예외 처리
+			e.printStackTrace();
+		}
+
+		// JSON 응답
+		return json;
+	}
 
 }
