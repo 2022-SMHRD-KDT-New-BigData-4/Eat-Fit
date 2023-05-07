@@ -149,11 +149,22 @@ public class JoinController {
 		// 시간만 빼내기
 		String moveURL = null;
 
-		if (uploadContent.isEmpty()) {
+		if (uploadContent.isEmpty() && getNTSum == null) {
 			// 섭취 칼로리 0
-			session.setAttribute("getNTSum", "0");
+			getNTSum = new Upload();
+			getNTSum.setFOOD_CALORIE(0);
+			getNTSum.setFOOD_CRB(0);
+			getNTSum.setFOOD_PROTEIN(0);
+			getNTSum.setFOOD_FAT(0);
+			System.out.println(getNTSum);
+			System.out.println(uploadContent);
+			
+			model.addAttribute("getNTSum", getNTSum);
+			model.addAttribute("uploadContent", uploadContent);
+			
 			moveURL = "loginMain";
-		} else {
+			
+		}  else {
 			// System.out.println(uploadContent);
 
 			for (int i = 0; i < uploadContent.size(); i++) {
