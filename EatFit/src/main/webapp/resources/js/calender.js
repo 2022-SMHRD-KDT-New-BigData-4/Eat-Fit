@@ -73,13 +73,22 @@ function calendarInit() {
           calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable">' + i + '</div>'
       }
       // 이번달
-      for (var i = 1; i <= nextDate; i++) {
-		  if(diary.includes(i)){
-			  calendar.innerHTML = calendar.innerHTML + '<div class="day current" onclick="dayInfo(event)"><span style="border-bottom:1px solid green;">'+ i +'<span></div>'
-		 }else{
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current" onclick="dayInfo(event)">'+ i +'</div>'
-		}
-      }
+           // 이번달
+for (var i = 1; i <= nextDate; i++) {
+  var color = '';
+  if (diary.indexOf(i) !== -1) {
+    if (i === 6 || i === 13 || i === 20 || i === 27) {
+      color = '#4286f5';
+    } else if (i === 7 || i === 14 || i === 21 || i === 28) {
+      color = '#e54537';
+    }
+    calendar.innerHTML = calendar.innerHTML + '<div class="abcc" style="display:inline-block; position:relative">'+'<div class="day current class123" onclick="dayInfo(event)" style="color: '+ color +'">'+ i +'</div>'
+    +'<span class="border1234">'+'</span>'+'</div>'
+  } else {
+    calendar.innerHTML = calendar.innerHTML + '<div class="day current" onclick="dayInfo(event)">'+ i +'</div>'
+  }
+}
+
       // 다음달
       for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
           calendar.innerHTML = calendar.innerHTML + '<div class="day next disable" onclick="">' + i + '</div>'
