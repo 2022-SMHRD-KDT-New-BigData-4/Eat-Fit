@@ -169,6 +169,7 @@ public class JoinController {
 			model.addAttribute("uploadContent", uploadContent);
 			model.addAttribute("getNTSum", getNTSum);
 			// System.out.println(uploadContent);
+			//System.out.println(getNTSum);
 
 			moveURL = "loginMain";
 		}

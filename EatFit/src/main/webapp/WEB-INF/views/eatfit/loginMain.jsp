@@ -124,6 +124,7 @@
       </div>
           <div class="col-4 px-0">
               <!-- 원형프로그래스-->
+		  <input type="hidden" id="kcalEaten" value="${getNTSum.FOOD_CALORIE}">
               <div class="single-chart w-100 ms-2" style="width:100%!important; height:100%!important" >
        <svg viewBox="0 0 36 36">
   <defs>

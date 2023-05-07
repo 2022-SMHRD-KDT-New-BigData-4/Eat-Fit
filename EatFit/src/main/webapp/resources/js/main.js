@@ -89,23 +89,24 @@ console.log(minVal);
 console.log(gramVal);
 // ajax로 보내면됨0430
 })
+
 // 원형프로그래스바 계산기 0430
 // 맨처음 .percentage 클래스 텍스트에 총 칼로리를 'ㅇㅇㅇㅇKcal' 형식으로 넣어줘야 계산시작가능
 // 받아온 칼로리값
-let kcal1="1000"
+let kcalEaten = $('#kcalEaten').val();
 //형 변환
-let kcalValue=parseInt(kcal1);
-console.log(kcalValue)
+let kcalValue=parseInt(kcalEaten);
+console.log(kcalValue);
 // 원형프로그래스바 총 칼로리 가져오기
 let textElement = document.querySelector('.percentage');
 let tc = textElement.textContent;
 // 칼로리 전처리
-let textValue= tc.replace("Kcal","")
+let textValue= tc.replace("Kcal","");
 console.log(textValue); 
 //circle클래스 가져와서 칼로리 퍼센트값으로 변경해서 다시 집어넣기
 let path = document.querySelector('.circle');
 let aPercent = Math.round((kcalValue / textValue) * 100);
-console.log(aPercent)
+console.log(aPercent);
 path.setAttribute('stroke-dasharray', `${aPercent}, ${textValue}`);
 
 // 칼로리값을 어떻게 기억하고 계속더할지 고민
