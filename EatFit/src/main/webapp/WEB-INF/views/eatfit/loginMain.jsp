@@ -165,21 +165,21 @@
  <!-- 만들어져야하는 카드 -->
   <!-- jstl if문 사용하기 
       만약 DB에 해당 날짜에 데이터가 있다면 카드보여주기 / 없다면 "기록된 식단이 없습니다." 출력 -->
-  <c:choose>
+ <c:choose>
     <c:when test="${not empty uploadContent}">
 	<c:forEach items="${uploadContent}" var="upload">
   		  <section class="container content-center">
 		    <div class="card mt-3">
 		      <div class="row p-2 meal-card">
-		        <div class="col-4 text-start ps-3 pt-0 item-center">${upload.REQ_DATE}
+		        <div class="col-3 text-start ps-3 pt-0 item-center">먹은 시간
 		        </div>
 
-		        <div class="col-4 text-center p-0">
-		        <span id="time">${upload.MLD}</span>
+		        <div class="col-5 text-start pt-0 item-center">
+		        <span>${upload.REQ_DATE}</span>
 		          
 		        </div>
-		        <div class="col-4 only-center ps-5">
-		          <span class="fs20">${upload.FOOD_WEIGTH}</span><span class="fs20">g</span>
+		        <div class="col-4 text-end ps-5">
+		          <span id="time">${upload.MLD}</span>
 		        </div>
 		        <div class="content-center today-meal-img">
 		          <!-- 변경시킬 이미지 -->
