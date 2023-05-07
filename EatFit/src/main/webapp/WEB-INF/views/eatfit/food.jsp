@@ -102,7 +102,7 @@
 
   </section>
   <div class="container add-btn">
-      <button class="btn btn-warning eat-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+      <button class="btn btn-warning eat-btn rec-btn-shadow" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
        <span class="add-food">식자재</span><br><span class="add-food">추가</span>
       </button>
   </div> 
@@ -169,7 +169,7 @@
   </footer>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/pro.js"></script>
+  <script src="./resources/js/pro.js"></script>
 </body>
 
 </html>

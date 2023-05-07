@@ -19,6 +19,10 @@
   <link href="./resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script src="./resources/js/kakao.js"></script>
+
 </head>
 
 <body>
@@ -55,8 +59,8 @@
         <a href="${cpath}/login.do" class="join-btn1 only-center shadow d-block w-70"><span class="logo-home-text me-3">잇-핏</span>로그인</a>
     </div>
     <div class="only-center">
-   <!-- 카카오로그인 아직 -->
-        <a href="${cpath}/HomeKakao.do" class="join-btn2 only-center shadow d-block w-70 mt-2"><img class="me-2 wh-30" src="./resources/images/kakao.png">카카오 계정으로 로그인</a>
+   <!-- 카카오로그인  -->
+        <a href="#" class="kakao-login-btn join-btn2 only-center shadow d-block w-70 mt-2"><img class="me-2 wh-30" src="./resources/images/kakao.png">카카오 계정으로 로그인</a>
     </div>
     </div>
 </div>
@@ -134,7 +138,8 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/pro.js"></script>
+  <script src="./resources/js/pro.js"></script>
+   
 
 </body>
 

@@ -19,6 +19,9 @@
   <link href="./resources/css/style.css" rel="stylesheet">
   <!-- js 연결 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js" integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script src="./resources/js/kakao.js"></script>
 </head>
 
 <body>
@@ -31,7 +34,7 @@
     <div class="container mt-2 mb-2">
       <div class="row">
         <div class="col-3 ">
-          <div class="navbar-brand back"><a href="/html/LoginMain.html"><img src="resources/images/back3.png" alt=""></a></div>
+          <div class="navbar-brand back"><a href="${cpath}/eatfit.do"><img src="resources/images/back3.png" alt=""></a></div>
         </div>
         <div class="col-6 only-center">
           <span class="login-text">로그인</span>
@@ -67,9 +70,9 @@
         </div>
       </form>
       <div>
-        <button type="submit" class="btn p-0 kakao-btn"><span
+        <div class="btn p-0 kakao-btn kakao-login-btn"><span
             class="only-center"><img src="resources/images/kakao.png">카카오계정으로
-            로그인</span></button>
+            로그인</span></div>
       </div>
     </div>
     <div class="row mt-4">
@@ -79,7 +82,7 @@
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/pro.js"></script>
+  <script src="./resources/js/pro.js"></script>
 </body>
 
 </html>

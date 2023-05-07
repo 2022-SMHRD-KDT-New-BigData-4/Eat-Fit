@@ -213,7 +213,7 @@
         <!-- 데이터가 없는 경우 메시지 출력 -->
         <div class="container text-center">
         	<p></p>
-            <p>· 기록된 식단이 없습니다.</p>
+            <p class="fw-bold fs-18 mt-5">· 기록된 식단이 없습니다.</p>
         </div>
     </c:otherwise>
 </c:choose>
@@ -396,8 +396,8 @@
     </div> 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="resources/js/pro.js"></script>
-  <script src="resources/js/main.js"></script>
+  <script src="./resources/js/pro.js"></script>
+  <script src="./resources/js/main.js"></script>
 
 </body>
 
