@@ -231,9 +231,31 @@ div.col-5.text-start.ps-3.pt-0.item-center span {
   color: #fff;
   text-decoration: none;
   margin-right: 20px;
-  font-size:20px;
+  font-size:19px;
   font-weight:600
 }
+#nav-this{
+  height:50px;
+  background-color:#1f8648;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size:19px;
+  font-weight:600
+}
+
+@media (max-width: 400px) {
+#nav-this {
+  height:50px;
+  background-color:#1f8648;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight:600
+}
+}
+
 .logo{
     color: #1f8648;
     font-family:"TheJamsil";
@@ -1325,6 +1347,19 @@ span img{
   font-weight: 600;
   
 }
+@media screen and (max-width: 380px) {
+.join-btn2{
+  font-size:17px;
+  text-decoration: none;
+  border:2px solid #f7e111;
+  padding:9px;
+  padding-left:16px;
+  padding-right:16px;
+  border-radius: 20px;
+  color:white;
+  /* background-color:#f7e111 ; */
+  font-weight: 600;
+}}
 .join-btn2:hover{
   text-decoration: none!important;
   border:2px solid #d9c50f;

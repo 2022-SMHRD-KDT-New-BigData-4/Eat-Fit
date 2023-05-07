@@ -380,7 +380,7 @@
     <div class="row main-footer-a">
     <a class="col-4 m-0 only-center b-nav-1" href="${cpath}/food.do">식자재 보관함</a>
   
-    <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="/html/LoginMain2.html">오늘의 잇-핏</a>
+    <a class="col-4 m-0 only-center b-nav-2" id="nav-this" href="#">오늘의 잇-핏</a>
   
     <a class="col-4 m-0 only-center b-nav-3" href="${cpath}/foodDiary.do">식단 기록일지</a>
   

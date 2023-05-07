@@ -155,11 +155,11 @@
 
 
 </div>
-  <div style="height:70px;"></div>
+  <div style="height:40px;"></div>
   <!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
-    <a class="col-4 m-0 only-center" id="nav-this" href="#"> 보관함</a>
+    <a class="col-4 m-0 only-center" id="nav-this" href="#">식자재 보관함</a>
   
     <a class="col-4 m-0 only-center" href="loginMain.do">오늘의 잇-핏</a>
   
@@ -167,7 +167,7 @@
   
   </div>
   </footer>
-
+  
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./resources/js/pro.js"></script>
 </body>
