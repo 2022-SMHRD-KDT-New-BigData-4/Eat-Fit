@@ -399,12 +399,12 @@
     <thead>
       <tr class="fs-18">
 
-        <th scope="col">이름</th>
-        <th scope="col">탄수화물</th>
-        <th scope="col">단백질</th>
-        <th scope="col">지방</th>
-        <th scope="col">중량</th>
-        <th scope="col">칼로리</th>
+        <th scope="col" class="fs-15">이름</th>
+        <th scope="col" class="fs-15">탄수화물</th>
+        <th scope="col" class="fs-15">단백질</th>
+        <th scope="col" class="fs-15">지방</th>
+        <th scope="col" class="fs-15">중량</th>
+        <th scope="col" class="fs-15">칼로리</th>
       </tr>
     </thead>
 	<tbody>
