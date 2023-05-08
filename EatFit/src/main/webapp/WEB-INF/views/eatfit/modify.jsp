@@ -43,7 +43,7 @@
             <li class=" mb-1 fw-bold text-center"> 김유열 님</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item text-start mt-2 mb-2" href="#">- 회원정보 수정</a></li>
-            <li><a class="dropdown-item text-start mt-2" href="#">- 로그아웃</a></li>
+            <li><a class="dropdown-item text-start mt-2" href="logout.do">- 로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -62,7 +62,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
 
   <!-- post로변경 나중에 회원가입 성공 controller로 변경 -->
-  <form action="/html/joinsuccess.html" method="get" class="row m-0 p-0" onsubmit="handleSubmit(event)">
+  <form action="joinsuccess.do" method="get" class="row m-0 p-0" onsubmit="handleSubmit(event)">
     <section class="container row p-0 m-0" id="form1">
     <div class="col-1"></div>
   <div class="mb-3 col-10 mb-3">

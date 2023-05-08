@@ -41,7 +41,7 @@ public interface EatFitMapper {
 	public int insertUploadData(Upload uvo);
 
 	// insert 후 중량 디폴트 값 불러오기 위한 select
-	public List<Food> getFoodWeigth(String MEM_ID);
+	public List<Food> getFoodWeigth(Upload uvo);
 
 	// 중량, MLD update!
 	public int updateWeigth(Upload uvo);
@@ -54,4 +54,7 @@ public interface EatFitMapper {
 
 	// 상세 영양정보 불러오기 위한 select
 	public List<Upload> getFoodDetailData(Upload foodData);
+	
+	// 추천 식단 가져오기
+	public List<Food> getRecoFood();
 }

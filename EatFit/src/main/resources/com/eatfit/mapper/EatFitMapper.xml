@@ -83,7 +83,7 @@
 	<!-- mem_id, req_date, food_seq, food_weigth, food_img, analogy_food_img -> insert -->
 	<insert id="insertUploadData" parameterType="com.eatfit.entity.Upload">
 		insert into member_dr (MEM_ID, REQ_DATE, FOOD_SEQ, FOOD_IMG, ANALOGY_FOOD_IMG) 
-		values (#{MEM_ID}, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI'), #{FOOD_SEQ}, #{FOOD_IMG}, #{ANALOGY_FOOD_IMG})
+		values (#{MEM_ID}, #{REQ_DATE}, #{FOOD_SEQ}, #{FOOD_IMG}, #{ANALOGY_FOOD_IMG})
 	</insert>
 	
 	<!-- 디폴트 중량 가져오기 -->
@@ -133,5 +133,11 @@
   		  FROM FOOD_INFO A INNER JOIN (SELECT * FROM MEMBER_DR WHERE MEM_ID = #{MEM_ID} AND REQ_DATE LIKE TO_CHAR(SYSDATE, 'YYYY-MM-DD%')) B
     	    ON A.FOOD_SEQ = B.FOOD_SEQ
             WHERE MLD = #{MLD}
+	</select>
+	
+	<select id="getRecoFood" resultType="com.eatfit.entity.Food">
+		SELECT food_name, food_weigth, food_recipe, food_calorie, food_CRB, food_protein, food_fat
+  		  FROM food_info
+ 		 WHERE food_seq IN (123, 6853, 7045, 7139)
 	</select>
 </mapper>

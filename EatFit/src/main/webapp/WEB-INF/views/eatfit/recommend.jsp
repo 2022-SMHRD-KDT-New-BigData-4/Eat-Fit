@@ -29,7 +29,7 @@
   <div class="container mt-2 mb-2">
     <div class="row">
       <div class="col-3 d-flex align-items-center ">
-    <div class="navbar-brand back"><a href="back.do"><img src="resources/images/back3.png" alt=""></a></div>
+    <div class="navbar-brand back"><a href="loginMain.do"><img src="resources/images/back3.png" alt=""></a></div>
   </div>
   <div class="col-6 d-flex justify-content-center align-items-center">
     <span class="m-0 logo">Eat-Fit</span>
@@ -58,50 +58,44 @@
 
   <section class="container d-flex justify-content-center">
     <div class="row shadow border recommand-con">
-    <div class="col-12 p-4 d-flex justify-content-center mb-3">
-        <span class="card-title testfont">현미밥 + 연어스테이크 + 돼지불고기</span>
+    <div class="col-12 p-1 d-flex justify-content-center mb-3">
+
     </div>
+    
+    <c:forEach var="reco" items="${reco_food}">
     <div class="col-1"></div>
-    <div class="col-7 p-0 text-start bg-check">
-            <span class=" " style="font-size:17px">현미밥 (50g) :  탄수화물</span>
-  </div>
-  <div class="col-4 mb-1"> <span id="b1" style="font-size:22px; font-weight:600">70g</span></div>
-  
-  <div class="col-12 m-2"></div>
+    <div class="col-6 p-0 text-start bg-check">
+            <span class="reco-food-name">${reco.FOOD_NAME} (${reco.FOOD_WEIGTH}g)</span></div>
+    <div class="col-4 mb-1"> <span id="b4">${reco.FOOD_CALORIE}kcal</span></div>
 
-  <div class="col-1"></div>
-  <div class="col-7 p-0 text-start bg-check">
-          <span style="font-size:17px">연어스테이크 (50g) :  단백질</span>
-</div>
-<div class="col-4 mb-1"> <span id="b2" style="font-size:22px; font-weight:600">70g</span></div>
+    <div class="col-12 m-2"></div>
 
-<div class="col-12 m-2"></div>
+    <div class="col-1"></div>
+    <div class="col-4 tandanji" style="margin-right:-10px"><span>탄 :</span><span id="b1">${reco.FOOD_CRB}g</span></div>
+    <div class="col-3 tandanji"><span>단 :</span><span id="b2">${reco.FOOD_PROTEIN}g</span></div>
+    <div class="col-4 tandanji" style="margin-left:5px"><span>지 :</span><span id="b3">${reco.FOOD_FAT}g</span></div>
+    
+    <div class="col-12 m-2"></div>
+    <div class="col-12 m-2"></div>
+    </c:forEach>
 
-<div class="col-1"></div>
-    <div class="col-7 p-0 text-start bg-check">
-            <span style="font-size:17px">돼지불고기 (50g) :  지방</span>
-  </div>
-  <div class="col-4 mb-1"> <span id="b3" style="font-size:22px; font-weight:600">70g</span></div>
-<div class="col-2"></div>
-<div class="col-10 p-0 text-end mb-1 mt-3">
-  <span class="kcal-text pe-4"><span id="b4" style="font-size:25px">= 1500 Kcal</span></span>
-</div>
+
+
+
 <div class="container">
 <div class="col-12 grayline mb-3"></div>
 </div>
+
+<c:forEach var="food_url" items="${reco_food}">
+<div class="col-12 m-2"></div>
 <div class="col-12 mt-2 mb-2">
-  <span class="rec-youtube-titte">연어스테이크 요리법</span>
+  <span class="rec-youtube-titte">· ${food_url.FOOD_NAME} 요리법</span>
 </div>
+<div class="col-12 m-2"></div>
 <div class="col-12 mb-3 only-center">
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/bAnVi-jAqBc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="${food_url.FOOD_RECIPE}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-<div class="col-12 mt-2 mb-2">
-  <span class="rec-youtube-titte">연어스테이크 요리법</span>
-</div>
-<div class="col-12 mb-3 only-center">
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/94miGlz86-M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-</div>
+</c:forEach>
   </section>
 
 

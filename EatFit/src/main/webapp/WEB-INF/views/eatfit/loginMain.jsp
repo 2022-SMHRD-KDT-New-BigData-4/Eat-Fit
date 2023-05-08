@@ -388,12 +388,12 @@
   </footer>
 
 
-  <div class="container rec-btn p-0 scroll-hidden">
-    <a href="${cpath}/recommend.do" class="btn btn-warning rec-btn-shadow px-3">
+   <div class="container rec-btn p-0 scroll-hidden">
+    <a href="recommend.do" class="btn btn-warning rec-btn-shadow px-3">
      <div class="rec-text me-1">식단</div>
      <div class="rec-text me-1">추천</div>
-    </button>
-    </div> 
+ 	</a>
+    </div>  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./resources/js/pro.js"></script>

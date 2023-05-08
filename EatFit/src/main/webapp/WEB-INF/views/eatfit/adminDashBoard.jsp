@@ -49,27 +49,27 @@
                 <div class="board-wrap">
                     <div class="shadow">
                         <span>· 가장 많이 업로드된 음식</span>
-                        <canvas id="uploadFood" width="430" height="280"></canvas>
+                        <canvas id="uploadFood" width="400" height="270"></canvas>
                     </div>
                     <div class="shadow">
                         <span>· 가장 많이 추천된 음식</span>
-                        <canvas id="recoFood" width="430" height="280"></canvas>
+                        <canvas id="recoFood" width="400" height="270"></canvas>
                     </div>
                     <div class="shadow">
                         <span>· 가장 많이 입력된 식자재</span>
-                        <canvas id="inputFood" width="430" height="280"></canvas>
+                        <canvas id="inputFood" width="400" height="270"></canvas>
                     </div>
                     <div class="shadow">
                         <span>· 남녀별 일일 평균 영양성분</span>
-                        <canvas id="genderAvg" width="430" height="280"></canvas>
+                        <canvas id="genderAvg" width="400" height="270"></canvas>
                     </div>
                     <div class="shadow">
                         <span>· 식단목적별 일일 평균 영양
-                            <canvas id="goalAvg" width="430" height="280"></canvas>
+                            <canvas id="goalAvg" width="400" height="270"></canvas>
                     </div>
                     <div class="shadow">
                         <span>· 활동량별 일일 평균 영양성분</span>
-                        <canvas id="activityAvg" width="430" height="280"></canvas>
+                        <canvas id="activityAvg" width="400" height="270"></canvas>
                     </div>
                 </div>
             </div>

@@ -24,9 +24,10 @@ public class Upload {
 	public Upload() {
 		// TODO Auto-generated constructor stub
 	}
-	public Upload(String MEM_ID, String MLD) {
+	public Upload(String MEM_ID, String MLD, String REQ_DATE) {
 		this.MEM_ID = MEM_ID;
 		this.MLD = MLD;
+		this.REQ_DATE = REQ_DATE;
 	}
 
 }

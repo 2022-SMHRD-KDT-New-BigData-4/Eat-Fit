@@ -260,7 +260,6 @@ $(window).scroll(function() {
 //                메인 사진 처리              
 /////////////////////////////////////////////////////////////////////////////////////////
 
-
 window.onload = function() {
   console.log("로드완료")
  }
@@ -309,6 +308,7 @@ function mainCameraImg(){
               console.log(response.origin_image)
               // 음식객체이름, json형태 
               console.log(response.cNames)
+              console.log(response.upload_time)
 
 			  $.ajax({
 	               type: 'POST',
@@ -316,6 +316,7 @@ function mainCameraImg(){
 	               data: {
 					    analyze_image: response.analyze_image,
 					    origin_image: response.origin_image,
+						upload_time: response.upload_time,
 					    cNames: JSON.stringify(response.cNames)
 					},
 					dataType: "json",
