@@ -1690,6 +1690,7 @@ span img{
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
   transition: 0.4s linear;
   transition-property: width, background-color;
+   
 }
 
 .progress-moved .progress-bar1 {

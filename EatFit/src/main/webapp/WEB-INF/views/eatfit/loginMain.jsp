@@ -88,19 +88,25 @@
 	
     	double food_CRB = getNTSum.getFOOD_CRB();
     	double mem_CRB = mvo.getMEM_CRB();
-    	double cal_CRB = (food_CRB / mem_CRB) * 100;
-        
     	double food_pro = getNTSum.getFOOD_PROTEIN();
     	double mem_pro = mvo.getMEM_PROTEIN();
-    	double cal_PROTEIN = (food_pro / mem_pro) * 100;
-        
     	double food_fat = getNTSum.getFOOD_FAT();
     	double mem_fat = mvo.getMEM_FAT();
-        double cal_FAT = (food_fat / mem_fat) * 100;
-        
-        double food_CALORIE = getNTSum.getFOOD_CALORIE();
-       	double mem_CALORIE = mvo.getMEM_CALORIE();
-	
+   
+    	int cal_CRB = (int)Math.ceil((double)food_CRB / (double)mem_CRB * 100);
+    	int cal_PROTEIN = (int)Math.ceil((double)food_pro / (double)mem_pro * 100);
+    	int cal_FAT = (int)Math.ceil((double)food_fat / (double)mem_fat * 100);
+    	
+    	String S_food_CRB = String.valueOf(food_CRB).replaceAll("\\..*","");
+    	String S_food_PRO = String.valueOf(food_pro).replaceAll("\\..*","");
+    	String S_food_FAT = String.valueOf(food_fat).replaceAll("\\..*","");
+    	String S_mem_CRB = String.valueOf(mem_CRB).replaceAll("\\..*","");
+    	String S_mem_PRO = String.valueOf(mem_pro).replaceAll("\\..*","");
+    	String S_mem_FAT = String.valueOf(mem_fat).replaceAll("\\..*","");
+
+        int food_CALORIE = (int)getNTSum.getFOOD_CALORIE();
+       	int mem_CALORIE = (int)mvo.getMEM_CALORIE();
+       	
      %>
     <div class="container">
         <div class="row p-3 m-1 border rounded">
@@ -115,10 +121,10 @@
               <div class="col-8 p-0 mb-2">
       
                 <div class="progress2 progress-moved">
-                  <div class="progress-all progress-bar1" style="width:<%= cal_CRB%>%">
+                  <div class="progress-all progress-bar1" style="width:<%= cal_CRB%>%; max-width: 100%">
                   </div>       
                 </div>
-                <span class="nutrient-bar-text"><%= food_CRB%>/<%=mem_CRB%></span>
+                <span class="nutrient-bar-text"><%= S_food_CRB%>/<%=S_mem_CRB%></span>
             </div>
             <div class="col-3 p-0 only-center nutrient" style="display:block;">
               <span class="p-0 m-0 fw-bold mb-2">단백질</span>
@@ -126,10 +132,10 @@
             <div class="col-8 p-0 mb-2">
     
               <div class="progress2 progress-moved">
-                <div class="progress-all progress-bar2" style="width:<%= cal_PROTEIN%>%">
+                <div class="progress-all progress-bar2" style="width:<%= cal_PROTEIN%>%; max-width: 100%">
                 </div>       
               </div>
-              <span class="nutrient-bar-text"><%= food_pro%>/<%=mem_pro%></span>
+              <span class="nutrient-bar-text"><%= S_food_PRO%>/<%=S_mem_PRO%></span>
           </div>
           <div class="col-3 p-0 only-center nutrient" style="display:block;">
             <span class="p-0 m-0 fw-bold">지방</span>
@@ -138,10 +144,10 @@
           <div class="col-8 p-0">
   
             <div class="progress2 progress-moved">
-              <div class="progress-all progress-bar3" style="width:<%= cal_FAT%>%">
+              <div class="progress-all progress-bar3" style="width:<%= cal_FAT%>%; max-width: 100%">
               </div>       
             </div>
-            <span class="nutrient-bar-text"><%= food_fat%>/<%=mem_fat%></span>
+            <span class="nutrient-bar-text"><%= S_food_FAT%>/<%=S_mem_FAT%></span>
         </div>
       </div>
       </div>
