@@ -90,7 +90,7 @@
                 <span class="p-0 m-0 fw-bold mb-2">탄수화물</span>
               </div>
               <div class="col-8 p-0 mb-2">
-      
+      			
                 <div class="progress2 progress-moved">
                   <div class="progress-all progress-bar1" style="width:20%">
                   </div>       

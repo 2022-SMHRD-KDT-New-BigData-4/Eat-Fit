@@ -299,6 +299,30 @@ function mainCameraImg(){
           dataType: "json",
           contentType: false,
           processData: false,
+		  // 통신전에 로딩화면 보여주기
+		  beforeSend: function() {
+			  var width = 0;
+			  var height = 0;
+			  var left = 0;
+			  var top = 0;
+			  width = 100;
+			  height = 100;
+			  top = ($(window).height() - height) / 2 + $(window).scrollTop();
+			  left = ($(window).width() - width) / 2 + $(window).scrollLeft();
+			  if ($("#div_ajax_load_image").length != 0) {
+				  $("#div_ajax_load_image").css({
+					  "top": top + "px",
+					  "left": left + "px"
+				  });
+				  $("#div_ajax_load_image").show();
+			  } else {
+				  $('body').append('<div id="div_ajax_load_image" style="position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; background:none; filter:alpha(opacity=50); opacity:alpha*0.5; margin:auto; padding:0; "><img src="resources/images/loading4.gif" style="width:100px; height:100px;"></div>');
+			  }
+		  },
+			// 통신이 끝나면 로딩화면 숨김
+			  complete: function () {
+				$("#div_ajax_load_image").hide();
+			  },
           success: function(response) {
 			$('.mc-display').css('display', 'block');
               console.log('이미지 업로드 성공');
@@ -331,7 +355,8 @@ function mainCameraImg(){
           },
           error: function(xhr, status, error) {
               console.error('이미지 업로드 실패: ' + error);
-          }
+          },
+		
       });
     });
 

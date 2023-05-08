@@ -151,7 +151,8 @@ public class JoinController {
 
 			model.addAttribute("getNTSum", getNTSum);
 			model.addAttribute("uploadContent", uploadContent);
-
+			model.addAttribute("mvo", mvo);
+			
 			moveURL = "loginMain";
 
 		} else {
@@ -168,7 +169,8 @@ public class JoinController {
 			}
 			model.addAttribute("uploadContent", uploadContent);
 			model.addAttribute("getNTSum", getNTSum);
-
+			model.addAttribute("mvo", mvo);
+			
 			moveURL = "loginMain";
 		}
 		return moveURL;
