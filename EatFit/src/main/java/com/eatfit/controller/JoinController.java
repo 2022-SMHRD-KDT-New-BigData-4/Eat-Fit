@@ -3,7 +3,9 @@ package com.eatfit.controller;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -177,8 +179,10 @@ public class JoinController {
 	}
 
 	// 플라스크에서 ajax 통해 받아온 음식 이미지, 이름 정보
-	@RequestMapping("/getFoodData.do")
-	public void getFoodData(HttpServletRequest request, String analyze_image, String origin_image, String upload_time) {
+	@RequestMapping(value = "/getFoodData.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> getFoodData(HttpServletRequest request, String analyze_image, String origin_image,
+			String upload_time) {
 
 		// id, req_date, food_seq, food_weigth, food_img, analogy_food_img -> DB에 보내야 함
 		HttpSession session = request.getSession();
@@ -191,7 +195,6 @@ public class JoinController {
 
 		// 플라스크에서 받아온 food_name 앞뒤로 [] 자르고 큰따옴표 자르기
 		String[] food_names = cNames[0].substring(1, cNames[0].length() - 1).replace("\"", "").split(",");
-		// food_names[0] -> 닭갈비 // food_weigth_arr[0] -> 400.0
 
 		Upload uvo = new Upload();
 		for (int i = 0; i < food_names.length; i++) {
@@ -226,6 +229,13 @@ public class JoinController {
 
 		// 음식상세정보에(/getFoodDetailData.do) 쓸 시간 세션에 저장
 		session.setAttribute("upload_time", upload_time);
+
+		// AJAX로 클라이언트에게 응답 데이터 전송
+		Map<String, String> responseData = new HashMap<>();
+		responseData.put("message", "데이터 처리가 완료되었습니다.");
+		responseData.put("newImg", origin_image);
+
+		return responseData;
 	}
 
 	@PostMapping("/getFoodData2.do")

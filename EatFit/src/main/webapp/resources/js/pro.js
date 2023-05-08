@@ -259,7 +259,6 @@ $(window).scroll(function() {
 //////////////////////////////////////////////////////////////////////////////////////////
 //                메인 사진 처리              
 /////////////////////////////////////////////////////////////////////////////////////////
-
 window.onload = function() {
   console.log("로드완료")
  }
@@ -345,10 +344,14 @@ function mainCameraImg(){
 					},
 					dataType: "json",
 	               success: function(response1) {
-	               console.log('데이터 전송 성공');
-	               },
+	               console.log(response1.message);
+					$('#photo-data-modal').modal('show');
+					var newImageUrl = 'resources/images/origin/' + response1.newImg // 이미지의 새로운 URL을 설정해야 함
+        			$('#defaultPhoto').attr('src', newImageUrl);
+					},
 	               error: function(xhr, status, error) {
 	                   console.error('데이터 전송 실패: ' + error);
+					$('#photo-data-modal').modal('show');
 	               }
 	           });
 
@@ -359,7 +362,6 @@ function mainCameraImg(){
 		
       });
     });
-
 /////////////////////////////////////////////////////////////////////////////////////////
 //                중량, MLD 입력받아서 데이터 보내자             
 /////////////////////////////////////////////////////////////////////////////////////////
