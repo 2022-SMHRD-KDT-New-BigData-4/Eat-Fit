@@ -79,6 +79,27 @@
   </section>
     <!-- 사용자 영양분 대시보드 -->
     <section>
+    <% 
+    		
+    	Upload getNTSum = (Upload)request.getAttribute("getNTSum");
+    	Member mvo = (Member)session.getAttribute("mvo");
+	
+    	double food_CRB = getNTSum.getFOOD_CRB();
+    	double mem_CRB = mvo.getMEM_CRB();
+    	double cal_CRB = (food_CRB / mem_CRB) * 100;
+        
+    	double food_pro = getNTSum.getFOOD_PROTEIN();
+    	double mem_pro = mvo.getMEM_PROTEIN();
+    	double cal_PROTEIN = (food_pro / mem_pro) * 100;
+        
+    	double food_fat = getNTSum.getFOOD_FAT();
+    	double mem_fat = mvo.getMEM_FAT();
+        double cal_FAT = (food_fat / mem_fat) * 100;
+        
+        double food_CALORIE = getNTSum.getFOOD_CALORIE();
+       	double mem_CALORIE = mvo.getMEM_CALORIE();
+	
+     %>
     <div class="container">
         <div class="row p-3 m-1 border rounded">
           <div class="nutrient-bar-title">
@@ -90,12 +111,12 @@
                 <span class="p-0 m-0 fw-bold mb-2">탄수화물</span>
               </div>
               <div class="col-8 p-0 mb-2">
-      			
+      
                 <div class="progress2 progress-moved">
-                  <div class="progress-all progress-bar1" style="width:20%">
+                  <div class="progress-all progress-bar1" style="width:<%= cal_CRB%>%">
                   </div>       
                 </div>
-                <span class="nutrient-bar-text">${getNTSum.FOOD_CRB}/${mvo.MEM_CRB}</span>
+                <span class="nutrient-bar-text"><%= food_CRB%>/<%=mem_CRB%></span>
             </div>
             <div class="col-3 p-0 only-center nutrient" style="display:block;">
               <span class="p-0 m-0 fw-bold mb-2">단백질</span>
@@ -103,10 +124,10 @@
             <div class="col-8 p-0 mb-2">
     
               <div class="progress2 progress-moved">
-                <div class="progress-all progress-bar2" style="width:50%">
+                <div class="progress-all progress-bar2" style="width:<%= cal_PROTEIN%>%">
                 </div>       
               </div>
-              <span class="nutrient-bar-text">${getNTSum.FOOD_PROTEIN}/${mvo.MEM_PROTEIN}</span>
+              <span class="nutrient-bar-text"><%= food_pro%>/<%=mem_pro%></span>
           </div>
           <div class="col-3 p-0 only-center nutrient" style="display:block;">
             <span class="p-0 m-0 fw-bold">지방</span>
@@ -115,16 +136,16 @@
           <div class="col-8 p-0">
   
             <div class="progress2 progress-moved">
-              <div class="progress-all progress-bar3" style="width:75%">
+              <div class="progress-all progress-bar3" style="width:<%= cal_FAT%>%">
               </div>       
             </div>
-            <span class="nutrient-bar-text">${getNTSum.FOOD_FAT}/${mvo.MEM_FAT}</span>
+            <span class="nutrient-bar-text"><%= food_fat%>/<%=mem_fat%></span>
         </div>
       </div>
       </div>
           <div class="col-4 px-0">
               <!-- 원형프로그래스-->
-		  <input type="hidden" id="kcalEaten" value="${getNTSum.FOOD_CALORIE}">
+		  <input type="hidden" id="kcalEaten" value="<%= food_CALORIE %>">
               <div class="single-chart w-100 ms-2" style="width:100%!important; height:100%!important" >
        <svg viewBox="0 0 36 36">
   <defs>
@@ -145,7 +166,7 @@
 		      a 15.9155 15.9155 0 0 1 0 -31.831"
 		    style="stroke: url(#gradient);"
 		  />
-		  <text x="18" y="20.35" class="percentage" style="font-size:6px;">${mvo.MEM_CALORIE}Kcal</text>
+		  <text x="18" y="20.35" class="percentage" style="font-size:6px;"><%= mem_CALORIE %>Kcal</text>
 		</svg>
               </div>
              <!-- 원형프로그래스 끝-->
