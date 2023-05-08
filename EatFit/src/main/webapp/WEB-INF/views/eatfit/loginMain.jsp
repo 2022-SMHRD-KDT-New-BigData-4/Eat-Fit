@@ -3,6 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="com.eatfit.entity.Upload" %>
+<%@ page import="com.eatfit.entity.Member" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 <% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html>
