@@ -175,8 +175,7 @@ public class JoinController {
 	}
 
 	// 플라스크에서 ajax 통해 받아온 음식 이미지, 이름 정보
-	@RequestMapping(value = "/getFoodData.do", method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
+	@RequestMapping("/getFoodData.do")
 	public void getFoodData(HttpServletRequest request, String analyze_image, String origin_image, String upload_time) {
 
 		// id, req_date, food_seq, food_weigth, food_img, analogy_food_img -> DB에 보내야 함
