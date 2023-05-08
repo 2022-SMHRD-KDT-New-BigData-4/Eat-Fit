@@ -207,14 +207,15 @@ console.log(defaultContent)
 						html += '<span>'+ data.req_DATE +'</span>';
 						html += '</div>';
 						html += '<div class="col-3 text-start p-0">';
+						html += '<span style="font-size:20px;">'+data.food_NAME+'</span>';
 						// mld가 m이면 아침, l이면 점심, d이면 저녁을 출력합니다.
-				        if(data.mld === 'M') {
+				        /*if(data.mld === 'M') {
 				            html += '<span id="time">아침</span>';
 				        } else if(data.mld === 'L') {
 				            html += '<span id="time">점심</span>';
 				        } else if(data.mld === 'D') {
 				            html += '<span id="time">저녁</span>';
-				        }
+				        }*/
 						html += '</div>';
 						html += '<div class="col-4 only-center ps-5" style="display: none !important;">';
 						html += '<span class="fs20">0</span><span class="fs20">g</span>';
@@ -244,39 +245,7 @@ console.log(defaultContent)
 						document.getElementById('diary-list').innerHTML = html;
 					}
 				}else{
-						html += '<section class="container content-center">';
-						html += '<div class="card mt-4">';
-						html += '<div class="row p-2 meal-card">';
-						html += '<div class="col-5 text-start ps-3 pt-0 item-center">';
-						html += '<span>00</span>';
-						html += '</div>';
-						html += '<div class="col-3 text-start p-0">';
-						html += '<span id="time">아침</span>';
-						html += '</div>';
-						html += '<div class="col-4 only-center ps-5" style="display: none !important;">';
-						html += '<span class="fs20">0</span><span class="fs20">g</span>';
-						html += '</div>';
-						html += '<div class="content-center today-meal-img">';
-						html += '<img src="resources/images/Eat-fit_default.png" class="rounded-start main-image img-fluid border" alt="#">';
-						html += '</div>';
-						html += '</div>';
-						html += '<div class="row nutrient-info item-center mt-1 mb-2">';
-						html += '<div class="col-6 text-start ps-4 pe-0">';
-						html += '<span class="carbohydrate">탄</span>';
-						html += '<span class="gram-font">0</span>g'
-						html += '<span class="protein">단</span>';
-						html += '<span class="gram-font">0</span>g';
-						html += '<span class="lipid">지</span>';
-						html += '<span class="gram-font">0</span>g';
-						html += '</div>';
-						html += '<div class="col-1 ps-0 content-center">';
-						html += '</div>';
-						html += '<div class="col-5 p-0">';
-						html += '<span class="content-center kcal-font"><span>0</span>kcal</span>';
-						html += '</div>';
-						html += '</div>';
-						html += '</div>';
-						html += '</section>';
+						html += '<div><span style="font-size:30px;">식단기록이 없습니다.</span></div>'
 					document.getElementById('diary-list').innerHTML = html;
 				}
 			}

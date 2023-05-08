@@ -3,6 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="com.eatfit.entity.Upload" %>
+<%@ page import="com.eatfit.entity.Member" %>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 <% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html>
@@ -79,6 +81,33 @@
   </section>
     <!-- 사용자 영양분 대시보드 -->
     <section>
+    <% 
+    		
+    	Upload getNTSum = (Upload)request.getAttribute("getNTSum");
+    	Member mvo = (Member)session.getAttribute("mvo");
+	
+    	double food_CRB = getNTSum.getFOOD_CRB();
+    	double mem_CRB = mvo.getMEM_CRB();
+    	double food_pro = getNTSum.getFOOD_PROTEIN();
+    	double mem_pro = mvo.getMEM_PROTEIN();
+    	double food_fat = getNTSum.getFOOD_FAT();
+    	double mem_fat = mvo.getMEM_FAT();
+   
+    	int cal_CRB = (int)Math.ceil((double)food_CRB / (double)mem_CRB * 100);
+    	int cal_PROTEIN = (int)Math.ceil((double)food_pro / (double)mem_pro * 100);
+    	int cal_FAT = (int)Math.ceil((double)food_fat / (double)mem_fat * 100);
+    	
+    	String S_food_CRB = String.valueOf(food_CRB).replaceAll("\\..*","");
+    	String S_food_PRO = String.valueOf(food_pro).replaceAll("\\..*","");
+    	String S_food_FAT = String.valueOf(food_fat).replaceAll("\\..*","");
+    	String S_mem_CRB = String.valueOf(mem_CRB).replaceAll("\\..*","");
+    	String S_mem_PRO = String.valueOf(mem_pro).replaceAll("\\..*","");
+    	String S_mem_FAT = String.valueOf(mem_fat).replaceAll("\\..*","");
+
+        int food_CALORIE = (int)getNTSum.getFOOD_CALORIE();
+       	int mem_CALORIE = (int)mvo.getMEM_CALORIE();
+       	
+     %>
     <div class="container">
         <div class="row p-3 m-1 border rounded">
           <div class="nutrient-bar-title">
@@ -92,10 +121,10 @@
               <div class="col-8 p-0 mb-2">
       
                 <div class="progress2 progress-moved">
-                  <div class="progress-all progress-bar1" style="width:20%">
+                  <div class="progress-all progress-bar1" style="width:<%= cal_CRB%>%; max-width: 100%">
                   </div>       
                 </div>
-                <span class="nutrient-bar-text">${getNTSum.FOOD_CRB}/${mvo.MEM_CRB}</span>
+                <span class="nutrient-bar-text"><%= S_food_CRB%>/<%=S_mem_CRB%></span>
             </div>
             <div class="col-3 p-0 only-center nutrient" style="display:block;">
               <span class="p-0 m-0 fw-bold mb-2">단백질</span>
@@ -103,10 +132,10 @@
             <div class="col-8 p-0 mb-2">
     
               <div class="progress2 progress-moved">
-                <div class="progress-all progress-bar2" style="width:50%">
+                <div class="progress-all progress-bar2" style="width:<%= cal_PROTEIN%>%; max-width: 100%">
                 </div>       
               </div>
-              <span class="nutrient-bar-text">${getNTSum.FOOD_PROTEIN}/${mvo.MEM_PROTEIN}</span>
+              <span class="nutrient-bar-text"><%= S_food_PRO%>/<%=S_mem_PRO%></span>
           </div>
           <div class="col-3 p-0 only-center nutrient" style="display:block;">
             <span class="p-0 m-0 fw-bold">지방</span>
@@ -115,16 +144,16 @@
           <div class="col-8 p-0">
   
             <div class="progress2 progress-moved">
-              <div class="progress-all progress-bar3" style="width:75%">
+              <div class="progress-all progress-bar3" style="width:<%= cal_FAT%>%; max-width: 100%">
               </div>       
             </div>
-            <span class="nutrient-bar-text">${getNTSum.FOOD_FAT}/${mvo.MEM_FAT}</span>
+            <span class="nutrient-bar-text"><%= S_food_FAT%>/<%=S_mem_FAT%></span>
         </div>
       </div>
       </div>
           <div class="col-4 px-0">
               <!-- 원형프로그래스-->
-		  <input type="hidden" id="kcalEaten" value="${getNTSum.FOOD_CALORIE}">
+		  <input type="hidden" id="kcalEaten" value="<%= food_CALORIE %>">
               <div class="single-chart w-100 ms-2" style="width:100%!important; height:100%!important" >
        <svg viewBox="0 0 36 36">
   <defs>
@@ -145,7 +174,7 @@
 		      a 15.9155 15.9155 0 0 1 0 -31.831"
 		    style="stroke: url(#gradient);"
 		  />
-		  <text x="18" y="20.35" class="percentage" style="font-size:6px;">${mvo.MEM_CALORIE}Kcal</text>
+		  <text x="18" y="20.35" class="percentage" style="font-size:6px;"><%= mem_CALORIE %>Kcal</text>
 		</svg>
               </div>
              <!-- 원형프로그래스 끝-->
@@ -388,12 +417,12 @@
   </footer>
 
 
-  <div class="container rec-btn p-0 scroll-hidden">
-    <a href="${cpath}/recommend.do" class="btn btn-warning rec-btn-shadow px-3">
+   <div class="container rec-btn p-0 scroll-hidden">
+    <a href="recommend.do" class="btn btn-warning rec-btn-shadow px-3">
      <div class="rec-text me-1">식단</div>
      <div class="rec-text me-1">추천</div>
-    </button>
-    </div> 
+ 	</a>
+    </div>  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./resources/js/pro.js"></script>

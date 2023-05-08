@@ -53,7 +53,7 @@
   </div>
 
   <div class="col-6">
-  <a href="#" class="btn btn-secondary fw-bold only-center" style="height:60px; width:100%"><span>처음으로</span></a>
+  <a href="eatfit.do" class="btn btn-secondary fw-bold only-center" style="height:60px; width:100%"><span>처음으로</span></a>
 </div>
 <div class="col-6">
   <a href="login.do" class="btn btn-warning fw-bold only-center" style="height:60px; width:100%"><span>로그인</span></a>

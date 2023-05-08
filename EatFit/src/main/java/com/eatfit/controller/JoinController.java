@@ -121,15 +121,6 @@ public class JoinController {
 		return "redirect:/login.do";
 	}
 
-	// 뒤로가기 버튼시 loginMain페이지로 이동
-	// -> url에 back.do로 나옴 수정필요
-	@RequestMapping("/back.do")
-	public String back(HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		Member mvo = (Member) session.getAttribute("mvo");
-		model.addAttribute("mvo", mvo);
-		return "loginMain";
-	}
 
 	// 로그인메인 페이지로 이동
 	@RequestMapping("/loginMain.do")
@@ -137,7 +128,6 @@ public class JoinController {
 		HttpSession session = request.getSession();
 		Member mvo = (Member) session.getAttribute("mvo");
 		String mem_id = mvo.getMEM_ID();
-		System.out.println(mem_id);
 
 		// 로그인 메인페이지 사용자 대시보드 섭취하고 난 뒤 영양정보 가져오기
 		// 사용자 대시보드에 보여줄 섭취한 칼로리 가져오기
@@ -146,27 +136,27 @@ public class JoinController {
 		List<Upload> uploadContent = mapper.upload(mem_id);
 		Upload getNTSum = mapper.getNTSum(mem_id);
 
-		// 시간만 빼내기
 		String moveURL = null;
 
 		if (uploadContent.isEmpty() && getNTSum == null) {
+			// DB에 업로드 정보 없으면
 			// 섭취 칼로리 0
 			getNTSum = new Upload();
 			getNTSum.setFOOD_CALORIE(0);
 			getNTSum.setFOOD_CRB(0);
 			getNTSum.setFOOD_PROTEIN(0);
 			getNTSum.setFOOD_FAT(0);
-			System.out.println(getNTSum);
-			System.out.println(uploadContent);
-			
-			model.addAttribute("getNTSum", getNTSum);
-			model.addAttribute("uploadContent", uploadContent);
-			
-			moveURL = "loginMain";
-			
-		}  else {
+			// System.out.println(getNTSum);
 			// System.out.println(uploadContent);
 
+			model.addAttribute("getNTSum", getNTSum);
+			model.addAttribute("uploadContent", uploadContent);
+			model.addAttribute("mvo", mvo);
+			
+			moveURL = "loginMain";
+
+		} else {
+			// 업로드된 정보가 있다면
 			for (int i = 0; i < uploadContent.size(); i++) {
 				// 아침, 점심, 저녁으로 바꾸기
 				if (uploadContent.get(i).getMLD().equals("M")) {
@@ -179,9 +169,8 @@ public class JoinController {
 			}
 			model.addAttribute("uploadContent", uploadContent);
 			model.addAttribute("getNTSum", getNTSum);
-			// System.out.println(uploadContent);
-			//System.out.println(getNTSum);
-
+			model.addAttribute("mvo", mvo);
+			
 			moveURL = "loginMain";
 		}
 		return moveURL;
@@ -189,48 +178,40 @@ public class JoinController {
 
 	// 플라스크에서 ajax 통해 받아온 음식 이미지, 이름 정보
 	@RequestMapping("/getFoodData.do")
-	public void getFoodData(HttpServletRequest request, Model model) {
+	public void getFoodData(HttpServletRequest request, String analyze_image, String origin_image, String upload_time) {
 
 		// id, req_date, food_seq, food_weigth, food_img, analogy_food_img -> DB에 보내야 함
-
 		HttpSession session = request.getSession();
 		Member mvo = (Member) session.getAttribute("mvo");
 		// 세션에 있는 id 가져오기
 		String MEM_ID = mvo.getMEM_ID();
 
 		// 플라스크에서 받아온 food_img, analogy_food_img, food_name 가져오기
-		String analyze_image = request.getParameter("analyze_image");
-		String origin_image = request.getParameter("origin_image");
 		String[] cNames = request.getParameterValues("cNames");
-		// String mem_id = request.getParameter("mem_id");
-
-		System.out.println(MEM_ID);
 
 		// 플라스크에서 받아온 food_name 앞뒤로 [] 자르고 큰따옴표 자르기
 		String[] food_names = cNames[0].substring(1, cNames[0].length() - 1).replace("\"", "").split(",");
-		System.out.println(food_names[0]); // 닭갈비
 		// food_names[0] -> 닭갈비 // food_weigth_arr[0] -> 400.0
 
+		Upload uvo = new Upload();
 		for (int i = 0; i < food_names.length; i++) {
 			String food_name = food_names[i];
 			// 음식 이름 -> food_seq로 바꾸기 위한 select
 			int food_seq = mapper.uploadFoodSearch(food_name);
 
 			// insert 할 객체 만들기
-			Upload uvo = new Upload();
 			uvo.setMEM_ID(MEM_ID);
 			String day = null;
 			uvo.setFOOD_SEQ(food_seq);
 			uvo.setFOOD_IMG(origin_image);
 			uvo.setANALOGY_FOOD_IMG(analyze_image);
+			uvo.setREQ_DATE(upload_time);
 
 			// 중량, MLD 제외하고 insert 하기
 			int cnt = mapper.insertUploadData(uvo);
 		}
-
 		// 해당 음식의 중량을 select(음식 중량 디폴트값 가져오려고)
-		List<Food> foodData_arr = mapper.getFoodWeigth(MEM_ID);
-		System.out.println(foodData_arr.get(0).getFOOD_NAME()); // 닭갈비
+		List<Food> foodData_arr = mapper.getFoodWeigth(uvo);
 
 		ArrayList<Double> food_weigth_arr = new ArrayList<Double>();
 
@@ -240,12 +221,15 @@ public class JoinController {
 		}
 		// 음식 개수만큼 중량 입력할 수 있는 칸 만들기 위해 세션에 저장
 		session.setAttribute("food_names", food_names);
+		System.out.println(food_names);
 		session.setAttribute("food_weigth_arr", food_weigth_arr);
-		System.out.println(food_weigth_arr);
+
+		// 음식상세정보에(/getFoodDetailData.do) 쓸 시간 세션에 저장
+		session.setAttribute("upload_time", upload_time);
 	}
 
 	@PostMapping("/getFoodData2.do")
-	public void getFoodData2(HttpServletRequest request, Model model) {
+	public void getFoodData2(HttpServletRequest request) {
 
 		// MLD, 중량 입력받아서 계산하는 식
 		// update문으로 MLD, 중량 입력
@@ -258,12 +242,9 @@ public class JoinController {
 
 		String MLD = request.getParameter("MLDValue");
 		// String[] foodGN_arr = request.getParameterValues("foodGN_arr");
-		// System.out.println(MLD);
 
 		String[] foodGram_arr = request.getParameter("foodGram_arr").split(",");
 		String[] foodName_arr = request.getParameter("foodName_arr").split(",");
-		// System.out.println(Arrays.toString(foodGram_arr));
-		// System.out.println(Arrays.toString(foodName_arr));
 
 		// foodGram_arr[1] : 100 // foodName_arr[1] : 돼지고기볶음
 
@@ -271,10 +252,8 @@ public class JoinController {
 		for (int i = 0; i < foodName_arr.length; i++) {
 			String food_name = foodName_arr[i];
 			int food_seq = mapper.uploadFoodSearch(food_name);
-			// System.out.println(food_seq);
 
 			Double food_gram = Double.parseDouble(foodGram_arr[i]);
-			// System.out.println(food_gram);
 
 			// update 할 객체 만들기
 			Upload uvo = new Upload();
@@ -282,11 +261,7 @@ public class JoinController {
 			uvo.setFOOD_SEQ(food_seq);
 			uvo.setMLD(MLD);
 			uvo.setFOOD_WEIGTH(food_gram);
-
-			// System.out.println(uvo.getMEM_ID());
-			// System.out.println(uvo.getFOOD_SEQ());
-			// System.out.println(uvo.getMLD());
-			// System.out.println(uvo.getFOOD_WEIGTH());
+			uvo.getREQ_DATE();
 
 			int cnt = mapper.updateWeigth(uvo);
 		}
@@ -344,11 +319,6 @@ public class JoinController {
 		return "modify";
 	}
 
-	// 식단추천 페이지
-	@GetMapping("/recommend.do")
-	public String recommand() {
-		return "recommend";
-	}
 
 	// 식단기록일지 페이지
 	@RequestMapping("/foodDiary.do")
@@ -394,11 +364,6 @@ public class JoinController {
 		return json;
 	}
 
-	// 홈화면
-	@GetMapping("/eatfit.do")
-	public String eatfit() {
-		return "Home";
-	}
 	
 	// 로그인 메인에서 음식 상세정보 가져오기
 	@RequestMapping(value = "/getFoodDetailData.do", method = RequestMethod.POST, produces = "application/json")
@@ -407,9 +372,10 @@ public class JoinController {
 
 		HttpSession session = request.getSession();
 		Member mvo = (Member) session.getAttribute("mvo");
+		String REQ_DATE = (String) session.getAttribute("upload_time");
 
 		// 객체 생성
-		Upload foodData = new Upload(mvo.getMEM_ID(), MLD);
+		Upload foodData = new Upload(mvo.getMEM_ID(), MLD, REQ_DATE);
 		// 음식 상세정보 가져오기
 		List<Upload> foodData_arr = mapper.getFoodDetailData(foodData);
 
@@ -418,7 +384,6 @@ public class JoinController {
 		String json = null;
 		try {
 			json = mapper.writeValueAsString(foodData_arr);
-			// System.out.println(json);
 		} catch (JsonProcessingException e) {
 			// 예외 처리
 			e.printStackTrace();
@@ -426,6 +391,34 @@ public class JoinController {
 
 		// JSON 응답
 		return json;
+	}
+	
+	// 추천된 식단 영양정보 데이터 가져오기
+	@GetMapping("/recommend.do")
+	public String foodRecommend(HttpServletRequest request, Model model) {
+		// 추천된 식단 영양정보 가져오기
+		List<Food> reco_food = mapper.getRecoFood();
+		model.addAttribute("reco_food", reco_food);
+
+		return "recommend";
+	}
+	
+	// 홈화면
+	@GetMapping("/eatfit.do")
+	public String eatfit() {
+		return "Home";
+	}
+	
+	// 관리자 페이지 - 대시보드
+	@GetMapping("/adminDashBoard.do")
+	public String adminDashBoard() {
+		return "adminDashBoard";
+	}
+
+	// 관리자 페이지 - 사용자 관리
+	@GetMapping("/adminUserManagement.do")
+	public String adminUserManagement() {
+		return "adminUserManagement";
 	}
 
 }

@@ -129,7 +129,7 @@ body {
   height:35px;
 }
 .kcal-font{
-  font-size: 20px;
+  font-size: 18px;
   color:#105133;
 }
 .gram-font{
@@ -618,9 +618,13 @@ font-weight: 600;
 }
 #b4{
     color:#198754;
+    margin-left:10px;
+    font-size:20px; 
+    font-weight:600;
 }
 .rec-youtube-titte{
     font-weight: 600;
+    font-size:20px;
 }
 
 /* 로그인페이지 */
@@ -1686,6 +1690,7 @@ span img{
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
   transition: 0.4s linear;
   transition-property: width, background-color;
+   
 }
 
 .progress-moved .progress-bar1 {
@@ -1810,8 +1815,8 @@ span img{
 .board-wrap div {
     margin-left: 45px;
     display: block;
-    width: 500px;
-    height: 350px;
+    width: 450px;
+    height: 330px;
     background-color: #fff;
     border-radius: 20px;
     padding: 20px;
@@ -1919,7 +1924,15 @@ span img{
 
 
 
-
+ /*식단 추천 페이지 수정*/
+  .reco-food-name{
+    font-size: 20px;
+  }
+  .tandanji{
+    font-size:17px; 
+    font-weight:500;
+  }
+  
 
 
 
