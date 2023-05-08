@@ -198,8 +198,8 @@
  <c:choose>
     <c:when test="${not empty uploadContent}">
 	<c:forEach items="${uploadContent}" var="upload">
-  		  <section class="container content-center">
-		    <div class="card mt-3">
+  		  <section class="container content-center" style="padding-bottom:150px">
+		    <div class="card mt-3 today">
 		      <div class="row p-2 meal-card">
 		        <div class="col-3 text-start ps-3 pt-0 item-center">먹은 시간
 		        </div>
@@ -240,20 +240,20 @@
   </c:when>
     <c:otherwise>
         <!-- 데이터가 없는 경우 메시지 출력 -->
-        <div class="container text-center">
+        <div class="container text-center today">
         	<p></p>
             <p class="fw-bold fs-18 mt-5">· 기록된 식단이 없습니다.</p>
+            <p></p>
+
         </div>
     </c:otherwise>
 </c:choose>
 
 
-
-
-
-  <!-- ///////////////////////////////////////////////////////////////////////////////////////////
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////
                            * - MODAL  
 ///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- 사진 입력 모달 -->
 <div class="modal fade" id="diet-camera-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -265,58 +265,74 @@
           <input type="file" name="photoFile" id="photoFile" accept="image/*" capture="camera" style="display:none;">
         <img class="img-fluid w-100 ccc" id="photoImg" src="./resources/images/Eat-fit_default.png" alt="" onclick="mainCameraImg()">
         </div>
-					<div class="container mc-display">
-						<div class="mt-3 text-center">
-							<div class="text-center MLD-title-div">
-								<span id="MLD-title">식사 종류를 선택해 주세요!</span>
-							</div>
-							<div class="container MLD-body">
-								<div class="row mx-auto">
-									<div class="col-4 MLD-text">
-										<input type="checkbox" class="btn-check bmd-check"
-											id="morning" autocomplete="off" name="MLD" value="M">
-										<label class="btn my-btn only-center M-bc" for="morning"><span
-											class="activity-title">아침</span></label>
-									</div>
+</div>
+</div>
+</div>
+</div>
 
-									<div class="col-4 MLD-text">
-										<input type="checkbox" class="btn-check bmd-check" id="lunch"
-											autocomplete="off" name="MLD" value="L"> <label
-											class="btn my-btn only-center L-bc" for="lunch"><span
-											class="activity-title">점심</span></label>
-									</div>
+<!-- 사진 데이터 전송 시 뜨는 모달 -->
+<div class="modal fade" id="photo-data-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body">
+          <div type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float:right" onclick="mainCameraClose()"></div>
+        <div class="modal-title fs-5 text-center fw-bold mb-3 fs-18" id="staticBackdropLabel" onclick="cameraOn()">이미지를 클릭하여 사진촬영 또는 업로드</div>
 
-									<div class="col-4 MLD-text">
-										<input type="checkbox" class="btn-check bmd-check" id="dinner"
-											autocomplete="off" name="MLD" value="D"> <label
-											class="btn my-btn only-center D-bc" for="dinner"><span
-											class="activity-title">저녁</span></label>
-									</div>
-								</div>
-							</div>
-						<div class="fw-bold mt-4 fs-18">중량을 따로 입력하시고 싶다면 입력해주세요!</div>
-						<div class="mt-2 fs-14">입력하지 않으면 일일 제공량으로 영양성분을 제공합니다</div>
-						<div class="row mt-4">
-							<c:forEach var="food_names" items="${food_names}">
-										<div class="col-7 only-center fw-bold p-0 line-height-10" style="font-size: 18px;">${food_names} 중량 입력 : </div>
-										<div class="col-4 px-0 line-height-10">
-											<input type="hidden" name="food_name[]" value="${food_names}">
-											<input type="number" class="w-100" placeholder="ex)200" name="gram[]" id="gram" autocomplete="off" max="5000" min="1" oninput="validity.valid||(value='');" style="border-bottom: 2px solid #aaaaaa;">
-										</div>
-										<div class="col-1 text-start p-0 only-center line-height-10">
-											<span class="cm-kg p-0">g</span>
-										</div>
-									</c:forEach>
-									<c:forEach var="food_weigth_arr" items="${food_weigth_arr}">
-										<input type="hidden" name="food_weigth[]" value="${food_weigth_arr}">	
-									</c:forEach>
-						</div>
+        <div class="only-center modal-body-style">
+          <input type="file" name="photoFile" id="photoFile" accept="image/*" capture="camera" style="display:none;">
+        <img class="img-fluid w-100 ccc" id=defaultPhoto src="./resources/images/Eat-fit_default.png" alt="" onclick="mainCameraImg()">
+        </div>
+				<div class="container">
+                  <div class="mt-3 text-center">
+                     <div class="text-center MLD-title-div">
+                        <span id="MLD-title">식사 종류를 선택해 주세요!</span>
+                     </div>
+                     <div class="container MLD-body">
+                        <div class="row mx-auto">
+                           <div class="col-4 MLD-text">
+                              <input type="checkbox" class="btn-check bmd-check"
+                                 id="morning" autocomplete="off" name="MLD" value="M">
+                              <label class="btn my-btn only-center M-bc" for="morning"><span
+                                 class="activity-title">아침</span></label>
+                           </div>
 
+                           <div class="col-4 MLD-text">
+                              <input type="checkbox" class="btn-check bmd-check" id="lunch"
+                                 autocomplete="off" name="MLD" value="L"> <label
+                                 class="btn my-btn only-center L-bc" for="lunch"><span
+                                 class="activity-title">점심</span></label>
+                           </div>
 
-					</div>
-					<div class="only-center">
+                           <div class="col-4 MLD-text">
+                              <input type="checkbox" class="btn-check bmd-check" id="dinner"
+                                 autocomplete="off" name="MLD" value="D"> <label
+                                 class="btn my-btn only-center D-bc" for="dinner"><span
+                                 class="activity-title">저녁</span></label>
+                           </div>
+                        </div>
+                     </div>
+                  <div class="fw-bold mt-4 fs-18">중량을 따로 입력하시고 싶다면 입력해주세요!</div>
+                  <div class="mt-2 fs-14">입력하지 않으면 일일 제공량으로 영양성분을 제공합니다</div>
+                  <div class="row mt-4">
+                     <c:forEach var="food_names" items="${food_names}">
+                              <div class="col-7 only-center fw-bold p-0 line-height-10" style="font-size: 18px;">${food_names} 중량 입력 : </div>
+                              <div class="col-4 px-0 line-height-10">
+                                 <input type="hidden" name="food_name[]" value="${food_names}">
+                                 <input type="number" class="w-100" placeholder="ex)200" name="gram[]" id="gram" autocomplete="off" max="5000" min="1" oninput="validity.valid||(value='');" style="border-bottom: 2px solid #aaaaaa;">
+                              </div>
+                              <div class="col-1 text-start p-0 only-center line-height-10">
+                                 <span class="cm-kg p-0">g</span>
+                              </div>
+                     </c:forEach>
+                     <c:forEach var="food_weigth_arr" items="${food_weigth_arr}">
+                              <input type="hidden" name="food_weigth[]" value="${food_weigth_arr}">   
+                     </c:forEach>
+                  </div>
+               </div>
+               <div class="only-center">
        <button type="button" class="btn btn-warning mt-4"style="width: 80%" onclick="final_submit()">확인완료!</button>
       </div>
+ 	<div style="height:40px;"></div>
       </div>
     </div>
   </div>
@@ -324,6 +340,7 @@
 </div>
 
 
+<!-- 식단 입력 모달 -->
 <div class="modal fade" id="diet-input-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="diet-input-modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -354,8 +371,6 @@
           <span class="cm-kg p-0">g</span>
         </div>
       </div>
-      
-     
 </div>    
         <div class="only-center">
         <button type="button" class="btn btn-warning mt-4" style="width:80%">확인완료!</button>
@@ -365,7 +380,6 @@
   </div>
 </div>
 </div>
-  <div style="height:140px;"></div>
 
 
 
@@ -403,8 +417,7 @@
 </div>
 
 
-
-  <!-- footer -->
+<!-- footer -->
   <footer class="container-fluid main-footer bg-white footer">
     <div class="row main-footer-a">
     <a class="col-4 m-0 only-center b-nav-1" href="${cpath}/food.do">식자재 보관함</a>
@@ -414,15 +427,15 @@
     <a class="col-4 m-0 only-center b-nav-3" href="${cpath}/foodDiary.do">식단 기록일지</a>
   
   </div>
-  </footer>
-
+  
 
    <div class="container rec-btn p-0 scroll-hidden">
     <a href="recommend.do" class="btn btn-warning rec-btn-shadow px-3">
      <div class="rec-text me-1">식단</div>
      <div class="rec-text me-1">추천</div>
  	</a>
-    </div>  
+    </div> 
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./resources/js/pro.js"></script>
